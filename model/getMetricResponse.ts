@@ -10,16 +10,16 @@
  */
 
 import { RequestFile } from './models';
-import { MetricResponseObjectResource } from './metricResponseObjectResource';
+import { GetMetricResponseData } from './getMetricResponseData';
 export class GetMetricResponse {
-    'data': MetricResponseObjectResource;
+    'data': GetMetricResponseData;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "MetricResponseObjectResource"
+            "type": "GetMetricResponseData"
         }    ];
 
     static getAttributeTypeMap() {

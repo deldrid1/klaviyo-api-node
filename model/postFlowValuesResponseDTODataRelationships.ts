@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages } from './getFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages';
-import { PostTagResponseDataRelationshipsFlows } from './postTagResponseDataRelationshipsFlows';
+import { GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers } from './getMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers';
 export class PostFlowValuesResponseDTODataRelationships {
-    'flows'?: PostTagResponseDataRelationshipsFlows;
+    'flows'?: GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers;
     'flowMessages'?: GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages;
 
 
@@ -21,7 +21,7 @@ export class PostFlowValuesResponseDTODataRelationships {
         {
             "name": "flows",
             "baseName": "flows",
-            "type": "PostTagResponseDataRelationshipsFlows"
+            "type": "GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers"
         },
         {
             "name": "flowMessages",

@@ -14,7 +14,7 @@ import { CollectionLinks } from './collectionLinks';
 import { GetProfileResponseData } from './getProfileResponseData';
 export class GetProfileResponseCollection {
     'data': Array<GetProfileResponseData>;
-    'links': CollectionLinks;
+    'links'?: CollectionLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [

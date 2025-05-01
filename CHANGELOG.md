@@ -1,6 +1,187 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [18.0.0] - revision 2025-04-15
+### Added
+#### Web Feeds API
+
+- Create, retrieve, update, and/or delete web feeds via the [Web Feeds API](https://developers.klaviyo.com/en/reference/web_feeds_api_overview).
+- Create universal content blocks referencing these web feeds with our [Universal Content API](https://developers.klaviyo.com/en/reference/universal_content_api_overview).
+
+#### Custom Metrics API
+
+- Create, retrieve, update, and/or delete custom metrics via the [Custom Metrics API](https://developers.klaviyo.com/en/reference/custom_metrics_api_overview).
+- Report on custom metric conversions in our Campaign and Flow [Reporting APIs](https://developers.klaviyo.com/en/reference/reporting_api_overview) (set the custom metric ID as the `conversion_metric_id`).
+
+> 🚧
+>
+> Standard accounts can only have 1 custom metric. Upgrade to Klaviyo's [Advanced KDP](https://www.klaviyo.com/products/advanced-cdp) or [Marketing Analytics](https://www.klaviyo.com/solutions/analytics) plan to create up to 50 custom metrics. To learn more about these plans, visit our [billing guide](https://help.klaviyo.com/hc/en-us/articles/115000976672).
+
+#### Get and Delete Push Token APIs
+
+- Retrieve and/or delete a given push token via [Get Push Token](https://developers.klaviyo.com/en/reference/get_push_token) and [Delete Push Token APIs](https://developers.klaviyo.com/en/reference/delete_push_token).
+- [Include](https://developers.klaviyo.com/en/docs/relationships_#the-include-query-parameter) push tokens on `GET /api/profiles`.
+- We've added relationship endpoints for both profiles and push tokens:
+  - Retrieve push tokens associated with a profile (`GET /api/profiles/{ID}/push-tokens`).
+  - Get IDs for push tokens associated with a profile (`GET /api/profiles/{ID}/relationships/push-tokens`).
+  - Retrieve the profile associated with a push token (`GET /api/push-tokens/{ID}/profile`).
+  - Get ID for the profile associated with a push token (`GET /api/push-tokens/{ID}/relationships/profile`).
+
+### Changed
+#### Campaigns API endpoints updated to support options for push notification badges
+
+- Badge count settings are supported on the "campaign-message" resource for push messages.
+  - The following options for incrementing badge count have been added to the Campaigns API: `increment_one` (increment by 1), `set_count` (increment by a given value), and `set_property` (increment by profile property).
+
+#### Optional AMP MIME-type field for Templates API
+
+- We've added support for creating and updating AMP versions of an email template through an optional `amp` field (under `attributes`) in our Create and Update Template APIs.
+- This field requires AMP Email to be enabled. Refer to our [AMP Email setup guide](https://developers.klaviyo.com/en/docs/send_amp_emails_in_klaviyo) for more information.
+
+## [17.0.0] - revision 2025-01-15
+### Changed
+- ISO strings are now accepted for date fields
+- **Breaking:** Renamed classes
+  - `BaseEventCreateQueryResourceObject` -> `BaseEventCreateQueryBulkEntryResourceObject`
+  - `BaseEventCreateQueryResourceObjectAttributes` -> `BaseEventCreateQueryBulkEntryResourceObjectAttributes`
+  - `EmailTrackingOptions` -> `CampaignsEmailTrackingOptions` OR `FlowEmailTrackingOptions`
+  - `ProfileMetricCondition` -> `SegmentsProfileMetricCondition` OR `FlowsProfileMetricCondition`
+  - `SMSTrackingOptions` -> `FlowsSMSTrackingOptions` OR `CampaignsSMSTrackingOptions`
+- **Breaking:** Removed classes
+  - `UnionConditionGroup`
+  - `UnionConditionGroupConditionsInner`
+  - `UnionFilter`
+  - `UnionPositiveNumericFilter`
+  - `UnionPositiveNumericFilterOperator`
+  - `ProfileMetricConditionTimeframeFilter`
+
+## [16.0.0] - revision 2025-01-15
+### Added
+- Get and Update Reviews APIs
+  - Retrieve all reviews with `ReviewsApi.getReviews` or return a review with a specified ID using the `ReviewsApi.getReview` endpoint.
+  - Manage your reviews programmatically with the `ReviewsApi.updateReview` endpoint, which allows you to change the status of a review, such as to reject or approve it. This endpoint modifies the moderation status of a review based on the provided review ID and status.
+- Get and Create Flows APIs
+  - Return a flow with the given flow ID using the `FlowsApi.getFlow` endpoint.
+  - Create a new flow with the `FlowsApi.createFlow` endpoint.
+- Campaigns API
+  - Manage the images for your campaigns with a new set of endpoints for the `Campaigns` API, including: `getImageForCampaignMessage`, `getImageIdForCampaignMessage`, and `updateImageForCampaignMessage`.
+### Changed
+- **Breaking:** Subscription endpoints required field
+  - Calls to `ProfilesApi.bulkSubscribeProfiles` and `ProfilesApi.unsubscribeProfiles` now require the `subscriptions` field, which grants or revokes consent for the indicated message types on the specified channels, such as email or sms.
+- **Breaking:** Campaigns API push notification support
+  - The Campaigns API now supports the push notification channel.
+  - Support for push notifications includes **significant changes** to the following endpoints: `getCampaigns`, `getCampaign`, `createCampaign`, `updateCampaign`, `createCampaignClone`, `getMessagesForCampaign`, `getCampaignMessage`, `updateCampaignMessage`, `getCampaignForCampaignMessage`, `getCampaignIdForCampaignMessage`.
+  - We recommend that you review the [Campaigns API Overview](https://developers.klaviyo.com/en/reference/campaigns_api_overview) for more detailed information about changes to the structure and responses of these endpoints.
+- **Breaking:** Pagination updates
+  - The `FlowsApi.getMessagesForFlowAction` and `FlowsApi.getActionIdForFlowMessage` endpoints have been updated from offset pagination to cursor pagination.
+- Create Template API
+  - The `TemplatesApi.createTemplate` endpoint now supports the creation of hybrid templates when `editorType` is `USER_DRAGGABLE` and hybrid template HTML is included.
+- Profiles API
+  - The following server-side APIs have been updated to an enhanced identity resolution processor to better follow the Klaviyo identity resolution identifier priority order.
+    - `ProfilesApi.createProfile`
+    - `ProfilesApi.updateProfile`
+- **Breaking:** Renamed models
+  - `AudiencesSubObject` -> `Audiences`
+  - `GetCampaignTagRelationshipListResponseCollection` -> `GetCampaignTagsRelationshipsResponseCollection`
+  - `GetCatalogCategoryItemListResponseCollection` -> `GetCatalogCategoryItemsRelationshipsResponseCollection`
+  - `GetCatalogCategoryItemListResponseCollectionDataInner` -> `GetCatalogCategoryItemsRelationshipsResponseCollectionDataInner`
+  - `GetCatalogItemCategoryListResponseCollection` -> `GetCatalogItemCategoriesRelationshipsResponseCollection`
+  - `GetCatalogItemCategoryListResponseCollectionDataInner` -> `GetCatalogItemCategoriesRelationshipsResponseCollectionDataInner`
+  - `GetCouponRelationshipCouponCodesListResponseCollection` -> `GetCouponCodesRelationshipsResponseCollection`
+  - `GetCouponRelationshipCouponCodesListResponseCollectionDataInner` -> `GetCouponCodesRelationshipsResponseCollectionDataInner`
+  - `GetEventMetricRelationshipResponseData` -> `GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData`
+  - `GetFlowResponseCompoundDocument` -> `GetFlowResponseCompoundDocument`
+  - `GetFlowTagRelationshipListResponseCollection` -> `GetFlowTagsRelationshipsResponseCollection`
+  - `GetFormFormVersionRelationshipsResponseCollection` -> `GetFormVersionsRelationshipsResponseCollection`
+  - `GetListRelationshipsResponseCollection` -> `GetListProfilesRelationshipsResponseCollection`
+  - `GetListTagRelationshipListResponseCollection` -> `GetListTagsRelationshipsResponseCollection`
+  - `GetProfileImportJobProfileRelationshipsResponseCollection` -> `GetProfileBulkImportJobProfilesRelationshipsResponseCollection`
+  - `GetProfileListRelationshipsResponseCollection` -> `GetProfileListsRelationshipsResponseCollection`
+  - `GetProfileSegmentRelationshipsResponseCollection` -> `GetProfileSegmentsRelationshipsResponseCollection`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocument` -> `GetReviewResponseDTOCollectionCompoundDocument`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInner` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInner`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInnerAllOfRelationships` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInnerAllOfRelationships`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInnerAllOfRelationshipsEvents` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInnerAllOfRelationshipsEvents`
+  - `GetReviewResponseDTO20240715CollectionCompoundDocumentDataInnerAllOfRelationshipsEventsDataInner` -> `GetReviewResponseDTOCollectionCompoundDocumentDataInnerAllOfRelationshipsEventsDataInner`
+  - `GetReviewResponseDTO20240715CompoundDocument` -> `GetReviewResponseDTOCompoundDocument`
+  - `GetReviewResponseDTO20240715CompoundDocument` -> `GetReviewResponseDTOCompoundDocument`
+  - `GetSegmentTagRelationshipListResponseCollection` -> `GetSegmentTagsRelationshipsResponseCollection`
+  - `ReviewResponseDTO20240715ObjectResource` -> `ReviewResponseDTOObjectResource`
+  - `ReviewResponseDTO20240715ObjectResourceAttributes` -> `ReviewResponseDTOObjectResourceAttributes`
+
+## [15.0.0] - revision 2024-10-15
+### Added
+- Transactional SMS Content
+  - Collect transactional-only SMS consent separately from general marketing consent with the Profiles APIs. This can enable customers to choose the types of texts they wish to receive: transactional, promotional, or both. Use the transactional field with Bulk Subscribe Profiles or Bulk Unsubscribe Profiles to set consent status. Review current transactional consent status with Get Profiles.
+### Changed
+- **Breaking:** Renamed models:
+  - `GetCampaignMessagesRelationshipListResponseCollection` -> `GetCampaignMessagesRelationshipsResponseCollection`
+  - `GetCampaignMessagesRelationshipListResponseCollectionDataInner` -> `GetCampaignMessagesRelationshipsResponseCollectionDataInner`
+  - `GetTagGroupTagRelationshipsResponseCollection` -> `GetTagGroupTagsRelationshipsResponseCollection`
+  - `GetTagGroupTagRelationshipsResponseCollectionDataInner` -> `GetListListResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagsDataInner`
+  - `GetTagTagGroupRelationshipsResponse` -> `GetTagGroupRelationshipResponse`
+  - `GetTagTagGroupRelationshipsResponseData` -> `GetTagResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsTagGroupData`
+  - `GetCouponCodeRelationshipCouponResponse` -> `GetCouponCodeCouponRelationshipResponse`
+  - `GetCouponCodeRelationshipCouponResponseData` -> `GetCouponCodeCouponRelationshipResponseData`
+  - `GetFlowMessageFlowActionRelationshipResponse` -> `GetFlowMessageActionRelationshipResponse`
+  - `GetMetricPropertyRelationshipMetricResponse` -> `GetMetricPropertyMetricRelationshipResponse`
+  - `GetMetricPropertyRelationshipMetricResponseData` -> `GetEventMetricRelationshipResponseData`
+  - `GetMetricRelationshipMetricPropertyResponseCollection` -> `GetMetricPropertiesRelationshipsResponseCollection`
+  - `GetMetricRelationshipMetricPropertyResponseCollectionDataInner` -> `GetMetricPropertiesRelationshipsResponseCollectionDataInner`
+  - `GetProfileImportJobListRelationshipsResponseCollection` -> `GetProfileBulkImportJobListsRelationshipsResponseCollection`
+
+## [14.0.0] - 2024-10-15
+### Changed
+- **Breaking:** Providing `RetryWithExponentialBackoff` class for smart retries to replace the `RetryOptions` wrapper around the `exponential-backoff` package
+- **Breaking:** renamed several models:
+  - `GetCampaignMessageTemplateRelationshipListResponse` -> `GetCampaignMessageTemplateRelationshipResponse`
+  - `GetListFlowTriggersRelationshipResponseCollection` -> `GetListFlowTriggersRelationshipsResponseCollection`
+  - `GetMetricFlowTriggersRelationshipResponseCollection` -> `GetMetricFlowTriggersRelationshipsResponseCollection`
+  - `PostListCreateResponseDataRelationshipsFlowTriggers` -> `GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers`
+  - `GetMetricFlowTriggersRelationshipResponseCollectionDataInner` -> `GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggersDataInner`
+### Fixed
+- Fixed `flow-triggers` relationships missing the `data` property
+
+## [13.0.0] - revision 2024-10-15
+### Added
+- Universal Content API
+  - Read, update, and delete universal content
+  - For more information, see our [Universal Content API overview](https://developers.klaviyo.com/en/reference/universal_content_api_overview)
+- Form Reporting API
+  - Query form performance
+  - For more information, see our [Reporting API overview](https://developers.klaviyo.com/en/reference/reporting_api_overview#forms)
+- Segment Reporting API
+  - Query segment growth data
+  - For more information, see our [Reporting API overview](https://developers.klaviyo.com/en/reference/reporting_api_overview#segments)
+- Reviews API
+  - Get and list reviews
+  - For more information, see our [Reviews API overview](https://developers.klaviyo.com/en/reference/reviews_api_overview)
+- Tracking Settings API
+  - Read and update the Tracking Settings for an account (Account -> Settings -> UTM Tracking in UI)
+  - For more information, see our [Tracking Settings API documentation](https://developers.klaviyo.com/en/reference/get_tracking_settings)
+- Metric Properties API
+  - Access the properties for a given metric (e.g. "Placed Order")
+  - For more information, see our [Metric Properties API documentation](https://developers.klaviyo.com/en/reference/get_metric_property)
+- Suppress/Unsuppress profile job APIs
+  - Monitor the status of jobs created by Suppress Profiles and Unsuppress Profiles requests
+  - For more information, see our [Suppress Profiles Job API documentation](https://developers.klaviyo.com/en/reference/get_bulk_suppress_profiles_job)
+
+### Changed
+- `ProfilesApi.createOrUpdateProfile` has been updated to an enhanced identity resolution processor to better follow the Klaviyo identity resolution identifier priority order
+- Added support for `$locale` property for `ProfilesApi`
+- Numerous methods have been renamed as part of a large renaming effort - the old methods are now deprecated aliases
+
+## [12.0.1] - revision 2024-07-15
+### Fixed
+- Fixed NPM package issue
+
+## [12.0.0] - revision 2024-07-15
+### Added
+- Added several method aliases based on previous operation IDs
+### Fixed
+- **Breaking**
+	- Removed incorrect `links` property from several DTO classes
+
 ## [11.0.0] - revision 2024-07-15
 
 ### Added

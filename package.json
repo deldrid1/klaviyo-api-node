@@ -1,6 +1,6 @@
 {
     "name": "klaviyo-api",
-    "version": "11.0.0",
+    "version": "18.0.0",
     "description": "A typescript client for the Klaviyo API",
     "repository": {
         "type": "git",
@@ -18,7 +18,7 @@
     "author": "Klaviyo-dev",
     "license": "MIT",
     "dependencies": {
-        "axios": "^1.7.5",
+        "axios": "^1.7.7",
         "exponential-backoff": "^3.1.1",
         "form-data": "^4.0.0"
     },

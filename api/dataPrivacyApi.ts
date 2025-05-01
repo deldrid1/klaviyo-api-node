@@ -12,7 +12,6 @@
 
 import axios from 'axios'
 import {AxiosRequestConfig, AxiosResponse} from "axios";
-import { backOff, BackoffOptions } from 'exponential-backoff';
 import FormData from 'form-data'
 
 /* tslint:disable:no-unused-locals */
@@ -21,7 +20,7 @@ import { GetAccounts4XXResponse } from '../model/getAccounts4XXResponse';
 
 import { ObjectSerializer } from '../model/models';
 
-import {RequestFile, queryParamPreProcessor, RetryOptions, Session} from './apis';
+import {RequestFile, queryParamPreProcessor, RetryWithExponentialBackoff, Session} from './apis';
 
 let defaultBasePath = 'https://a.klaviyo.com';
 
@@ -32,7 +31,6 @@ let defaultBasePath = 'https://a.klaviyo.com';
 
 export class DataPrivacyApi {
 
-    protected backoffOptions: BackoffOptions = new RetryOptions().options
     session: Session
 
     protected _basePath = defaultBasePath;
@@ -71,10 +69,10 @@ export class DataPrivacyApi {
      */
     public async requestProfileDeletion (dataPrivacyCreateDeletionJobQuery: DataPrivacyCreateDeletionJobQuery, ): Promise<{ response: AxiosResponse; body?: any;  }> {
 
-        const localVarPath = this.basePath + '/api/data-privacy-deletion-jobs/';
+        const localVarPath = this.basePath + '/api/data-privacy-deletion-jobs';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
+        const produces = ['application/vnd.api+json'];
         // give precedence to 'application/json'
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
@@ -101,7 +99,7 @@ export class DataPrivacyApi {
 
         const request = async (config: AxiosRequestConfig, retried = false): Promise<{ response: AxiosResponse; body?: any;  }> => {
             try {
-                const axiosResponse = await axios(config)
+                const axiosResponse = await this.session.requestWithRetry(config)
                 let body;
                 return ({response: axiosResponse, body: body});
             } catch (error) {
@@ -113,9 +111,16 @@ export class DataPrivacyApi {
             }
         }
 
-        return backOff<{ response: AxiosResponse; body?: any;  }>(
-            () => {return request(config)},
-            this.session.getRetryOptions()
-        );
+        return request(config)
     }
 }
+
+export interface DataPrivacyApi {
+    /**
+     * Alias of {@link DataPrivacyApi.requestProfileDeletion}
+     *
+     * @deprecated Use {@link DataPrivacyApi.requestProfileDeletion} instead
+     */
+    createDataPrivacyDeletionJob: typeof DataPrivacyApi.prototype.requestProfileDeletion;
+}
+DataPrivacyApi.prototype.createDataPrivacyDeletionJob = DataPrivacyApi.prototype.requestProfileDeletion

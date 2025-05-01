@@ -12,7 +12,6 @@
 
 import axios from 'axios'
 import {AxiosRequestConfig, AxiosResponse} from "axios";
-import { backOff, BackoffOptions } from 'exponential-backoff';
 import FormData from 'form-data'
 
 /* tslint:disable:no-unused-locals */
@@ -26,7 +25,7 @@ import { PostImageResponse } from '../model/postImageResponse';
 
 import { ObjectSerializer } from '../model/models';
 
-import {RequestFile, queryParamPreProcessor, RetryOptions, Session} from './apis';
+import {RequestFile, queryParamPreProcessor, RetryWithExponentialBackoff, Session} from './apis';
 
 let defaultBasePath = 'https://a.klaviyo.com';
 
@@ -37,7 +36,6 @@ let defaultBasePath = 'https://a.klaviyo.com';
 
 export class ImagesApi {
 
-    protected backoffOptions: BackoffOptions = new RetryOptions().options
     session: Session
 
     protected _basePath = defaultBasePath;
@@ -72,15 +70,15 @@ export class ImagesApi {
      * Get the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
      * @summary Get Image
      * @param id The ID of the image
-     * @param fieldsImage For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets
+     * @param fieldsImage For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets
      */
     public async getImage (id: string, options: { fieldsImage?: Array<'name' | 'image_url' | 'format' | 'size' | 'hidden' | 'updated_at'>,  } = {}): Promise<{ response: AxiosResponse; body: GetImageResponse;  }> {
 
-        const localVarPath = this.basePath + '/api/images/{id}/'
+        const localVarPath = this.basePath + '/api/images/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
+        const produces = ['application/vnd.api+json'];
         // give precedence to 'application/json'
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
@@ -110,7 +108,7 @@ export class ImagesApi {
 
         const request = async (config: AxiosRequestConfig, retried = false): Promise<{ response: AxiosResponse; body: GetImageResponse;  }> => {
             try {
-                const axiosResponse = await axios(config)
+                const axiosResponse = await this.session.requestWithRetry(config)
                 let body;
                 body = ObjectSerializer.deserialize(axiosResponse.data, "GetImageResponse");
                 return ({response: axiosResponse, body: body});
@@ -123,23 +121,20 @@ export class ImagesApi {
             }
         }
 
-        return backOff<{ response: AxiosResponse; body: GetImageResponse;  }>(
-            () => {return request(config)},
-            this.session.getRetryOptions()
-        );
+        return request(config)
     }
     /**
      * Get all images in an account.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:read`
      * @summary Get Images
      
-     * @param fieldsImage For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sparse-fieldsets* @param filter For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;* @param pageCursor For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#pagination* @param pageSize Default: 20. Min: 1. Max: 100.* @param sort For more information please visit https://developers.klaviyo.com/en/v2024-07-15/reference/api-overview#sorting
+     * @param fieldsImage For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sparse-fieldsets* @param filter For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#filtering&lt;br&gt;Allowed field(s)/operator(s):&lt;br&gt;&#x60;id&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;updated_at&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;format&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;&lt;br&gt;&#x60;name&#x60;: &#x60;any&#x60;, &#x60;contains&#x60;, &#x60;ends-with&#x60;, &#x60;equals&#x60;, &#x60;starts-with&#x60;&lt;br&gt;&#x60;size&#x60;: &#x60;greater-or-equal&#x60;, &#x60;greater-than&#x60;, &#x60;less-or-equal&#x60;, &#x60;less-than&#x60;&lt;br&gt;&#x60;hidden&#x60;: &#x60;any&#x60;, &#x60;equals&#x60;* @param pageCursor For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#pagination* @param pageSize Default: 20. Min: 1. Max: 100.* @param sort For more information please visit https://developers.klaviyo.com/en/v2025-04-15/reference/api-overview#sorting
      */
     public async getImages (options: { fieldsImage?: Array<'name' | 'image_url' | 'format' | 'size' | 'hidden' | 'updated_at'>, filter?: string, pageCursor?: string, pageSize?: number, sort?: 'format' | '-format' | 'id' | '-id' | 'name' | '-name' | 'size' | '-size' | 'updated_at' | '-updated_at',  } = {}): Promise<{ response: AxiosResponse; body: GetImageResponseCollection;  }> {
 
-        const localVarPath = this.basePath + '/api/images/';
+        const localVarPath = this.basePath + '/api/images';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
+        const produces = ['application/vnd.api+json'];
         // give precedence to 'application/json'
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
@@ -180,7 +175,7 @@ export class ImagesApi {
 
         const request = async (config: AxiosRequestConfig, retried = false): Promise<{ response: AxiosResponse; body: GetImageResponseCollection;  }> => {
             try {
-                const axiosResponse = await axios(config)
+                const axiosResponse = await this.session.requestWithRetry(config)
                 let body;
                 body = ObjectSerializer.deserialize(axiosResponse.data, "GetImageResponseCollection");
                 return ({response: axiosResponse, body: body});
@@ -193,10 +188,7 @@ export class ImagesApi {
             }
         }
 
-        return backOff<{ response: AxiosResponse; body: GetImageResponseCollection;  }>(
-            () => {return request(config)},
-            this.session.getRetryOptions()
-        );
+        return request(config)
     }
     /**
      * Update the image with the given image ID.<br><br>*Rate limits*:<br>Burst: `10/s`<br>Steady: `150/m`  **Scopes:** `images:write`
@@ -206,11 +198,11 @@ export class ImagesApi {
      */
     public async updateImage (id: string, imagePartialUpdateQuery: ImagePartialUpdateQuery, ): Promise<{ response: AxiosResponse; body: PatchImageResponse;  }> {
 
-        const localVarPath = this.basePath + '/api/images/{id}/'
+        const localVarPath = this.basePath + '/api/images/{id}'
             .replace('{' + 'id' + '}', encodeURIComponent(String(id)));
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
+        const produces = ['application/vnd.api+json'];
         // give precedence to 'application/json'
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
@@ -242,7 +234,7 @@ export class ImagesApi {
 
         const request = async (config: AxiosRequestConfig, retried = false): Promise<{ response: AxiosResponse; body: PatchImageResponse;  }> => {
             try {
-                const axiosResponse = await axios(config)
+                const axiosResponse = await this.session.requestWithRetry(config)
                 let body;
                 body = ObjectSerializer.deserialize(axiosResponse.data, "PatchImageResponse");
                 return ({response: axiosResponse, body: body});
@@ -255,10 +247,7 @@ export class ImagesApi {
             }
         }
 
-        return backOff<{ response: AxiosResponse; body: PatchImageResponse;  }>(
-            () => {return request(config)},
-            this.session.getRetryOptions()
-        );
+        return request(config)
     }
     /**
      * Upload an image from a file.  If you want to import an image from an existing url or a data uri, use the Upload Image From URL endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
@@ -268,10 +257,10 @@ export class ImagesApi {
      */
     public async uploadImageFromFile (file: RequestFile, name?: string, hidden?: boolean, ): Promise<{ response: AxiosResponse; body: PostImageResponse;  }> {
 
-        const localVarPath = this.basePath + '/api/image-upload/';
+        const localVarPath = this.basePath + '/api/image-upload';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
+        const produces = ['application/vnd.api+json'];
         // give precedence to 'application/json'
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
@@ -308,7 +297,7 @@ export class ImagesApi {
 
         const request = async (config: AxiosRequestConfig, retried = false): Promise<{ response: AxiosResponse; body: PostImageResponse;  }> => {
             try {
-                const axiosResponse = await axios(config)
+                const axiosResponse = await this.session.requestWithRetry(config)
                 let body;
                 body = ObjectSerializer.deserialize(axiosResponse.data, "PostImageResponse");
                 return ({response: axiosResponse, body: body});
@@ -321,10 +310,7 @@ export class ImagesApi {
             }
         }
 
-        return backOff<{ response: AxiosResponse; body: PostImageResponse;  }>(
-            () => {return request(config)},
-            this.session.getRetryOptions()
-        );
+        return request(config)
     }
     /**
      * Import an image from a url or data uri.  If you want to upload an image from a file, use the Upload Image From File endpoint instead.<br><br>*Rate limits*:<br>Burst: `3/s`<br>Steady: `100/m`<br>Daily: `100/d`  **Scopes:** `images:write`
@@ -334,10 +320,10 @@ export class ImagesApi {
      */
     public async uploadImageFromUrl (imageCreateQuery: ImageCreateQuery, ): Promise<{ response: AxiosResponse; body: PostImageResponse;  }> {
 
-        const localVarPath = this.basePath + '/api/images/';
+        const localVarPath = this.basePath + '/api/images';
         let localVarQueryParameters: any = {};
         let localVarHeaderParams: any = (<any>Object).assign({}, this._defaultHeaders);
-        const produces = ['application/json'];
+        const produces = ['application/vnd.api+json'];
         // give precedence to 'application/json'
         if (produces.indexOf('application/json') >= 0) {
             localVarHeaderParams.Accept = 'application/json';
@@ -364,7 +350,7 @@ export class ImagesApi {
 
         const request = async (config: AxiosRequestConfig, retried = false): Promise<{ response: AxiosResponse; body: PostImageResponse;  }> => {
             try {
-                const axiosResponse = await axios(config)
+                const axiosResponse = await this.session.requestWithRetry(config)
                 let body;
                 body = ObjectSerializer.deserialize(axiosResponse.data, "PostImageResponse");
                 return ({response: axiosResponse, body: body});
@@ -377,9 +363,26 @@ export class ImagesApi {
             }
         }
 
-        return backOff<{ response: AxiosResponse; body: PostImageResponse;  }>(
-            () => {return request(config)},
-            this.session.getRetryOptions()
-        );
+        return request(config)
     }
 }
+
+export interface ImagesApi {
+    /**
+     * Alias of {@link ImagesApi.uploadImageFromFile}
+     *
+     * @deprecated Use {@link ImagesApi.uploadImageFromFile} instead
+     */
+    createImageUpload: typeof ImagesApi.prototype.uploadImageFromFile;
+}
+ImagesApi.prototype.createImageUpload = ImagesApi.prototype.uploadImageFromFile
+
+export interface ImagesApi {
+    /**
+     * Alias of {@link ImagesApi.uploadImageFromUrl}
+     *
+     * @deprecated Use {@link ImagesApi.uploadImageFromUrl} instead
+     */
+    createImage: typeof ImagesApi.prototype.uploadImageFromUrl;
+}
+ImagesApi.prototype.createImage = ImagesApi.prototype.uploadImageFromUrl

@@ -11,17 +11,17 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetProfileResponseData } from './getProfileResponseData';
+import { GetProfileResponseCollectionCompoundDocumentDataInner } from './getProfileResponseCollectionCompoundDocumentDataInner';
 export class GetProfileResponseCollectionCompoundDocument {
-    'data': Array<GetProfileResponseData>;
-    'links': CollectionLinks;
+    'data': Array<GetProfileResponseCollectionCompoundDocumentDataInner>;
+    'links'?: CollectionLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetProfileResponseData>"
+            "type": "Array<GetProfileResponseCollectionCompoundDocumentDataInner>"
         },
         {
             "name": "links",

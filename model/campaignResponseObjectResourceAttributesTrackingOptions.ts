@@ -10,7 +10,7 @@
  */
 
 import { RequestFile } from './models';
-import { EmailTrackingOptionsSubObject } from './emailTrackingOptionsSubObject';
-import { SMSTrackingOptionsSubObject } from './sMSTrackingOptionsSubObject';
-import { UTMParamsSubObject } from './uTMParamsSubObject';
-export type CampaignResponseObjectResourceAttributesTrackingOptions = EmailTrackingOptionsSubObject | SMSTrackingOptionsSubObject;
+import { CampaignsEmailTrackingOptions } from './campaignsEmailTrackingOptions';
+import { CampaignsEmailTrackingOptionsCustomTrackingParamsInner } from './campaignsEmailTrackingOptionsCustomTrackingParamsInner';
+import { CampaignsSMSTrackingOptions } from './campaignsSMSTrackingOptions';
+export type CampaignResponseObjectResourceAttributesTrackingOptions = CampaignsEmailTrackingOptions | CampaignsSMSTrackingOptions;
