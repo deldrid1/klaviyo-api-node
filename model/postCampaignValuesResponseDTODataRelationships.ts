@@ -10,16 +10,16 @@
  */
 
 import { RequestFile } from './models';
-import { PostTagResponseDataRelationshipsCampaigns } from './postTagResponseDataRelationshipsCampaigns';
+import { TagResponseObjectResourceRelationshipsCampaigns } from './tagResponseObjectResourceRelationshipsCampaigns';
 export class PostCampaignValuesResponseDTODataRelationships {
-    'campaigns'?: PostTagResponseDataRelationshipsCampaigns;
+    'campaigns'?: TagResponseObjectResourceRelationshipsCampaigns;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "campaigns",
             "baseName": "campaigns",
-            "type": "PostTagResponseDataRelationshipsCampaigns"
+            "type": "TagResponseObjectResourceRelationshipsCampaigns"
         }    ];
 
     static getAttributeTypeMap() {

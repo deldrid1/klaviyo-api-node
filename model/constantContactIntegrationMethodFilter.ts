@@ -11,11 +11,9 @@
 
 import { RequestFile } from './models';
 import { ConstantContactIntegrationFilter } from './constantContactIntegrationFilter';
-import { IntegrationEnum } from './integrationEnum';
-import { MethodEnum } from './methodEnum';
 export class ConstantContactIntegrationMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': IntegrationEnum | 'integration';
+    'field': ConstantContactIntegrationMethodFilter.FieldEnum | 'method';
+    'method': ConstantContactIntegrationMethodFilter.MethodEnum | 'integration';
     'filter': ConstantContactIntegrationFilter;
 
 
@@ -23,12 +21,12 @@ export class ConstantContactIntegrationMethodFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "ConstantContactIntegrationMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "IntegrationEnum"
+            "type": "ConstantContactIntegrationMethodFilter.MethodEnum"
         },
         {
             "name": "filter",
@@ -42,4 +40,10 @@ export class ConstantContactIntegrationMethodFilter {
 }
 
 export namespace ConstantContactIntegrationMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        Integration = <any> 'integration'
+    }
 }

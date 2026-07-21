@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ListEnum } from './listEnum';
 export class ListLengthFilter {
-    'type': ListEnum | 'list';
+    'type': ListLengthFilter.TypeEnum | 'list';
     /**
     * Operators for list length filters.
     */
@@ -24,7 +23,7 @@ export class ListLengthFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ListEnum"
+            "type": "ListLengthFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -43,6 +42,9 @@ export class ListLengthFilter {
 }
 
 export namespace ListLengthFilter {
+    export enum TypeEnum {
+        List = <any> 'list'
+    }
     export enum OperatorEnum {
         Equals = <any> 'length-equals',
         GreaterThan = <any> 'length-greater-than',

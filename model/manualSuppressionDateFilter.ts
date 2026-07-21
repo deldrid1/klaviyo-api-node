@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { BounceDateFilterFilter } from './bounceDateFilterFilter';
-import { ManualSuppressionDateEnum } from './manualSuppressionDateEnum';
 export class ManualSuppressionDateFilter {
-    'field': ManualSuppressionDateEnum | 'manual_suppression_date';
+    'field': ManualSuppressionDateFilter.FieldEnum | 'manual_suppression_date';
     'filter': BounceDateFilterFilter;
 
 
@@ -21,7 +20,7 @@ export class ManualSuppressionDateFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "ManualSuppressionDateEnum"
+            "type": "ManualSuppressionDateFilter.FieldEnum"
         },
         {
             "name": "filter",
@@ -35,4 +34,7 @@ export class ManualSuppressionDateFilter {
 }
 
 export namespace ManualSuppressionDateFilter {
+    export enum FieldEnum {
+        ManualSuppressionDate = <any> 'manual_suppression_date'
+    }
 }

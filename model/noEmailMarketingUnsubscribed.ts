@@ -10,23 +10,22 @@
  */
 
 import { RequestFile } from './models';
-import { NoEmailMarketingUnsubscribedFiltersInner } from './noEmailMarketingUnsubscribedFiltersInner';
-import { UnsubscribedEnum } from './unsubscribedEnum';
+import { NoEmailMarketingUnsubscribedFilters } from './noEmailMarketingUnsubscribedFilters';
 export class NoEmailMarketingUnsubscribed {
-    'subscription': UnsubscribedEnum | 'unsubscribed';
-    'filters'?: Array<NoEmailMarketingUnsubscribedFiltersInner> | null;
+    'subscription': NoEmailMarketingUnsubscribed.SubscriptionEnum | 'unsubscribed';
+    'filters'?: NoEmailMarketingUnsubscribedFilters | null;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "UnsubscribedEnum"
+            "type": "NoEmailMarketingUnsubscribed.SubscriptionEnum"
         },
         {
             "name": "filters",
             "baseName": "filters",
-            "type": "Array<NoEmailMarketingUnsubscribedFiltersInner>"
+            "type": "NoEmailMarketingUnsubscribedFilters"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +34,7 @@ export class NoEmailMarketingUnsubscribed {
 }
 
 export namespace NoEmailMarketingUnsubscribed {
+    export enum SubscriptionEnum {
+        Unsubscribed = <any> 'unsubscribed'
+    }
 }

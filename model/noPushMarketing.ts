@@ -10,16 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { AnyEnum } from './anyEnum';
 export class NoPushMarketing {
-    'subscription': AnyEnum | 'any';
+    'subscription': NoPushMarketing.SubscriptionEnum | 'any';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "AnyEnum"
+            "type": "NoPushMarketing.SubscriptionEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +27,7 @@ export class NoPushMarketing {
 }
 
 export namespace NoPushMarketing {
+    export enum SubscriptionEnum {
+        Any = <any> 'any'
+    }
 }

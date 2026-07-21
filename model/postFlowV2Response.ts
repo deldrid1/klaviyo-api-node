@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostFlowV2ResponseData } from './postFlowV2ResponseData';
 export class PostFlowV2Response {
     'data': PostFlowV2ResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PostFlowV2Response {
             "name": "data",
             "baseName": "data",
             "type": "PostFlowV2ResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

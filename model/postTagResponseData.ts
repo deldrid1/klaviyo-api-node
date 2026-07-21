@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
-import { PostTagResponseDataRelationships } from './postTagResponseDataRelationships';
 import { TagEnum } from './tagEnum';
 import { TagResponseObjectResourceAttributes } from './tagResponseObjectResourceAttributes';
+import { TagResponseObjectResourceRelationships } from './tagResponseObjectResourceRelationships';
 export class PostTagResponseData {
     'type': TagEnum | 'tag';
     /**
@@ -21,7 +21,7 @@ export class PostTagResponseData {
     */
     'id': string;
     'attributes': TagResponseObjectResourceAttributes;
-    'relationships'?: PostTagResponseDataRelationships;
+    'relationships'?: TagResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostTagResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "PostTagResponseDataRelationships"
+            "type": "TagResponseObjectResourceRelationships"
         },
         {
             "name": "links",

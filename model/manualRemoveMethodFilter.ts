@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { ManualRemoveEnum } from './manualRemoveEnum';
-import { MethodEnum } from './methodEnum';
 export class ManualRemoveMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': ManualRemoveEnum | 'manual_remove';
+    'field': ManualRemoveMethodFilter.FieldEnum | 'method';
+    'method': ManualRemoveMethodFilter.MethodEnum | 'manual_remove';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "ManualRemoveMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "ManualRemoveEnum"
+            "type": "ManualRemoveMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class ManualRemoveMethodFilter {
 }
 
 export namespace ManualRemoveMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        ManualRemove = <any> 'manual_remove'
+    }
 }

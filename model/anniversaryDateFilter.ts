@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class AnniversaryDateFilter {
-    'type': DateEnum | 'date';
+    'type': AnniversaryDateFilter.TypeEnum | 'date';
     /**
     * Operators for anniversary date filters.
     */
@@ -23,7 +22,7 @@ export class AnniversaryDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "AnniversaryDateFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -37,6 +36,9 @@ export class AnniversaryDateFilter {
 }
 
 export namespace AnniversaryDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         Anniversary = <any> 'anniversary',
         AnniversaryMonth = <any> 'anniversary-month'

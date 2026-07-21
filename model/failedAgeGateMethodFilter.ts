@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { FailedAgeGateEnum } from './failedAgeGateEnum';
-import { MethodEnum } from './methodEnum';
 export class FailedAgeGateMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': FailedAgeGateEnum | 'failed_age_gate';
+    'field': FailedAgeGateMethodFilter.FieldEnum | 'method';
+    'method': FailedAgeGateMethodFilter.MethodEnum | 'failed_age_gate';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "FailedAgeGateMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "FailedAgeGateEnum"
+            "type": "FailedAgeGateMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class FailedAgeGateMethodFilter {
 }
 
 export namespace FailedAgeGateMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        FailedAgeGate = <any> 'failed_age_gate'
+    }
 }

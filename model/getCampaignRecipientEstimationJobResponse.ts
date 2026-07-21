@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { CampaignRecipientEstimationJobResponseObjectResource } from './campaignRecipientEstimationJobResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetCampaignRecipientEstimationJobResponse {
     'data': CampaignRecipientEstimationJobResponseObjectResource;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetCampaignRecipientEstimationJobResponse {
             "name": "data",
             "baseName": "data",
             "type": "CampaignRecipientEstimationJobResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

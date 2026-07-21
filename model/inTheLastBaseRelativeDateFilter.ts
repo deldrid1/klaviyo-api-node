@@ -10,11 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
-import { InTheLastEnum } from './inTheLastEnum';
 export class InTheLastBaseRelativeDateFilter {
-    'type': DateEnum | 'date';
-    'operator': InTheLastEnum | 'in-the-last';
+    'type': InTheLastBaseRelativeDateFilter.TypeEnum | 'date';
+    'operator': InTheLastBaseRelativeDateFilter.OperatorEnum | 'in-the-last';
     /**
     * Units for relative date filters.
     */
@@ -26,12 +24,12 @@ export class InTheLastBaseRelativeDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "InTheLastBaseRelativeDateFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "InTheLastEnum"
+            "type": "InTheLastBaseRelativeDateFilter.OperatorEnum"
         },
         {
             "name": "unit",
@@ -50,6 +48,12 @@ export class InTheLastBaseRelativeDateFilter {
 }
 
 export namespace InTheLastBaseRelativeDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
+    export enum OperatorEnum {
+        InTheLast = <any> 'in-the-last'
+    }
     export enum UnitEnum {
         Day = <any> 'day',
         Hour = <any> 'hour',

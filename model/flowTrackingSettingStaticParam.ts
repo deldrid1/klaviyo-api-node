@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
-import { StaticEnum } from './staticEnum';
 export class FlowTrackingSettingStaticParam {
-    'type': StaticEnum | 'static';
+    /**
+    * The type of the tracking parameter
+    */
+    'type': FlowTrackingSettingStaticParam.TypeEnum | 'static';
     /**
     * The value of the tracking parameter
     */
@@ -23,7 +25,7 @@ export class FlowTrackingSettingStaticParam {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StaticEnum"
+            "type": "FlowTrackingSettingStaticParam.TypeEnum"
         },
         {
             "name": "value",
@@ -37,4 +39,7 @@ export class FlowTrackingSettingStaticParam {
 }
 
 export namespace FlowTrackingSettingStaticParam {
+    export enum TypeEnum {
+        Static = <any> 'static'
+    }
 }

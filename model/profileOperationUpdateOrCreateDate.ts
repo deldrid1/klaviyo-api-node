@@ -10,15 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
+import { ProfileOperationUpdateOrCreateDatePropertyValue } from './profileOperationUpdateOrCreateDatePropertyValue';
 export class ProfileOperationUpdateOrCreateDate {
     /**
     * The type of operation to perform on a profile property.
     */
     'operator': ProfileOperationUpdateOrCreateDate.OperatorEnum | 'create' | 'update';
-    'propertyType': DateEnum | 'date';
+    'propertyType': ProfileOperationUpdateOrCreateDate.PropertyTypeEnum | 'date';
     'propertyKey': string;
-    'propertyValue': string;
+    'propertyValue': ProfileOperationUpdateOrCreateDatePropertyValue;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -30,7 +30,7 @@ export class ProfileOperationUpdateOrCreateDate {
         {
             "name": "propertyType",
             "baseName": "property_type",
-            "type": "DateEnum"
+            "type": "ProfileOperationUpdateOrCreateDate.PropertyTypeEnum"
         },
         {
             "name": "propertyKey",
@@ -40,7 +40,7 @@ export class ProfileOperationUpdateOrCreateDate {
         {
             "name": "propertyValue",
             "baseName": "property_value",
-            "type": "string"
+            "type": "ProfileOperationUpdateOrCreateDatePropertyValue"
         }    ];
 
     static getAttributeTypeMap() {
@@ -52,5 +52,8 @@ export namespace ProfileOperationUpdateOrCreateDate {
     export enum OperatorEnum {
         Create = <any> 'create',
         Update = <any> 'update'
+    }
+    export enum PropertyTypeEnum {
+        Date = <any> 'date'
     }
 }

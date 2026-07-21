@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DeepLinkEnum } from './deepLinkEnum';
 export class PushOnOpenDeepLink {
-    'type': DeepLinkEnum | 'deep_link';
+    'type': PushOnOpenDeepLink.TypeEnum | 'deep_link';
     /**
     * required for all platforms enabled for push
     */
@@ -27,7 +26,7 @@ export class PushOnOpenDeepLink {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DeepLinkEnum"
+            "type": "PushOnOpenDeepLink.TypeEnum"
         },
         {
             "name": "iosDeepLink",
@@ -46,4 +45,7 @@ export class PushOnOpenDeepLink {
 }
 
 export namespace PushOnOpenDeepLink {
+    export enum TypeEnum {
+        DeepLink = <any> 'deep_link'
+    }
 }

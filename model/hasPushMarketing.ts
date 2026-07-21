@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { AnyEnum } from './anyEnum';
 import { StatusDateFilter } from './statusDateFilter';
 export class HasPushMarketing {
-    'subscription': AnyEnum | 'any';
+    'subscription': HasPushMarketing.SubscriptionEnum | 'any';
     'filters'?: Array<StatusDateFilter> | null;
 
 
@@ -21,7 +20,7 @@ export class HasPushMarketing {
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "AnyEnum"
+            "type": "HasPushMarketing.SubscriptionEnum"
         },
         {
             "name": "filters",
@@ -35,4 +34,7 @@ export class HasPushMarketing {
 }
 
 export namespace HasPushMarketing {
+    export enum SubscriptionEnum {
+        Any = <any> 'any'
+    }
 }

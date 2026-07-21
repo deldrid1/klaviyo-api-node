@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
-import { StaticEnum } from './staticEnum';
 export class CampaignTrackingSettingStaticParam {
-    'type': StaticEnum | 'static';
+    /**
+    * The type of the tracking parameter
+    */
+    'type': CampaignTrackingSettingStaticParam.TypeEnum | 'static';
     /**
     * The value of the tracking parameter
     */
@@ -23,7 +25,7 @@ export class CampaignTrackingSettingStaticParam {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StaticEnum"
+            "type": "CampaignTrackingSettingStaticParam.TypeEnum"
         },
         {
             "name": "value",
@@ -37,4 +39,7 @@ export class CampaignTrackingSettingStaticParam {
 }
 
 export namespace CampaignTrackingSettingStaticParam {
+    export enum TypeEnum {
+        Static = <any> 'static'
+    }
 }

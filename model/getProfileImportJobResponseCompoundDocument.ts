@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
-import { GetProfileImportJobResponseCollectionCompoundDocumentDataInner } from './getProfileImportJobResponseCollectionCompoundDocumentDataInner';
 import { ListResponseObjectResource } from './listResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
+import { ProfileImportJobResponseObjectResource } from './profileImportJobResponseObjectResource';
 export class GetProfileImportJobResponseCompoundDocument {
-    'data': GetProfileImportJobResponseCollectionCompoundDocumentDataInner;
+    'data': ProfileImportJobResponseObjectResource;
     'included'?: Array<ListResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetProfileImportJobResponseCollectionCompoundDocumentDataInner"
+            "type": "ProfileImportJobResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<ListResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

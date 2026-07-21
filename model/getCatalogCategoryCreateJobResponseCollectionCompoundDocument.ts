@@ -10,10 +10,10 @@
  */
 
 import { RequestFile } from './models';
+import { CatalogCategoryCreateJobResponseObjectResource } from './catalogCategoryCreateJobResponseObjectResource';
 import { CollectionLinks } from './collectionLinks';
-import { GetCatalogCategoryCreateJobResponseCollectionCompoundDocumentDataInner } from './getCatalogCategoryCreateJobResponseCollectionCompoundDocumentDataInner';
 export class GetCatalogCategoryCreateJobResponseCollectionCompoundDocument {
-    'data': Array<GetCatalogCategoryCreateJobResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<CatalogCategoryCreateJobResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetCatalogCategoryCreateJobResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetCatalogCategoryCreateJobResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<CatalogCategoryCreateJobResponseObjectResource>"
         },
         {
             "name": "links",

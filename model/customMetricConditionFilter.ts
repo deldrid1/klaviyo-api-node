@@ -11,12 +11,11 @@
 
 import { RequestFile } from './models';
 import { BooleanFilter } from './booleanFilter';
-import { ExistenceOperatorFilter } from './existenceOperatorFilter';
-import { ListContainsOperatorFilter } from './listContainsOperatorFilter';
-import { ListEnum } from './listEnum';
-import { ListRegexOperatorContainsFilter } from './listRegexOperatorContainsFilter';
+import { ExistenceOperatorExistenceFilter } from './existenceOperatorExistenceFilter';
+import { ListContainsOperatorListContainsFilter } from './listContainsOperatorListContainsFilter';
+import { ListRegexOperatorListContainsFilter } from './listRegexOperatorListContainsFilter';
 import { ListSubstringFilter } from './listSubstringFilter';
-import { NumericOperatorFilter } from './numericOperatorFilter';
+import { NumericOperatorNumericFilter } from './numericOperatorNumericFilter';
 import { StringInArrayFilter } from './stringInArrayFilter';
-import { StringOperatorFilter } from './stringOperatorFilter';
-export type CustomMetricConditionFilter = NumericOperatorFilter | StringInArrayFilter | ExistenceOperatorFilter | BooleanFilter | StringOperatorFilter | ListContainsOperatorFilter | ListRegexOperatorContainsFilter | ListSubstringFilter;
+import { StringOperatorStringFilter } from './stringOperatorStringFilter';
+export type CustomMetricConditionFilter = NumericOperatorNumericFilter | StringInArrayFilter | ExistenceOperatorExistenceFilter | BooleanFilter | StringOperatorStringFilter | ListContainsOperatorListContainsFilter | ListRegexOperatorListContainsFilter | ListSubstringFilter;

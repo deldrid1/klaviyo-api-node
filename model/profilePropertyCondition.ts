@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { ProfilePropertyConditionFilter } from './profilePropertyConditionFilter';
-import { ProfilePropertyEnum } from './profilePropertyEnum';
 export class ProfilePropertyCondition {
-    'type': ProfilePropertyEnum | 'profile-property';
+    'type': ProfilePropertyCondition.TypeEnum | 'profile-property';
     'property': string;
     'filter': ProfilePropertyConditionFilter;
 
@@ -22,7 +21,7 @@ export class ProfilePropertyCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfilePropertyEnum"
+            "type": "ProfilePropertyCondition.TypeEnum"
         },
         {
             "name": "property",
@@ -41,4 +40,7 @@ export class ProfilePropertyCondition {
 }
 
 export namespace ProfilePropertyCondition {
+    export enum TypeEnum {
+        ProfileProperty = <any> 'profile-property'
+    }
 }

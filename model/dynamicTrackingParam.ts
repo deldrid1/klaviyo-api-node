@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
-import { DynamicEnum } from './dynamicEnum';
 export class DynamicTrackingParam {
-    'type': DynamicEnum | 'dynamic';
+    /**
+    * The type of the tracking parameter
+    */
+    'type': DynamicTrackingParam.TypeEnum | 'dynamic';
     /**
     * The value of the tracking parameter
     */
@@ -27,7 +29,7 @@ export class DynamicTrackingParam {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DynamicEnum"
+            "type": "DynamicTrackingParam.TypeEnum"
         },
         {
             "name": "value",
@@ -46,6 +48,9 @@ export class DynamicTrackingParam {
 }
 
 export namespace DynamicTrackingParam {
+    export enum TypeEnum {
+        Dynamic = <any> 'dynamic'
+    }
     export enum ValueEnum {
         CampaignId = <any> 'campaign_id',
         CampaignName = <any> 'campaign_name',

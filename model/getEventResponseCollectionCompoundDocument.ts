@@ -11,10 +11,10 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetEventResponseCollectionCompoundDocumentDataInner } from './getEventResponseCollectionCompoundDocumentDataInner';
+import { EventResponseObjectResource } from './eventResponseObjectResource';
 import { GetEventResponseCollectionCompoundDocumentIncludedInner } from './getEventResponseCollectionCompoundDocumentIncludedInner';
 export class GetEventResponseCollectionCompoundDocument {
-    'data': Array<GetEventResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<EventResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<GetEventResponseCollectionCompoundDocumentIncludedInner>;
 
@@ -23,7 +23,7 @@ export class GetEventResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetEventResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<EventResponseObjectResource>"
         },
         {
             "name": "links",

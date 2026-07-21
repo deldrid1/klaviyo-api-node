@@ -10,30 +10,27 @@
  */
 
 import { RequestFile } from './models';
-import { ConstantContactEnum } from './constantContactEnum';
-import { InEnum } from './inEnum';
-import { StringEnum } from './stringEnum';
 export class ConstantContactIntegrationFilter {
-    'type': StringEnum | 'string';
-    'operator': InEnum | 'in';
-    'value': Array<ConstantContactEnum>;
+    'type': ConstantContactIntegrationFilter.TypeEnum | 'string';
+    'operator': ConstantContactIntegrationFilter.OperatorEnum | 'in';
+    'value': Array<ConstantContactIntegrationFilter.ValueEnum> | Array<'constant_contact'>;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "StringEnum"
+            "type": "ConstantContactIntegrationFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "InEnum"
+            "type": "ConstantContactIntegrationFilter.OperatorEnum"
         },
         {
             "name": "value",
             "baseName": "value",
-            "type": "Array<ConstantContactEnum>"
+            "type": "Array<ConstantContactIntegrationFilter.ValueEnum>"
         }    ];
 
     static getAttributeTypeMap() {
@@ -42,4 +39,13 @@ export class ConstantContactIntegrationFilter {
 }
 
 export namespace ConstantContactIntegrationFilter {
+    export enum TypeEnum {
+        String = <any> 'string'
+    }
+    export enum OperatorEnum {
+        In = <any> 'in'
+    }
+    export enum ValueEnum {
+        ConstantContact = <any> 'constant_contact'
+    }
 }

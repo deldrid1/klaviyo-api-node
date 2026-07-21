@@ -10,22 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { MobilePushEnum } from './mobilePushEnum';
-import { SilentEnum } from './silentEnum';
 export class MobilePushMessageSilentDefinitionCreate {
-    'channel': MobilePushEnum | 'mobile_push';
+    'channel': MobilePushMessageSilentDefinitionCreate.ChannelEnum | 'mobile_push';
     /**
     * The key-value pairs to be sent with the push notification
     */
     'kvPairs'?: object | null;
-    'notificationType'?: SilentEnum | 'silent';
+    /**
+    * The type of notification to send
+    */
+    'notificationType'?: MobilePushMessageSilentDefinitionCreate.NotificationTypeEnum | 'silent' = MobilePushMessageSilentDefinitionCreate.NotificationTypeEnum.Silent;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "MobilePushEnum"
+            "type": "MobilePushMessageSilentDefinitionCreate.ChannelEnum"
         },
         {
             "name": "kvPairs",
@@ -35,7 +36,7 @@ export class MobilePushMessageSilentDefinitionCreate {
         {
             "name": "notificationType",
             "baseName": "notification_type",
-            "type": "SilentEnum"
+            "type": "MobilePushMessageSilentDefinitionCreate.NotificationTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -44,4 +45,10 @@ export class MobilePushMessageSilentDefinitionCreate {
 }
 
 export namespace MobilePushMessageSilentDefinitionCreate {
+    export enum ChannelEnum {
+        MobilePush = <any> 'mobile_push'
+    }
+    export enum NotificationTypeEnum {
+        Silent = <any> 'silent'
+    }
 }

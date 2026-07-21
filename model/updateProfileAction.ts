@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { UpdateProfileActionData } from './updateProfileActionData';
-import { UpdateProfileEnum } from './updateProfileEnum';
 export class UpdateProfileAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': UpdateProfileEnum | 'update-profile';
+    'type': UpdateProfileAction.TypeEnum | 'update-profile';
     'links'?: Link;
     'data'?: UpdateProfileActionData;
 
@@ -41,7 +40,7 @@ export class UpdateProfileAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "UpdateProfileEnum"
+            "type": "UpdateProfileAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class UpdateProfileAction {
 }
 
 export namespace UpdateProfileAction {
+    export enum TypeEnum {
+        UpdateProfile = <any> 'update-profile'
+    }
 }

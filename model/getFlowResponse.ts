@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetFlowResponseCollectionDataInner } from './getFlowResponseCollectionDataInner';
+import { FlowResponseObjectResource } from './flowResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetFlowResponse {
-    'data': GetFlowResponseCollectionDataInner;
+    'data': FlowResponseObjectResource | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetFlowResponseCollectionDataInner"
+            "type": "FlowResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

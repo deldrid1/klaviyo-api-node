@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { WebhookEnum } from './webhookEnum';
 import { WebhookResponseObjectResourceAttributes } from './webhookResponseObjectResourceAttributes';
+import { WebhookResponseObjectResourceRelationships } from './webhookResponseObjectResourceRelationships';
 export class WebhookResponseObjectResource {
     'type': WebhookEnum | 'webhook';
     /**
@@ -20,6 +21,7 @@ export class WebhookResponseObjectResource {
     */
     'id': string;
     'attributes': WebhookResponseObjectResourceAttributes;
+    'relationships'?: WebhookResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class WebhookResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "WebhookResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "WebhookResponseObjectResourceRelationships"
         },
         {
             "name": "links",

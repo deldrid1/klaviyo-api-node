@@ -10,13 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { StringEnum } from './stringEnum';
 export class ProfileOperationUpdateOrCreateString {
     /**
     * The type of operation to perform on a profile property.
     */
     'operator': ProfileOperationUpdateOrCreateString.OperatorEnum | 'create' | 'update';
-    'propertyType': StringEnum | 'string';
+    'propertyType': ProfileOperationUpdateOrCreateString.PropertyTypeEnum | 'string';
     'propertyKey': string;
     'propertyValue': string;
 
@@ -30,7 +29,7 @@ export class ProfileOperationUpdateOrCreateString {
         {
             "name": "propertyType",
             "baseName": "property_type",
-            "type": "StringEnum"
+            "type": "ProfileOperationUpdateOrCreateString.PropertyTypeEnum"
         },
         {
             "name": "propertyKey",
@@ -52,5 +51,8 @@ export namespace ProfileOperationUpdateOrCreateString {
     export enum OperatorEnum {
         Create = <any> 'create',
         Update = <any> 'update'
+    }
+    export enum PropertyTypeEnum {
+        String = <any> 'string'
     }
 }

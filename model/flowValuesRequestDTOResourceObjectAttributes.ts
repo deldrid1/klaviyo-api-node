@@ -15,14 +15,18 @@ export class FlowValuesRequestDTOResourceObjectAttributes {
     /**
     * List of statistics to query for. All rate statistics will be returned in fractional form [0.0, 1.0]
     */
-    'statistics': Array<FlowValuesRequestDTOResourceObjectAttributes.StatisticsEnum> | Array<'average_order_value' | 'bounce_rate' | 'bounced' | 'bounced_or_failed' | 'bounced_or_failed_rate' | 'click_rate' | 'click_to_open_rate' | 'clicks' | 'clicks_unique' | 'conversion_rate' | 'conversion_uniques' | 'conversion_value' | 'conversions' | 'delivered' | 'delivery_rate' | 'failed' | 'failed_rate' | 'open_rate' | 'opens' | 'opens_unique' | 'recipients' | 'revenue_per_recipient' | 'spam_complaint_rate' | 'spam_complaints' | 'unsubscribe_rate' | 'unsubscribe_uniques' | 'unsubscribes'>;
+    'statistics': Array<FlowValuesRequestDTOResourceObjectAttributes.StatisticsEnum> | Array<'average_order_value' | 'bounce_rate' | 'bounced' | 'bounced_or_failed' | 'bounced_or_failed_rate' | 'click_rate' | 'click_to_open_rate' | 'clicks' | 'clicks_unique' | 'conversion_rate' | 'conversion_uniques' | 'conversion_value' | 'conversions' | 'delivered' | 'delivery_rate' | 'failed' | 'failed_rate' | 'message_segment_count_sum' | 'open_rate' | 'opens' | 'opens_unique' | 'recipients' | 'revenue_per_recipient' | 'spam_complaint_rate' | 'spam_complaints' | 'text_message_credit_usage_amount' | 'text_message_roi' | 'text_message_spend' | 'unsubscribe_rate' | 'unsubscribe_uniques' | 'unsubscribes'>;
     'timeframe': CampaignValuesRequestDTOResourceObjectAttributesTimeframe;
     /**
     * ID of the metric to be used for conversion statistics
     */
     'conversionMetricId': string;
     /**
-    * API filter string used to filter the query. Allowed filters are flow_id, send_channel, flow_message_id. Allowed operators are equals, contains-any. Only one filter can be used per attribute, only AND can be used as a combination operator. Max of 100 messages per ANY filter. When filtering on send_channel, allowed values are email, sms, push-notification.
+    * List of attributes to group the data by. Allowed group-bys are flow_id, flow_message_id, flow_message_name, flow_name, send_channel, tag_id, tag_name, text_message_format, variation, variation_name. If not passed in, the data will be grouped by flow_id, flow_message_id, send_channel. The following group by attributes are required: flow_message_id, flow_id.
+    */
+    'groupBy'?: Array<FlowValuesRequestDTOResourceObjectAttributes.GroupByEnum> | Array<'flow_id' | 'flow_message_id' | 'flow_message_name' | 'flow_name' | 'send_channel' | 'tag_id' | 'tag_name' | 'text_message_format' | 'variation' | 'variation_name'> | null;
+    /**
+    * API filter string used to filter the query. Scalar attributes (flow_id, flow_name, send_channel, flow_message_id, flow_message_name, text_message_format, variation, variation_name): Supported operators: equals, contains-any. List attributes (tag_id, tag_name): Supported operators: contains-any, contains-all. Only one filter can be used per attribute. Only AND can be used as a combination operator. Max of 100 items per list filter. When filtering on send_channel, allowed values are email, sms, push-notification, whatsapp.
     */
     'filter'?: string | null;
 
@@ -42,6 +46,11 @@ export class FlowValuesRequestDTOResourceObjectAttributes {
             "name": "conversionMetricId",
             "baseName": "conversion_metric_id",
             "type": "string"
+        },
+        {
+            "name": "groupBy",
+            "baseName": "group_by",
+            "type": "Array<FlowValuesRequestDTOResourceObjectAttributes.GroupByEnum>"
         },
         {
             "name": "filter",
@@ -73,6 +82,7 @@ export namespace FlowValuesRequestDTOResourceObjectAttributes {
         DeliveryRate = <any> 'delivery_rate',
         Failed = <any> 'failed',
         FailedRate = <any> 'failed_rate',
+        MessageSegmentCountSum = <any> 'message_segment_count_sum',
         OpenRate = <any> 'open_rate',
         Opens = <any> 'opens',
         OpensUnique = <any> 'opens_unique',
@@ -80,8 +90,23 @@ export namespace FlowValuesRequestDTOResourceObjectAttributes {
         RevenuePerRecipient = <any> 'revenue_per_recipient',
         SpamComplaintRate = <any> 'spam_complaint_rate',
         SpamComplaints = <any> 'spam_complaints',
+        TextMessageCreditUsageAmount = <any> 'text_message_credit_usage_amount',
+        TextMessageRoi = <any> 'text_message_roi',
+        TextMessageSpend = <any> 'text_message_spend',
         UnsubscribeRate = <any> 'unsubscribe_rate',
         UnsubscribeUniques = <any> 'unsubscribe_uniques',
         Unsubscribes = <any> 'unsubscribes'
+    }
+    export enum GroupByEnum {
+        FlowId = <any> 'flow_id',
+        FlowMessageId = <any> 'flow_message_id',
+        FlowMessageName = <any> 'flow_message_name',
+        FlowName = <any> 'flow_name',
+        SendChannel = <any> 'send_channel',
+        TagId = <any> 'tag_id',
+        TagName = <any> 'tag_name',
+        TextMessageFormat = <any> 'text_message_format',
+        Variation = <any> 'variation',
+        VariationName = <any> 'variation_name'
     }
 }

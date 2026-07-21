@@ -10,14 +10,14 @@
  */
 
 import { RequestFile } from './models';
-import { ContentRepeat } from './contentRepeat';
+import { ContentRepeatV0 } from './contentRepeatV0';
 export class BlockDisplayOptions {
     /**
     * Show on.
     */
     'showOn'?: BlockDisplayOptions.ShowOnEnum | 'all' | 'desktop' | 'mobile' | null;
     'visibleCheck'?: string | null;
-    'contentRepeat'?: ContentRepeat;
+    'contentRepeat'?: ContentRepeatV0;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -34,7 +34,7 @@ export class BlockDisplayOptions {
         {
             "name": "contentRepeat",
             "baseName": "content_repeat",
-            "type": "ContentRepeat"
+            "type": "ContentRepeatV0"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
+import { CouponCodeCreateJobResponseObjectResource } from './couponCodeCreateJobResponseObjectResource';
 import { CouponCodeResponseObjectResource } from './couponCodeResponseObjectResource';
-import { GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner } from './getCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner';
+import { ObjectLinks } from './objectLinks';
 export class GetCouponCodeCreateJobResponseCompoundDocument {
-    'data': GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner;
+    'data': CouponCodeCreateJobResponseObjectResource;
     'included'?: Array<CouponCodeResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner"
+            "type": "CouponCodeCreateJobResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<CouponCodeResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

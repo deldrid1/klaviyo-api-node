@@ -11,22 +11,29 @@
 
 import { RequestFile } from './models';
 import { CatalogVariantResponseObjectResource } from './catalogVariantResponseObjectResource';
-import { GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner } from './getCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner';
+import { CatalogVariantUpdateJobResponseObjectResource } from './catalogVariantUpdateJobResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetCatalogVariantUpdateJobResponseCompoundDocument {
-    'data': GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner;
+    'data': CatalogVariantUpdateJobResponseObjectResource;
     'included'?: Array<CatalogVariantResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner"
+            "type": "CatalogVariantUpdateJobResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<CatalogVariantResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

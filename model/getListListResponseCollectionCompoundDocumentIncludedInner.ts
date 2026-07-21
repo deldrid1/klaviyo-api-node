@@ -10,11 +10,12 @@
  */
 
 import { RequestFile } from './models';
+import { FlowEnum } from './flowEnum';
 import { FlowResponseObjectResource } from './flowResponseObjectResource';
+import { FlowResponseObjectResourceAttributes } from './flowResponseObjectResourceAttributes';
+import { FlowResponseObjectResourceRelationships } from './flowResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
-import { TagEnum } from './tagEnum';
 import { TagResponseObjectResource } from './tagResponseObjectResource';
-import { TagResponseObjectResourceAttributes } from './tagResponseObjectResourceAttributes';
 
 
 

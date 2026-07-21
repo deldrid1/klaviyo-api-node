@@ -10,30 +10,27 @@
  */
 
 import { RequestFile } from './models';
-import { InEnum } from './inEnum';
-import { ShopifyEnum } from './shopifyEnum';
-import { StringEnum } from './stringEnum';
 export class ShopifyIntegrationFilter {
-    'type': StringEnum | 'string';
-    'operator': InEnum | 'in';
-    'value': Array<ShopifyEnum>;
+    'type': ShopifyIntegrationFilter.TypeEnum | 'string';
+    'operator': ShopifyIntegrationFilter.OperatorEnum | 'in';
+    'value': Array<ShopifyIntegrationFilter.ValueEnum> | Array<'shopify'>;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "StringEnum"
+            "type": "ShopifyIntegrationFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "InEnum"
+            "type": "ShopifyIntegrationFilter.OperatorEnum"
         },
         {
             "name": "value",
             "baseName": "value",
-            "type": "Array<ShopifyEnum>"
+            "type": "Array<ShopifyIntegrationFilter.ValueEnum>"
         }    ];
 
     static getAttributeTypeMap() {
@@ -42,4 +39,13 @@ export class ShopifyIntegrationFilter {
 }
 
 export namespace ShopifyIntegrationFilter {
+    export enum TypeEnum {
+        String = <any> 'string'
+    }
+    export enum OperatorEnum {
+        In = <any> 'in'
+    }
+    export enum ValueEnum {
+        Shopify = <any> 'shopify'
+    }
 }

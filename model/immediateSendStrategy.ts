@@ -10,16 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { ImmediateEnum } from './immediateEnum';
 export class ImmediateSendStrategy {
-    'method': ImmediateEnum | 'immediate';
+    'method': ImmediateSendStrategy.MethodEnum | 'immediate';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "method",
             "baseName": "method",
-            "type": "ImmediateEnum"
+            "type": "ImmediateSendStrategy.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +27,7 @@ export class ImmediateSendStrategy {
 }
 
 export namespace ImmediateSendStrategy {
+    export enum MethodEnum {
+        Immediate = <any> 'immediate'
+    }
 }

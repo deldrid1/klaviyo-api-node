@@ -10,7 +10,6 @@
  */
 
 import { RequestFile } from './models';
-import { NeverSubscribedEnum } from './neverSubscribedEnum';
 import { NoSMSMarketing } from './noSMSMarketing';
 import { NoSMSMarketingNeverSubscribed } from './noSMSMarketingNeverSubscribed';
 import { NoSMSMarketingUnsubscribed } from './noSMSMarketingUnsubscribed';

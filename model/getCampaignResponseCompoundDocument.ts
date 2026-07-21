@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
-import { GetCampaignResponseCollectionCompoundDocumentDataInner } from './getCampaignResponseCollectionCompoundDocumentDataInner';
+import { CampaignResponseObjectResource } from './campaignResponseObjectResource';
 import { GetCampaignResponseCollectionCompoundDocumentIncludedInner } from './getCampaignResponseCollectionCompoundDocumentIncludedInner';
+import { ObjectLinks } from './objectLinks';
 export class GetCampaignResponseCompoundDocument {
-    'data': GetCampaignResponseCollectionCompoundDocumentDataInner;
+    'data': CampaignResponseObjectResource;
     'included'?: Array<GetCampaignResponseCollectionCompoundDocumentIncludedInner>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCampaignResponseCollectionCompoundDocumentDataInner"
+            "type": "CampaignResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<GetCampaignResponseCollectionCompoundDocumentIncludedInner>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

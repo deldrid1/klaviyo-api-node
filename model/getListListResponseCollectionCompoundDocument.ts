@@ -11,10 +11,10 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetListListResponseCollectionCompoundDocumentDataInner } from './getListListResponseCollectionCompoundDocumentDataInner';
 import { GetListListResponseCollectionCompoundDocumentIncludedInner } from './getListListResponseCollectionCompoundDocumentIncludedInner';
+import { ListListResponseObjectResource } from './listListResponseObjectResource';
 export class GetListListResponseCollectionCompoundDocument {
-    'data': Array<GetListListResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<ListListResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<GetListListResponseCollectionCompoundDocumentIncludedInner>;
 
@@ -23,7 +23,7 @@ export class GetListListResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetListListResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<ListListResponseObjectResource>"
         },
         {
             "name": "links",

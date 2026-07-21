@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostMetricAggregateResponseData } from './postMetricAggregateResponseData';
 export class PostMetricAggregateResponse {
     'data': PostMetricAggregateResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PostMetricAggregateResponse {
             "name": "data",
             "baseName": "data",
             "type": "PostMetricAggregateResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

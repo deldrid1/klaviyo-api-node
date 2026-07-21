@@ -10,13 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { ListEnum } from './listEnum';
 export class ProfileOperationUpdateOrCreateList {
     /**
     * The type of operation to perform on a profile property.
     */
     'operator': ProfileOperationUpdateOrCreateList.OperatorEnum | 'create' | 'update';
-    'propertyType': ListEnum | 'list';
+    'propertyType': ProfileOperationUpdateOrCreateList.PropertyTypeEnum | 'list';
     /**
     * The type of operation to perform on a list property.
     */
@@ -34,7 +33,7 @@ export class ProfileOperationUpdateOrCreateList {
         {
             "name": "propertyType",
             "baseName": "property_type",
-            "type": "ListEnum"
+            "type": "ProfileOperationUpdateOrCreateList.PropertyTypeEnum"
         },
         {
             "name": "propertyOperation",
@@ -61,6 +60,9 @@ export namespace ProfileOperationUpdateOrCreateList {
     export enum OperatorEnum {
         Create = <any> 'create',
         Update = <any> 'update'
+    }
+    export enum PropertyTypeEnum {
+        List = <any> 'list'
     }
     export enum PropertyOperationEnum {
         Add = <any> 'add',

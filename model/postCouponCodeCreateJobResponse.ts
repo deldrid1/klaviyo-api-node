@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostCouponCodeCreateJobResponseData } from './postCouponCodeCreateJobResponseData';
 export class PostCouponCodeCreateJobResponse {
     'data': PostCouponCodeCreateJobResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PostCouponCodeCreateJobResponse {
             "name": "data",
             "baseName": "data",
             "type": "PostCouponCodeCreateJobResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

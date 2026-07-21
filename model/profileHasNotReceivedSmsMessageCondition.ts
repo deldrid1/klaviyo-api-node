@@ -10,23 +10,22 @@
  */
 
 import { RequestFile } from './models';
-import { ProfileNotInFlowConditionTimeframeFilter } from './profileNotInFlowConditionTimeframeFilter';
-import { ProfileNotSentSmsEnum } from './profileNotSentSmsEnum';
+import { ProfileHasNotReceivedEmailMessageConditionTimeframeFilter } from './profileHasNotReceivedEmailMessageConditionTimeframeFilter';
 export class ProfileHasNotReceivedSmsMessageCondition {
-    'type': ProfileNotSentSmsEnum | 'profile-not-sent-sms';
-    'timeframeFilter': ProfileNotInFlowConditionTimeframeFilter;
+    'type': ProfileHasNotReceivedSmsMessageCondition.TypeEnum | 'profile-not-sent-sms';
+    'timeframeFilter': ProfileHasNotReceivedEmailMessageConditionTimeframeFilter;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileNotSentSmsEnum"
+            "type": "ProfileHasNotReceivedSmsMessageCondition.TypeEnum"
         },
         {
             "name": "timeframeFilter",
             "baseName": "timeframe_filter",
-            "type": "ProfileNotInFlowConditionTimeframeFilter"
+            "type": "ProfileHasNotReceivedEmailMessageConditionTimeframeFilter"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +34,7 @@ export class ProfileHasNotReceivedSmsMessageCondition {
 }
 
 export namespace ProfileHasNotReceivedSmsMessageCondition {
+    export enum TypeEnum {
+        ProfileNotSentSms = <any> 'profile-not-sent-sms'
+    }
 }

@@ -10,23 +10,22 @@
  */
 
 import { RequestFile } from './models';
-import { ProfileNotInFlowConditionTimeframeFilter } from './profileNotInFlowConditionTimeframeFilter';
-import { ProfileNotSentPushEnum } from './profileNotSentPushEnum';
+import { ProfileHasNotReceivedEmailMessageConditionTimeframeFilter } from './profileHasNotReceivedEmailMessageConditionTimeframeFilter';
 export class ProfileHasNotReceivedPushMessageCondition {
-    'type': ProfileNotSentPushEnum | 'profile-not-sent-push';
-    'timeframeFilter': ProfileNotInFlowConditionTimeframeFilter;
+    'type': ProfileHasNotReceivedPushMessageCondition.TypeEnum | 'profile-not-sent-push';
+    'timeframeFilter': ProfileHasNotReceivedEmailMessageConditionTimeframeFilter;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileNotSentPushEnum"
+            "type": "ProfileHasNotReceivedPushMessageCondition.TypeEnum"
         },
         {
             "name": "timeframeFilter",
             "baseName": "timeframe_filter",
-            "type": "ProfileNotInFlowConditionTimeframeFilter"
+            "type": "ProfileHasNotReceivedEmailMessageConditionTimeframeFilter"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +34,7 @@ export class ProfileHasNotReceivedPushMessageCondition {
 }
 
 export namespace ProfileHasNotReceivedPushMessageCondition {
+    export enum TypeEnum {
+        ProfileNotSentPush = <any> 'profile-not-sent-push'
+    }
 }

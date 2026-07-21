@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class RelativeAnniversaryDateFilter {
-    'type': DateEnum | 'date';
+    'type': RelativeAnniversaryDateFilter.TypeEnum | 'date';
     /**
     * Operators for relative date filters.  e.g. \"anniversary in the last 10 days\"
     */
@@ -28,7 +27,7 @@ export class RelativeAnniversaryDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "RelativeAnniversaryDateFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -52,6 +51,9 @@ export class RelativeAnniversaryDateFilter {
 }
 
 export namespace RelativeAnniversaryDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         Last = <any> 'anniversary-last',
         Next = <any> 'anniversary-next'

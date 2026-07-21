@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { GetFlowMessageTemplateRelationshipResponseData } from './getFlowMessageTemplateRelationshipResponseData';
+import { ObjectLinks } from './objectLinks';
 export class GetFlowMessageTemplateRelationshipResponse {
-    'data': GetFlowMessageTemplateRelationshipResponseData;
+    'data': GetFlowMessageTemplateRelationshipResponseData | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetFlowMessageTemplateRelationshipResponse {
             "name": "data",
             "baseName": "data",
             "type": "GetFlowMessageTemplateRelationshipResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

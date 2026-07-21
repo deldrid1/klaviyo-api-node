@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { PatchIdentifiers } from './patchIdentifiers';
 import { ProfileMetaPatchProperties } from './profileMetaPatchProperties';
 export class OnsiteProfileMeta {
     'patchProperties'?: ProfileMetaPatchProperties;
+    'patchIdentifiers'?: PatchIdentifiers;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class OnsiteProfileMeta {
             "name": "patchProperties",
             "baseName": "patch_properties",
             "type": "ProfileMetaPatchProperties"
+        },
+        {
+            "name": "patchIdentifiers",
+            "baseName": "patch_identifiers",
+            "type": "PatchIdentifiers"
         }    ];
 
     static getAttributeTypeMap() {

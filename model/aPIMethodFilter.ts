@@ -10,12 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { ApiEnum } from './apiEnum';
 import { InStringArrayFilter } from './inStringArrayFilter';
-import { MethodEnum } from './methodEnum';
 export class APIMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': ApiEnum | 'api';
+    'field': APIMethodFilter.FieldEnum | 'method';
+    'method': APIMethodFilter.MethodEnum | 'api';
     'filter'?: InStringArrayFilter;
 
 
@@ -23,12 +21,12 @@ export class APIMethodFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "APIMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "ApiEnum"
+            "type": "APIMethodFilter.MethodEnum"
         },
         {
             "name": "filter",
@@ -42,4 +40,10 @@ export class APIMethodFilter {
 }
 
 export namespace APIMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        Api = <any> 'api'
+    }
 }

@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { CatalogItemEnum } from './catalogItemEnum';
 import { CatalogItemResponseObjectResourceAttributes } from './catalogItemResponseObjectResourceAttributes';
+import { CatalogItemResponseObjectResourceRelationships } from './catalogItemResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class CatalogItemResponseObjectResource {
     'type': CatalogItemEnum | 'catalog-item';
@@ -20,6 +21,7 @@ export class CatalogItemResponseObjectResource {
     */
     'id': string;
     'attributes': CatalogItemResponseObjectResourceAttributes;
+    'relationships'?: CatalogItemResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class CatalogItemResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "CatalogItemResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "CatalogItemResponseObjectResourceRelationships"
         },
         {
             "name": "links",

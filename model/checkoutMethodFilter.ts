@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { CheckoutEnum } from './checkoutEnum';
-import { MethodEnum } from './methodEnum';
 export class CheckoutMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': CheckoutEnum | 'checkout';
+    'field': CheckoutMethodFilter.FieldEnum | 'method';
+    'method': CheckoutMethodFilter.MethodEnum | 'checkout';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "CheckoutMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "CheckoutEnum"
+            "type": "CheckoutMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class CheckoutMethodFilter {
 }
 
 export namespace CheckoutMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        Checkout = <any> 'checkout'
+    }
 }

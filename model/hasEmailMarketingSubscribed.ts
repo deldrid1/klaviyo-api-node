@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { HasEmailMarketingSubscribedFiltersInner } from './hasEmailMarketingSubscribedFiltersInner';
-import { SubscribedEnum } from './subscribedEnum';
 export class HasEmailMarketingSubscribed {
-    'subscription': SubscribedEnum | 'subscribed';
+    'subscription': HasEmailMarketingSubscribed.SubscriptionEnum | 'subscribed';
     'filters'?: Array<HasEmailMarketingSubscribedFiltersInner> | null;
 
 
@@ -21,7 +20,7 @@ export class HasEmailMarketingSubscribed {
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "SubscribedEnum"
+            "type": "HasEmailMarketingSubscribed.SubscriptionEnum"
         },
         {
             "name": "filters",
@@ -35,4 +34,7 @@ export class HasEmailMarketingSubscribed {
 }
 
 export namespace HasEmailMarketingSubscribed {
+    export enum SubscriptionEnum {
+        Subscribed = <any> 'subscribed'
+    }
 }

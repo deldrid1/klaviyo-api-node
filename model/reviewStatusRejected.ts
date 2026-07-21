@@ -10,10 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { RejectedEnum } from './rejectedEnum';
 import { ReviewStatusRejectedRejectionReason } from './reviewStatusRejectedRejectionReason';
 export class ReviewStatusRejected {
-    'value': RejectedEnum | 'rejected';
+    /**
+    * Rejected review status
+    */
+    'value': ReviewStatusRejected.ValueEnum | 'rejected';
     'rejectionReason': ReviewStatusRejectedRejectionReason;
 
 
@@ -21,7 +23,7 @@ export class ReviewStatusRejected {
         {
             "name": "value",
             "baseName": "value",
-            "type": "RejectedEnum"
+            "type": "ReviewStatusRejected.ValueEnum"
         },
         {
             "name": "rejectionReason",
@@ -35,4 +37,7 @@ export class ReviewStatusRejected {
 }
 
 export namespace ReviewStatusRejected {
+    export enum ValueEnum {
+        Rejected = <any> 'rejected'
+    }
 }

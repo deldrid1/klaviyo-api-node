@@ -13,11 +13,11 @@ import { RequestFile } from './models';
 import { EventCreateQueryV2ResourceObjectAttributesMetric } from './eventCreateQueryV2ResourceObjectAttributesMetric';
 export class BaseEventCreateQueryBulkEntryResourceObjectAttributes {
     /**
-    * Properties of this event. Any top level property (that are not objects) can be used to create segments. The $extra property is a special property. This records any non-segmentable values that can be referenced later. For example, HTML templates are useful on a segment but are not used to create a segment. There are limits placed onto the size of the data present. This must not exceed 5 MB. This must not exceed 300 event properties. A single string cannot be larger than 100 KB. The maximum allowed sum of profile strings is 100KB. Each array must not exceed 4000 elements. The properties cannot contain more than 10 nested levels.
+    * Properties of this event (must not exceed 400 properties). The size of the event payload must not exceed 5 MB, and each string cannot be larger than 100 KB. For a full list of data limits on event payloads, see [Limitations](https://developers.klaviyo.com/en/reference/events_api_overview#limitations).  Note any top-level property that is not an object can be used to create segments. The `$extra` property records any non-segmentable values that can be referenced later, e.g., HTML templates are useful on a segment but are not used to create a segment.
     */
     'properties': object;
     /**
-    * When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 2000 and can only be up to 1 year in the future.
+    * When this event occurred. By default, the time the request was received will be used. The time is truncated to the second. The time must be after the year 1990 and can only be up to 1 year in the future.
     */
     'time'?: Date | null;
     /**
@@ -28,6 +28,10 @@ export class BaseEventCreateQueryBulkEntryResourceObjectAttributes {
     * The ISO 4217 currency code of the value associated with the event.
     */
     'valueCurrency'?: string | null;
+    /**
+    * When true, the event is recorded but does NOT trigger flows. Use this when backfilling historical events so existing flow definitions do not re-fire on events that already fired in the past.
+    */
+    'backfill'?: boolean | null = false;
     'metric': EventCreateQueryV2ResourceObjectAttributesMetric;
     /**
     * A unique identifier for an event. If a unique_id is repeated for the same profile and metric, the request will fail and no events will be processed. If this field is not present, this field will use the time to the second. Using the default, this limits only one event per profile per second.
@@ -55,6 +59,11 @@ export class BaseEventCreateQueryBulkEntryResourceObjectAttributes {
             "name": "valueCurrency",
             "baseName": "value_currency",
             "type": "string"
+        },
+        {
+            "name": "backfill",
+            "baseName": "backfill",
+            "type": "boolean"
         },
         {
             "name": "metric",

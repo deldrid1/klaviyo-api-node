@@ -11,10 +11,10 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetWebhookResponseCollectionCompoundDocumentDataInner } from './getWebhookResponseCollectionCompoundDocumentDataInner';
+import { WebhookResponseObjectResource } from './webhookResponseObjectResource';
 import { WebhookTopicResponseObjectResource } from './webhookTopicResponseObjectResource';
 export class GetWebhookResponseCollectionCompoundDocument {
-    'data': Array<GetWebhookResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<WebhookResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<WebhookTopicResponseObjectResource>;
 
@@ -23,7 +23,7 @@ export class GetWebhookResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetWebhookResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<WebhookResponseObjectResource>"
         },
         {
             "name": "links",

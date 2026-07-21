@@ -15,7 +15,7 @@ export class ServerBISSubscriptionCreateQueryResourceObjectAttributes {
     /**
     * The channel(s) through which the profile would like to receive the back in stock notification. This can be leveraged within a back in stock flow to notify the subscriber through their preferred channel(s).
     */
-    'channels': Array<ServerBISSubscriptionCreateQueryResourceObjectAttributes.ChannelsEnum> | Array<'EMAIL' | 'PUSH' | 'SMS'>;
+    'channels': Array<ServerBISSubscriptionCreateQueryResourceObjectAttributes.ChannelsEnum> | Array<'EMAIL' | 'PUSH' | 'SMS' | 'WHATSAPP'>;
     'profile'?: ServerBISSubscriptionCreateQueryResourceObjectAttributesProfile | null;
 
 
@@ -40,6 +40,7 @@ export namespace ServerBISSubscriptionCreateQueryResourceObjectAttributes {
     export enum ChannelsEnum {
         Email = <any> 'EMAIL',
         Push = <any> 'PUSH',
-        Sms = <any> 'SMS'
+        Sms = <any> 'SMS',
+        Whatsapp = <any> 'WHATSAPP'
     }
 }

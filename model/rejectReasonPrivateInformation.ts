@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { PrivateInformationEnum } from './privateInformationEnum';
 export class RejectReasonPrivateInformation {
-    'reason': PrivateInformationEnum | 'private_information';
+    /**
+    * rejected due to private information
+    */
+    'reason': RejectReasonPrivateInformation.ReasonEnum | 'private_information';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "PrivateInformationEnum"
+            "type": "RejectReasonPrivateInformation.ReasonEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class RejectReasonPrivateInformation {
 }
 
 export namespace RejectReasonPrivateInformation {
+    export enum ReasonEnum {
+        PrivateInformation = <any> 'private_information'
+    }
 }

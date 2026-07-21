@@ -11,10 +11,9 @@
 
 import { RequestFile } from './models';
 import { NoSMSMarketingConsentConsentStatus } from './noSMSMarketingConsentConsentStatus';
-import { SmsEnum } from './smsEnum';
 export class NoSMSMarketingConsent {
-    'channel': SmsEnum | 'sms';
-    'canReceiveMarketing': NoSMSMarketingConsent.CanReceiveMarketingEnum | false;
+    'channel': NoSMSMarketingConsent.ChannelEnum | 'sms';
+    'canReceiveMarketing': boolean;
     'consentStatus': NoSMSMarketingConsentConsentStatus;
 
 
@@ -22,12 +21,12 @@ export class NoSMSMarketingConsent {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "SmsEnum"
+            "type": "NoSMSMarketingConsent.ChannelEnum"
         },
         {
             "name": "canReceiveMarketing",
             "baseName": "can_receive_marketing",
-            "type": "NoSMSMarketingConsent.CanReceiveMarketingEnum"
+            "type": "boolean"
         },
         {
             "name": "consentStatus",
@@ -41,7 +40,7 @@ export class NoSMSMarketingConsent {
 }
 
 export namespace NoSMSMarketingConsent {
-    export enum CanReceiveMarketingEnum {
-        False = <any> false
+    export enum ChannelEnum {
+        Sms = <any> 'sms'
     }
 }

@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { ReviewEnum } from './reviewEnum';
 import { ReviewResponseDTOObjectResourceAttributes } from './reviewResponseDTOObjectResourceAttributes';
+import { ReviewResponseDTOObjectResourceRelationships } from './reviewResponseDTOObjectResourceRelationships';
 export class ReviewResponseDTOObjectResource {
     'type': ReviewEnum | 'review';
     /**
@@ -20,6 +21,7 @@ export class ReviewResponseDTOObjectResource {
     */
     'id': string;
     'attributes': ReviewResponseDTOObjectResourceAttributes;
+    'relationships'?: ReviewResponseDTOObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class ReviewResponseDTOObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "ReviewResponseDTOObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "ReviewResponseDTOObjectResourceRelationships"
         },
         {
             "name": "links",

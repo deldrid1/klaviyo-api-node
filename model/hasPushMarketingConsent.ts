@@ -11,10 +11,9 @@
 
 import { RequestFile } from './models';
 import { HasPushMarketing } from './hasPushMarketing';
-import { PushEnum } from './pushEnum';
 export class HasPushMarketingConsent {
-    'channel': PushEnum | 'push';
-    'canReceiveMarketing': HasPushMarketingConsent.CanReceiveMarketingEnum | true;
+    'channel': HasPushMarketingConsent.ChannelEnum | 'push';
+    'canReceiveMarketing': boolean;
     'consentStatus': HasPushMarketing;
 
 
@@ -22,12 +21,12 @@ export class HasPushMarketingConsent {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "PushEnum"
+            "type": "HasPushMarketingConsent.ChannelEnum"
         },
         {
             "name": "canReceiveMarketing",
             "baseName": "can_receive_marketing",
-            "type": "HasPushMarketingConsent.CanReceiveMarketingEnum"
+            "type": "boolean"
         },
         {
             "name": "consentStatus",
@@ -41,7 +40,7 @@ export class HasPushMarketingConsent {
 }
 
 export namespace HasPushMarketingConsent {
-    export enum CanReceiveMarketingEnum {
-        True = <any> true
+    export enum ChannelEnum {
+        Push = <any> 'push'
     }
 }

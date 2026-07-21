@@ -11,6 +11,5 @@
 
 import { RequestFile } from './models';
 import { DynamicTrackingParam } from './dynamicTrackingParam';
-import { StaticEnum } from './staticEnum';
 import { StaticTrackingParam } from './staticTrackingParam';
 export type CampaignsEmailTrackingOptionsCustomTrackingParamsInner = DynamicTrackingParam | StaticTrackingParam;

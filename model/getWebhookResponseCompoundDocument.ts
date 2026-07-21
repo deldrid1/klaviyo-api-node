@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
-import { GetWebhookResponseCollectionCompoundDocumentDataInner } from './getWebhookResponseCollectionCompoundDocumentDataInner';
+import { ObjectLinks } from './objectLinks';
+import { WebhookResponseObjectResource } from './webhookResponseObjectResource';
 import { WebhookTopicResponseObjectResource } from './webhookTopicResponseObjectResource';
 export class GetWebhookResponseCompoundDocument {
-    'data': GetWebhookResponseCollectionCompoundDocumentDataInner;
+    'data': WebhookResponseObjectResource;
     'included'?: Array<WebhookTopicResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetWebhookResponseCollectionCompoundDocumentDataInner"
+            "type": "WebhookResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<WebhookTopicResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetCouponCodeResponseCollectionDataInner } from './getCouponCodeResponseCollectionDataInner';
+import { CouponCodeResponseObjectResource } from './couponCodeResponseObjectResource';
 export class GetCouponCodeResponseCollection {
-    'data': Array<GetCouponCodeResponseCollectionDataInner>;
+    'data': Array<CouponCodeResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetCouponCodeResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetCouponCodeResponseCollectionDataInner>"
+            "type": "Array<CouponCodeResponseObjectResource>"
         },
         {
             "name": "links",

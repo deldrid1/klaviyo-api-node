@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MethodEnum } from './methodEnum';
-import { SpamComplaintEnum } from './spamComplaintEnum';
 export class SpamComplaintMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': SpamComplaintEnum | 'spam_complaint';
+    'field': SpamComplaintMethodFilter.FieldEnum | 'method';
+    'method': SpamComplaintMethodFilter.MethodEnum | 'spam_complaint';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "SpamComplaintMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "SpamComplaintEnum"
+            "type": "SpamComplaintMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class SpamComplaintMethodFilter {
 }
 
 export namespace SpamComplaintMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        SpamComplaint = <any> 'spam_complaint'
+    }
 }

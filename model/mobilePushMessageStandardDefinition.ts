@@ -11,12 +11,13 @@
 
 import { RequestFile } from './models';
 import { MobilePushContent } from './mobilePushContent';
-import { MobilePushEnum } from './mobilePushEnum';
 import { MobilePushOptions } from './mobilePushOptions';
-import { StandardEnum } from './standardEnum';
 export class MobilePushMessageStandardDefinition {
-    'channel': MobilePushEnum | 'mobile_push';
-    'notificationType': StandardEnum | 'standard';
+    'channel': MobilePushMessageStandardDefinition.ChannelEnum | 'mobile_push';
+    /**
+    * The type of notification to send
+    */
+    'notificationType': MobilePushMessageStandardDefinition.NotificationTypeEnum | 'standard';
     'content': MobilePushContent;
     /**
     * The key-value pairs to be sent with the push notification
@@ -29,12 +30,12 @@ export class MobilePushMessageStandardDefinition {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "MobilePushEnum"
+            "type": "MobilePushMessageStandardDefinition.ChannelEnum"
         },
         {
             "name": "notificationType",
             "baseName": "notification_type",
-            "type": "StandardEnum"
+            "type": "MobilePushMessageStandardDefinition.NotificationTypeEnum"
         },
         {
             "name": "content",
@@ -58,4 +59,10 @@ export class MobilePushMessageStandardDefinition {
 }
 
 export namespace MobilePushMessageStandardDefinition {
+    export enum ChannelEnum {
+        MobilePush = <any> 'mobile_push'
+    }
+    export enum NotificationTypeEnum {
+        Standard = <any> 'standard'
+    }
 }

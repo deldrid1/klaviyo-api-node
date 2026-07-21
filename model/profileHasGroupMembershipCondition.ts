@@ -10,11 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { ProfileGroupMembershipEnum } from './profileGroupMembershipEnum';
 import { ProfileHasGroupMembershipConditionTimeframeFilter } from './profileHasGroupMembershipConditionTimeframeFilter';
 export class ProfileHasGroupMembershipCondition {
-    'type': ProfileGroupMembershipEnum | 'profile-group-membership';
-    'isMember': ProfileHasGroupMembershipCondition.IsMemberEnum | true;
+    'type': ProfileHasGroupMembershipCondition.TypeEnum | 'profile-group-membership';
+    'isMember': boolean;
     'groupIds': Array<string>;
     'timeframeFilter'?: ProfileHasGroupMembershipConditionTimeframeFilter | null;
 
@@ -23,12 +22,12 @@ export class ProfileHasGroupMembershipCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileGroupMembershipEnum"
+            "type": "ProfileHasGroupMembershipCondition.TypeEnum"
         },
         {
             "name": "isMember",
             "baseName": "is_member",
-            "type": "ProfileHasGroupMembershipCondition.IsMemberEnum"
+            "type": "boolean"
         },
         {
             "name": "groupIds",
@@ -47,7 +46,7 @@ export class ProfileHasGroupMembershipCondition {
 }
 
 export namespace ProfileHasGroupMembershipCondition {
-    export enum IsMemberEnum {
-        True = <any> true
+    export enum TypeEnum {
+        ProfileGroupMembership = <any> 'profile-group-membership'
     }
 }

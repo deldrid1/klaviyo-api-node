@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetCatalogItemDeleteJobResponseCollectionDataInner } from './getCatalogItemDeleteJobResponseCollectionDataInner';
+import { CatalogItemDeleteJobResponseObjectResource } from './catalogItemDeleteJobResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetCatalogItemDeleteJobResponse {
-    'data': GetCatalogItemDeleteJobResponseCollectionDataInner;
+    'data': CatalogItemDeleteJobResponseObjectResource;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCatalogItemDeleteJobResponseCollectionDataInner"
+            "type": "CatalogItemDeleteJobResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

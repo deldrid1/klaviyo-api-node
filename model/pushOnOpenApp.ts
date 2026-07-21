@@ -10,16 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { OpenAppEnum } from './openAppEnum';
 export class PushOnOpenApp {
-    'type': OpenAppEnum | 'open_app';
+    'type': PushOnOpenApp.TypeEnum | 'open_app';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "OpenAppEnum"
+            "type": "PushOnOpenApp.TypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +27,7 @@ export class PushOnOpenApp {
 }
 
 export namespace PushOnOpenApp {
+    export enum TypeEnum {
+        OpenApp = <any> 'open_app'
+    }
 }

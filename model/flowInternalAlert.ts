@@ -17,6 +17,9 @@ export class FlowInternalAlert {
     'subjectLine': string | null;
     'templateId'?: string | null;
     'name'?: string | null;
+    /**
+    * Not allowed on create.
+    */
     'id'?: string | null;
 
 

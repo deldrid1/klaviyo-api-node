@@ -12,19 +12,18 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { ListUpdateActionData } from './listUpdateActionData';
-import { ListUpdateEnum } from './listUpdateEnum';
 export class ListUpdateAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': ListUpdateEnum | 'list-update';
-    'links'?: Link;
     'data': ListUpdateActionData;
+    'type': ListUpdateAction.TypeEnum | 'list-update';
+    'links'?: Link;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -39,19 +38,19 @@ export class ListUpdateAction {
             "type": "string"
         },
         {
+            "name": "data",
+            "baseName": "data",
+            "type": "ListUpdateActionData"
+        },
+        {
             "name": "type",
             "baseName": "type",
-            "type": "ListUpdateEnum"
+            "type": "ListUpdateAction.TypeEnum"
         },
         {
             "name": "links",
             "baseName": "links",
             "type": "Link"
-        },
-        {
-            "name": "data",
-            "baseName": "data",
-            "type": "ListUpdateActionData"
         }    ];
 
     static getAttributeTypeMap() {
@@ -60,4 +59,7 @@ export class ListUpdateAction {
 }
 
 export namespace ListUpdateAction {
+    export enum TypeEnum {
+        ListUpdate = <any> 'list-update'
+    }
 }

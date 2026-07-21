@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { BooleanEnum } from './booleanEnum';
 export class BooleanFilter {
-    'type': BooleanEnum | 'boolean';
+    'type': BooleanFilter.TypeEnum | 'boolean';
     /**
     * Operators for boolean filters.
     */
@@ -24,7 +23,7 @@ export class BooleanFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "BooleanEnum"
+            "type": "BooleanFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -43,6 +42,9 @@ export class BooleanFilter {
 }
 
 export namespace BooleanFilter {
+    export enum TypeEnum {
+        Boolean = <any> 'boolean'
+    }
     export enum OperatorEnum {
         Equals = <any> 'equals'
     }

@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { BounceDateEnum } from './bounceDateEnum';
 import { BounceDateFilterFilter } from './bounceDateFilterFilter';
 export class BounceDateFilter {
-    'field': BounceDateEnum | 'bounce_date';
+    'field': BounceDateFilter.FieldEnum | 'bounce_date';
     'filter': BounceDateFilterFilter;
 
 
@@ -21,7 +20,7 @@ export class BounceDateFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "BounceDateEnum"
+            "type": "BounceDateFilter.FieldEnum"
         },
         {
             "name": "filter",
@@ -35,4 +34,7 @@ export class BounceDateFilter {
 }
 
 export namespace BounceDateFilter {
+    export enum FieldEnum {
+        BounceDate = <any> 'bounce_date'
+    }
 }

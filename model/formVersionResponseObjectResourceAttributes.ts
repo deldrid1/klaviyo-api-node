@@ -16,6 +16,10 @@ export class FormVersionResponseObjectResourceAttributes {
     * The type of form.
     */
     'formType': FormVersionResponseObjectResourceAttributes.FormTypeEnum | 'banner' | 'embed' | 'flyout' | 'full_page' | 'popup';
+    /**
+    * The name of the form version.
+    */
+    'variationName': string;
     'abTest'?: FormVersionABTest;
     /**
     * Status of the form version. \"live\" means it\'s live on site.
@@ -36,6 +40,11 @@ export class FormVersionResponseObjectResourceAttributes {
             "name": "formType",
             "baseName": "form_type",
             "type": "FormVersionResponseObjectResourceAttributes.FormTypeEnum"
+        },
+        {
+            "name": "variationName",
+            "baseName": "variation_name",
+            "type": "string"
         },
         {
             "name": "abTest",

@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ListEnum } from './listEnum';
 export class ListSetFilter {
-    'type': ListEnum | 'list';
+    'type': ListSetFilter.TypeEnum | 'list';
     /**
     * Operators for list contains set filters.
     */
@@ -24,7 +23,7 @@ export class ListSetFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ListEnum"
+            "type": "ListSetFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -43,6 +42,9 @@ export class ListSetFilter {
 }
 
 export namespace ListSetFilter {
+    export enum TypeEnum {
+        List = <any> 'list'
+    }
     export enum OperatorEnum {
         ContainsAll = <any> 'contains-all',
         ContainsAny = <any> 'contains-any',

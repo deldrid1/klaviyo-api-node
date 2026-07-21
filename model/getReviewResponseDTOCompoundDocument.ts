@@ -11,22 +11,29 @@
 
 import { RequestFile } from './models';
 import { EventResponseObjectResource } from './eventResponseObjectResource';
-import { GetReviewResponseDTOCollectionCompoundDocumentDataInner } from './getReviewResponseDTOCollectionCompoundDocumentDataInner';
+import { ObjectLinks } from './objectLinks';
+import { ReviewResponseDTOObjectResource } from './reviewResponseDTOObjectResource';
 export class GetReviewResponseDTOCompoundDocument {
-    'data': GetReviewResponseDTOCollectionCompoundDocumentDataInner;
+    'data': ReviewResponseDTOObjectResource;
     'included'?: Array<EventResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetReviewResponseDTOCollectionCompoundDocumentDataInner"
+            "type": "ReviewResponseDTOObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<EventResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,10 +10,10 @@
  */
 
 import { RequestFile } from './models';
+import { CatalogVariantUpdateJobResponseObjectResource } from './catalogVariantUpdateJobResponseObjectResource';
 import { CollectionLinks } from './collectionLinks';
-import { GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner } from './getCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner';
 export class GetCatalogVariantUpdateJobResponseCollectionCompoundDocument {
-    'data': Array<GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<CatalogVariantUpdateJobResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetCatalogVariantUpdateJobResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetCatalogVariantUpdateJobResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<CatalogVariantUpdateJobResponseObjectResource>"
         },
         {
             "name": "links",

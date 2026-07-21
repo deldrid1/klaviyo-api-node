@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetProfileImportJobResponseCollectionCompoundDocumentDataInner } from './getProfileImportJobResponseCollectionCompoundDocumentDataInner';
+import { ProfileImportJobResponseObjectResource } from './profileImportJobResponseObjectResource';
 export class GetProfileImportJobResponseCollectionCompoundDocument {
-    'data': Array<GetProfileImportJobResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<ProfileImportJobResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetProfileImportJobResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetProfileImportJobResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<ProfileImportJobResponseObjectResource>"
         },
         {
             "name": "links",

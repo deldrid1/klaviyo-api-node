@@ -11,11 +11,10 @@
 
 import { RequestFile } from './models';
 import { AlltimeDateFilter } from './alltimeDateFilter';
-import { DateEnum } from './dateEnum';
 import { RelativeAnniversaryDateFilter } from './relativeAnniversaryDateFilter';
-import { RelativeDateOperatorBaseFilter } from './relativeDateOperatorBaseFilter';
+import { RelativeDateOperatorBaseRelativeDateFilter } from './relativeDateOperatorBaseRelativeDateFilter';
 import { RelativeDateRangeFilter } from './relativeDateRangeFilter';
 import { SinceFlowStartDateFilter } from './sinceFlowStartDateFilter';
 import { StaticDateFilter } from './staticDateFilter';
 import { StaticDateRangeFilter } from './staticDateRangeFilter';
-export type FlowsProfileMetricConditionTimeframeFilter = StaticDateFilter | StaticDateRangeFilter | RelativeDateOperatorBaseFilter | RelativeAnniversaryDateFilter | RelativeDateRangeFilter | AlltimeDateFilter | SinceFlowStartDateFilter;
+export type FlowsProfileMetricConditionTimeframeFilter = StaticDateFilter | StaticDateRangeFilter | RelativeDateOperatorBaseRelativeDateFilter | RelativeAnniversaryDateFilter | RelativeDateRangeFilter | AlltimeDateFilter | SinceFlowStartDateFilter;

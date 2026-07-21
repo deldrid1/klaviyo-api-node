@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
+import { CatalogItemResponseObjectResource } from './catalogItemResponseObjectResource';
 import { CatalogVariantResponseObjectResource } from './catalogVariantResponseObjectResource';
-import { GetCatalogItemResponseCollectionCompoundDocumentDataInner } from './getCatalogItemResponseCollectionCompoundDocumentDataInner';
+import { ObjectLinks } from './objectLinks';
 export class GetCatalogItemResponseCompoundDocument {
-    'data': GetCatalogItemResponseCollectionCompoundDocumentDataInner;
+    'data': CatalogItemResponseObjectResource;
     'included'?: Array<CatalogVariantResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCatalogItemResponseCollectionCompoundDocumentDataInner"
+            "type": "CatalogItemResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<CatalogVariantResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

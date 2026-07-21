@@ -10,13 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { BooleanEnum } from './booleanEnum';
 export class ProfileOperationUpdateOrCreateBoolean {
     /**
     * The type of operation to perform on a profile property.
     */
     'operator': ProfileOperationUpdateOrCreateBoolean.OperatorEnum | 'create' | 'update';
-    'propertyType': BooleanEnum | 'boolean';
+    'propertyType': ProfileOperationUpdateOrCreateBoolean.PropertyTypeEnum | 'boolean';
     'propertyKey': string;
     'propertyValue': boolean;
 
@@ -30,7 +29,7 @@ export class ProfileOperationUpdateOrCreateBoolean {
         {
             "name": "propertyType",
             "baseName": "property_type",
-            "type": "BooleanEnum"
+            "type": "ProfileOperationUpdateOrCreateBoolean.PropertyTypeEnum"
         },
         {
             "name": "propertyKey",
@@ -52,5 +51,8 @@ export namespace ProfileOperationUpdateOrCreateBoolean {
     export enum OperatorEnum {
         Create = <any> 'create',
         Update = <any> 'update'
+    }
+    export enum PropertyTypeEnum {
+        Boolean = <any> 'boolean'
     }
 }

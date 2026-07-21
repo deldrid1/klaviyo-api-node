@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { StaticEnum } from './staticEnum';
 import { StaticSendStrategyOptions } from './staticSendStrategyOptions';
 export class StaticSendStrategy {
-    'method': StaticEnum | 'static';
+    'method': StaticSendStrategy.MethodEnum | 'static';
     /**
     * The time to send at
     */
@@ -25,7 +24,7 @@ export class StaticSendStrategy {
         {
             "name": "method",
             "baseName": "method",
-            "type": "StaticEnum"
+            "type": "StaticSendStrategy.MethodEnum"
         },
         {
             "name": "datetime",
@@ -44,4 +43,7 @@ export class StaticSendStrategy {
 }
 
 export namespace StaticSendStrategy {
+    export enum MethodEnum {
+        Static = <any> 'static'
+    }
 }

@@ -10,11 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { CatalogItemResponseObjectResource } from './catalogItemResponseObjectResource';
 import { CatalogVariantResponseObjectResource } from './catalogVariantResponseObjectResource';
 import { CollectionLinks } from './collectionLinks';
-import { GetCatalogItemResponseCollectionCompoundDocumentDataInner } from './getCatalogItemResponseCollectionCompoundDocumentDataInner';
 export class GetCatalogItemResponseCollectionCompoundDocument {
-    'data': Array<GetCatalogItemResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<CatalogItemResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<CatalogVariantResponseObjectResource>;
 
@@ -23,7 +23,7 @@ export class GetCatalogItemResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetCatalogItemResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<CatalogItemResponseObjectResource>"
         },
         {
             "name": "links",

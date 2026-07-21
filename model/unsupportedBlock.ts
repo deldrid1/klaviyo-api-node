@@ -10,29 +10,28 @@
  */
 
 import { RequestFile } from './models';
-import { BlockEnum } from './blockEnum';
-import { UnsupportedEnum } from './unsupportedEnum';
+import { CouponBlockV0Data } from './couponBlockV0Data';
 export class UnsupportedBlock {
-    'contentType': BlockEnum | 'block';
-    'type': UnsupportedEnum | 'unsupported';
-    'data': string | null;
+    'contentType': UnsupportedBlock.ContentTypeEnum | 'block';
+    'type': UnsupportedBlock.TypeEnum | 'unsupported';
+    'data': CouponBlockV0Data | null;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "contentType",
             "baseName": "content_type",
-            "type": "BlockEnum"
+            "type": "UnsupportedBlock.ContentTypeEnum"
         },
         {
             "name": "type",
             "baseName": "type",
-            "type": "UnsupportedEnum"
+            "type": "UnsupportedBlock.TypeEnum"
         },
         {
             "name": "data",
             "baseName": "data",
-            "type": "string"
+            "type": "CouponBlockV0Data"
         }    ];
 
     static getAttributeTypeMap() {
@@ -41,4 +40,10 @@ export class UnsupportedBlock {
 }
 
 export namespace UnsupportedBlock {
+    export enum ContentTypeEnum {
+        Block = <any> 'block'
+    }
+    export enum TypeEnum {
+        Unsupported = <any> 'unsupported'
+    }
 }

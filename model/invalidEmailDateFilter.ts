@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { BounceDateFilterFilter } from './bounceDateFilterFilter';
-import { InvalidEmailDateEnum } from './invalidEmailDateEnum';
 export class InvalidEmailDateFilter {
-    'field': InvalidEmailDateEnum | 'invalid_email_date';
+    'field': InvalidEmailDateFilter.FieldEnum | 'invalid_email_date';
     'filter': BounceDateFilterFilter;
 
 
@@ -21,7 +20,7 @@ export class InvalidEmailDateFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "InvalidEmailDateEnum"
+            "type": "InvalidEmailDateFilter.FieldEnum"
         },
         {
             "name": "filter",
@@ -35,4 +34,7 @@ export class InvalidEmailDateFilter {
 }
 
 export namespace InvalidEmailDateFilter {
+    export enum FieldEnum {
+        InvalidEmailDate = <any> 'invalid_email_date'
+    }
 }

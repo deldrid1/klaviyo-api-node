@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
+import { FlowV2ResponseObjectResourceExtended } from './flowV2ResponseObjectResourceExtended';
 import { GetFlowResponseCollectionCompoundDocumentIncludedInner } from './getFlowResponseCollectionCompoundDocumentIncludedInner';
-import { GetFlowV2ResponseCompoundDocumentData } from './getFlowV2ResponseCompoundDocumentData';
+import { ObjectLinks } from './objectLinks';
 export class GetFlowV2ResponseCompoundDocument {
-    'data': GetFlowV2ResponseCompoundDocumentData;
+    'data': FlowV2ResponseObjectResourceExtended;
     'included'?: Array<GetFlowResponseCollectionCompoundDocumentIncludedInner>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetFlowV2ResponseCompoundDocumentData"
+            "type": "FlowV2ResponseObjectResourceExtended"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<GetFlowResponseCollectionCompoundDocumentIncludedInner>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

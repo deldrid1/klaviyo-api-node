@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetMetricPropertyResponseCollectionDataInner } from './getMetricPropertyResponseCollectionDataInner';
+import { MetricPropertyResponseObjectResourceExtended } from './metricPropertyResponseObjectResourceExtended';
 export class GetMetricPropertyResponseCollection {
-    'data': Array<GetMetricPropertyResponseCollectionDataInner>;
+    'data': Array<MetricPropertyResponseObjectResourceExtended>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetMetricPropertyResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetMetricPropertyResponseCollectionDataInner>"
+            "type": "Array<MetricPropertyResponseObjectResourceExtended>"
         },
         {
             "name": "links",

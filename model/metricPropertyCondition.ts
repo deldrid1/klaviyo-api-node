@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { MetricPropertyConditionFilter } from './metricPropertyConditionFilter';
-import { MetricPropertyEnum } from './metricPropertyEnum';
 export class MetricPropertyCondition {
-    'type': MetricPropertyEnum | 'metric-property';
+    'type': MetricPropertyCondition.TypeEnum | 'metric-property';
     'metricId': string;
     'field': string;
     'filter': MetricPropertyConditionFilter;
@@ -23,7 +22,7 @@ export class MetricPropertyCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "MetricPropertyEnum"
+            "type": "MetricPropertyCondition.TypeEnum"
         },
         {
             "name": "metricId",
@@ -47,4 +46,7 @@ export class MetricPropertyCondition {
 }
 
 export namespace MetricPropertyCondition {
+    export enum TypeEnum {
+        MetricProperty = <any> 'metric-property'
+    }
 }

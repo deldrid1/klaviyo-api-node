@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { LowInventoryPropertyEnum } from './lowInventoryPropertyEnum';
 import { MetricPropertyConditionFilter } from './metricPropertyConditionFilter';
 export class LowInventoryCondition {
-    'type': LowInventoryPropertyEnum | 'low-inventory-property';
+    'type': LowInventoryCondition.TypeEnum | 'low-inventory-property';
     'metricId': string | null;
     'field': string;
     'filter': MetricPropertyConditionFilter;
@@ -23,7 +22,7 @@ export class LowInventoryCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "LowInventoryPropertyEnum"
+            "type": "LowInventoryCondition.TypeEnum"
         },
         {
             "name": "metricId",
@@ -47,4 +46,7 @@ export class LowInventoryCondition {
 }
 
 export namespace LowInventoryCondition {
+    export enum TypeEnum {
+        LowInventoryProperty = <any> 'low-inventory-property'
+    }
 }

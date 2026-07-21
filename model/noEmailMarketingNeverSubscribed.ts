@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { NeverSubscribedEnum } from './neverSubscribedEnum';
 import { NoEmailMarketingFiltersInner } from './noEmailMarketingFiltersInner';
 export class NoEmailMarketingNeverSubscribed {
-    'subscription': NeverSubscribedEnum | 'never_subscribed';
+    'subscription': NoEmailMarketingNeverSubscribed.SubscriptionEnum | 'never_subscribed';
     'filters': Array<NoEmailMarketingFiltersInner>;
 
 
@@ -21,7 +20,7 @@ export class NoEmailMarketingNeverSubscribed {
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "NeverSubscribedEnum"
+            "type": "NoEmailMarketingNeverSubscribed.SubscriptionEnum"
         },
         {
             "name": "filters",
@@ -35,4 +34,7 @@ export class NoEmailMarketingNeverSubscribed {
 }
 
 export namespace NoEmailMarketingNeverSubscribed {
+    export enum SubscriptionEnum {
+        NeverSubscribed = <any> 'never_subscribed'
+    }
 }

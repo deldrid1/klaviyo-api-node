@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class RelativeDateRangeFilter {
-    'type': DateEnum | 'date';
+    'type': RelativeDateRangeFilter.TypeEnum | 'date';
     /**
     * Operators for relative date range filters.  e.g. \"between 10 and 20 days ago\"
     */
@@ -29,7 +28,7 @@ export class RelativeDateRangeFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "RelativeDateRangeFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -58,6 +57,9 @@ export class RelativeDateRangeFilter {
 }
 
 export namespace RelativeDateRangeFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         Between = <any> 'between'
     }

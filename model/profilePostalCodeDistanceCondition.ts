@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { ProfilePostalCodeDistanceConditionFilter } from './profilePostalCodeDistanceConditionFilter';
-import { ProfilePostalCodeDistanceEnum } from './profilePostalCodeDistanceEnum';
 export class ProfilePostalCodeDistanceCondition {
-    'type': ProfilePostalCodeDistanceEnum | 'profile-postal-code-distance';
+    'type': ProfilePostalCodeDistanceCondition.TypeEnum | 'profile-postal-code-distance';
     'countryCode': string;
     'postalCode': string;
     /**
@@ -27,7 +26,7 @@ export class ProfilePostalCodeDistanceCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfilePostalCodeDistanceEnum"
+            "type": "ProfilePostalCodeDistanceCondition.TypeEnum"
         },
         {
             "name": "countryCode",
@@ -56,6 +55,9 @@ export class ProfilePostalCodeDistanceCondition {
 }
 
 export namespace ProfilePostalCodeDistanceCondition {
+    export enum TypeEnum {
+        ProfilePostalCodeDistance = <any> 'profile-postal-code-distance'
+    }
     export enum UnitEnum {
         Kilometers = <any> 'kilometers',
         Miles = <any> 'miles'

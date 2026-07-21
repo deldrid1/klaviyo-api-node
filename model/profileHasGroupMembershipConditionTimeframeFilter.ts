@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
-import { RelativeDateOperatorBaseFilter } from './relativeDateOperatorBaseFilter';
+import { RelativeDateOperatorBaseRelativeDateFilter } from './relativeDateOperatorBaseRelativeDateFilter';
 import { RelativeDateRangeFilter } from './relativeDateRangeFilter';
 import { StaticDateFilter } from './staticDateFilter';
 import { StaticDateRangeFilter } from './staticDateRangeFilter';
-export type ProfileHasGroupMembershipConditionTimeframeFilter = StaticDateFilter | StaticDateRangeFilter | RelativeDateOperatorBaseFilter | RelativeDateRangeFilter;
+export type ProfileHasGroupMembershipConditionTimeframeFilter = StaticDateFilter | StaticDateRangeFilter | RelativeDateOperatorBaseRelativeDateFilter | RelativeDateRangeFilter;

@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CustomObjectPropertyCondition } from './customObjectPropertyCondition';
+import { CustomObjectTriggerCondition } from './customObjectTriggerCondition';
 import { LowInventoryCondition } from './lowInventoryCondition';
-import { LowInventoryPropertyEnum } from './lowInventoryPropertyEnum';
 import { MetricPropertyCondition } from './metricPropertyCondition';
 import { MetricPropertyConditionFilter } from './metricPropertyConditionFilter';
 import { PriceDropCondition } from './priceDropCondition';
-export type TriggerBranchActionDataTriggerFilterConditionGroupsInnerConditionsInner = MetricPropertyCondition | CustomObjectPropertyCondition | PriceDropCondition | LowInventoryCondition;
+export type TriggerBranchActionDataTriggerFilterConditionGroupsInnerConditionsInner = MetricPropertyCondition | CustomObjectTriggerCondition | CustomObjectPropertyCondition | PriceDropCondition | LowInventoryCondition;

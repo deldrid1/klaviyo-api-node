@@ -10,11 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { MobilePushEnum } from './mobilePushEnum';
-import { SilentEnum } from './silentEnum';
 export class MobilePushMessageSilentDefinition {
-    'channel': MobilePushEnum | 'mobile_push';
-    'notificationType': SilentEnum | 'silent';
+    'channel': MobilePushMessageSilentDefinition.ChannelEnum | 'mobile_push';
+    /**
+    * The type of notification to send
+    */
+    'notificationType': MobilePushMessageSilentDefinition.NotificationTypeEnum | 'silent';
     /**
     * The key-value pairs to be sent with the push notification
     */
@@ -25,12 +26,12 @@ export class MobilePushMessageSilentDefinition {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "MobilePushEnum"
+            "type": "MobilePushMessageSilentDefinition.ChannelEnum"
         },
         {
             "name": "notificationType",
             "baseName": "notification_type",
-            "type": "SilentEnum"
+            "type": "MobilePushMessageSilentDefinition.NotificationTypeEnum"
         },
         {
             "name": "kvPairs",
@@ -44,4 +45,10 @@ export class MobilePushMessageSilentDefinition {
 }
 
 export namespace MobilePushMessageSilentDefinition {
+    export enum ChannelEnum {
+        MobilePush = <any> 'mobile_push'
+    }
+    export enum NotificationTypeEnum {
+        Silent = <any> 'silent'
+    }
 }

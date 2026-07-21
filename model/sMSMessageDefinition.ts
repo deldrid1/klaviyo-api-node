@@ -12,9 +12,8 @@
 import { RequestFile } from './models';
 import { RenderOptions } from './renderOptions';
 import { SMSContent } from './sMSContent';
-import { SmsEnum } from './smsEnum';
 export class SMSMessageDefinition {
-    'channel': SmsEnum | 'sms';
+    'channel': SMSMessageDefinition.ChannelEnum | 'sms';
     'content'?: SMSContent;
     'renderOptions'?: RenderOptions;
 
@@ -23,7 +22,7 @@ export class SMSMessageDefinition {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "SmsEnum"
+            "type": "SMSMessageDefinition.ChannelEnum"
         },
         {
             "name": "content",
@@ -42,4 +41,7 @@ export class SMSMessageDefinition {
 }
 
 export namespace SMSMessageDefinition {
+    export enum ChannelEnum {
+        Sms = <any> 'sms'
+    }
 }

@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData } from './getEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData';
+import { GetEventMetricRelationshipResponseData } from './getEventMetricRelationshipResponseData';
+import { ObjectLinks } from './objectLinks';
 export class GetMetricPropertyMetricRelationshipResponse {
-    'data': GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData;
+    'data': GetEventMetricRelationshipResponseData | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetEventResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsMetricData"
+            "type": "GetEventMetricRelationshipResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

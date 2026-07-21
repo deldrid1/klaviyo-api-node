@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { BooleanFilter } from './booleanFilter';
-import { IsDoubleOptInEnum } from './isDoubleOptInEnum';
 export class DoubleOptinFilter {
-    'field': IsDoubleOptInEnum | 'is_double_opt_in';
+    'field': DoubleOptinFilter.FieldEnum | 'is_double_opt_in';
     'filter': BooleanFilter;
 
 
@@ -21,7 +20,7 @@ export class DoubleOptinFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "IsDoubleOptInEnum"
+            "type": "DoubleOptinFilter.FieldEnum"
         },
         {
             "name": "filter",
@@ -35,4 +34,7 @@ export class DoubleOptinFilter {
 }
 
 export namespace DoubleOptinFilter {
+    export enum FieldEnum {
+        IsDoubleOptIn = <any> 'is_double_opt_in'
+    }
 }

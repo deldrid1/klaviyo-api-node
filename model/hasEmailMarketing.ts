@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { AnyEnum } from './anyEnum';
 export class HasEmailMarketing {
-    'subscription': AnyEnum | 'any';
+    'subscription': HasEmailMarketing.SubscriptionEnum | 'any';
     'filters'?: any | null;
 
 
@@ -20,7 +19,7 @@ export class HasEmailMarketing {
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "AnyEnum"
+            "type": "HasEmailMarketing.SubscriptionEnum"
         },
         {
             "name": "filters",
@@ -34,4 +33,7 @@ export class HasEmailMarketing {
 }
 
 export namespace HasEmailMarketing {
+    export enum SubscriptionEnum {
+        Any = <any> 'any'
+    }
 }

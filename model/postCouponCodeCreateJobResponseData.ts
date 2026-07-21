@@ -12,7 +12,7 @@
 import { RequestFile } from './models';
 import { CouponCodeBulkCreateJobEnum } from './couponCodeBulkCreateJobEnum';
 import { CouponCodeCreateJobResponseObjectResourceAttributes } from './couponCodeCreateJobResponseObjectResourceAttributes';
-import { GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships } from './getCouponCodeCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships';
+import { CouponCodeCreateJobResponseObjectResourceRelationships } from './couponCodeCreateJobResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class PostCouponCodeCreateJobResponseData {
     'type': CouponCodeBulkCreateJobEnum | 'coupon-code-bulk-create-job';
@@ -21,7 +21,7 @@ export class PostCouponCodeCreateJobResponseData {
     */
     'id': string;
     'attributes': CouponCodeCreateJobResponseObjectResourceAttributes;
-    'relationships'?: GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships;
+    'relationships'?: CouponCodeCreateJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCouponCodeCreateJobResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships"
+            "type": "CouponCodeCreateJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

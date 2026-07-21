@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
-import { StaticEnum } from './staticEnum';
 export class StaticTrackingParam {
-    'type': StaticEnum | 'static';
+    /**
+    * The type of the tracking parameter
+    */
+    'type': StaticTrackingParam.TypeEnum | 'static';
     /**
     * The value of the tracking parameter
     */
@@ -27,7 +29,7 @@ export class StaticTrackingParam {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StaticEnum"
+            "type": "StaticTrackingParam.TypeEnum"
         },
         {
             "name": "value",
@@ -46,4 +48,7 @@ export class StaticTrackingParam {
 }
 
 export namespace StaticTrackingParam {
+    export enum TypeEnum {
+        Static = <any> 'static'
+    }
 }

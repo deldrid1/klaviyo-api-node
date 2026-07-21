@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { TemplateResponseObjectResource } from './templateResponseObjectResource';
 export class GetTemplateResponse {
-    'data': TemplateResponseObjectResource;
+    'data': TemplateResponseObjectResource | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetTemplateResponse {
             "name": "data",
             "baseName": "data",
             "type": "TemplateResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

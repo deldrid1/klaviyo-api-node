@@ -22,7 +22,7 @@ export class CampaignResponseObjectResourceAttributes {
     /**
     * The current status of the campaign
     */
-    'status': CampaignResponseObjectResourceAttributes.StatusEnum | 'Adding Recipients' | 'Cancelled' | 'Cancelled: Account Disabled' | 'Cancelled: Internal Error' | 'Cancelled: No Recipients' | 'Cancelled: Smart Sending' | 'Draft' | 'Preparing to schedule' | 'Preparing to send' | 'Queued without Recipients' | 'Scheduled' | 'Sending' | 'Sending Segments' | 'Sent' | 'Unknown' | 'Variations Sent';
+    'status': CampaignResponseObjectResourceAttributes.StatusEnum | 'Adding Recipients' | 'Cancelled' | 'Cancelled: Account Disabled' | 'Cancelled: Billing Limit' | 'Cancelled: Internal Error' | 'Cancelled: Misconfigured' | 'Cancelled: No Recipients' | 'Cancelled: Smart Sending' | 'Draft' | 'Preparing to schedule' | 'Preparing to send' | 'Queued without Recipients' | 'Scheduled' | 'Sending' | 'Sending Segments' | 'Sent' | 'Unknown' | 'Variations Sent';
     /**
     * Whether the campaign has been archived or not
     */
@@ -116,7 +116,9 @@ export namespace CampaignResponseObjectResourceAttributes {
         AddingRecipients = <any> 'Adding Recipients',
         Cancelled = <any> 'Cancelled',
         CancelledAccountDisabled = <any> 'Cancelled: Account Disabled',
+        CancelledBillingLimit = <any> 'Cancelled: Billing Limit',
         CancelledInternalError = <any> 'Cancelled: Internal Error',
+        CancelledMisconfigured = <any> 'Cancelled: Misconfigured',
         CancelledNoRecipients = <any> 'Cancelled: No Recipients',
         CancelledSmartSending = <any> 'Cancelled: Smart Sending',
         Draft = <any> 'Draft',

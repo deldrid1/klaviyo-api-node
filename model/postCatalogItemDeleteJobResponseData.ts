@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CatalogItemBulkDeleteJobEnum } from './catalogItemBulkDeleteJobEnum';
+import { CatalogItemDeleteJobResponseObjectResourceRelationships } from './catalogItemDeleteJobResponseObjectResourceRelationships';
 import { CouponCodeCreateJobResponseObjectResourceAttributes } from './couponCodeCreateJobResponseObjectResourceAttributes';
 import { ObjectLinks } from './objectLinks';
-import { PostCatalogItemDeleteJobResponseDataRelationships } from './postCatalogItemDeleteJobResponseDataRelationships';
 export class PostCatalogItemDeleteJobResponseData {
     'type': CatalogItemBulkDeleteJobEnum | 'catalog-item-bulk-delete-job';
     /**
@@ -21,7 +21,7 @@ export class PostCatalogItemDeleteJobResponseData {
     */
     'id': string;
     'attributes': CouponCodeCreateJobResponseObjectResourceAttributes;
-    'relationships'?: PostCatalogItemDeleteJobResponseDataRelationships;
+    'relationships'?: CatalogItemDeleteJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCatalogItemDeleteJobResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "PostCatalogItemDeleteJobResponseDataRelationships"
+            "type": "CatalogItemDeleteJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

@@ -10,23 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign } from './getCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign';
-import { GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate } from './getCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate';
+import { CampaignMessageResponseObjectResourceRelationshipsCampaign } from './campaignMessageResponseObjectResourceRelationshipsCampaign';
+import { CampaignMessageResponseObjectResourceRelationshipsTemplate } from './campaignMessageResponseObjectResourceRelationshipsTemplate';
 export class PostCampaignMessageResponseDataRelationships {
-    'campaign'?: GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign;
-    'template'?: GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate;
+    'campaign'?: CampaignMessageResponseObjectResourceRelationshipsCampaign;
+    'template'?: CampaignMessageResponseObjectResourceRelationshipsTemplate;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "campaign",
             "baseName": "campaign",
-            "type": "GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsCampaign"
+            "type": "CampaignMessageResponseObjectResourceRelationshipsCampaign"
         },
         {
             "name": "template",
             "baseName": "template",
-            "type": "GetCampaignMessageResponseCompoundDocumentDataAllOfRelationshipsTemplate"
+            "type": "CampaignMessageResponseObjectResourceRelationshipsTemplate"
         }    ];
 
     static getAttributeTypeMap() {

@@ -11,10 +11,10 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetFlowResponseCollectionCompoundDocumentDataInner } from './getFlowResponseCollectionCompoundDocumentDataInner';
+import { FlowResponseObjectResource } from './flowResponseObjectResource';
 import { GetFlowResponseCollectionCompoundDocumentIncludedInner } from './getFlowResponseCollectionCompoundDocumentIncludedInner';
 export class GetFlowResponseCollectionCompoundDocument {
-    'data': Array<GetFlowResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<FlowResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<GetFlowResponseCollectionCompoundDocumentIncludedInner>;
 
@@ -23,7 +23,7 @@ export class GetFlowResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetFlowResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<FlowResponseObjectResource>"
         },
         {
             "name": "links",

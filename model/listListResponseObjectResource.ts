@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { ListEnum } from './listEnum';
 import { ListListResponseObjectResourceAttributes } from './listListResponseObjectResourceAttributes';
+import { ListListResponseObjectResourceRelationships } from './listListResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class ListListResponseObjectResource {
     'type': ListEnum | 'list';
@@ -20,6 +21,7 @@ export class ListListResponseObjectResource {
     */
     'id': string;
     'attributes': ListListResponseObjectResourceAttributes;
+    'relationships'?: ListListResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class ListListResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "ListListResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "ListListResponseObjectResourceRelationships"
         },
         {
             "name": "links",

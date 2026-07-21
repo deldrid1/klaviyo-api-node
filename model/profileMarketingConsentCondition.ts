@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { ProfileMarketingConsentConditionConsent } from './profileMarketingConsentConditionConsent';
-import { ProfileMarketingConsentEnum } from './profileMarketingConsentEnum';
 export class ProfileMarketingConsentCondition {
-    'type': ProfileMarketingConsentEnum | 'profile-marketing-consent';
+    'type': ProfileMarketingConsentCondition.TypeEnum | 'profile-marketing-consent';
     'consent': ProfileMarketingConsentConditionConsent;
 
 
@@ -21,7 +20,7 @@ export class ProfileMarketingConsentCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileMarketingConsentEnum"
+            "type": "ProfileMarketingConsentCondition.TypeEnum"
         },
         {
             "name": "consent",
@@ -35,4 +34,7 @@ export class ProfileMarketingConsentCondition {
 }
 
 export namespace ProfileMarketingConsentCondition {
+    export enum TypeEnum {
+        ProfileMarketingConsent = <any> 'profile-marketing-consent'
+    }
 }

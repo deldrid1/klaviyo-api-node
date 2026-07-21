@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { FeaturedEnum } from './featuredEnum';
 export class ReviewStatusFeatured {
-    'value': FeaturedEnum | 'featured';
+    /**
+    * Featured review status
+    */
+    'value': ReviewStatusFeatured.ValueEnum | 'featured';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "value",
             "baseName": "value",
-            "type": "FeaturedEnum"
+            "type": "ReviewStatusFeatured.ValueEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class ReviewStatusFeatured {
 }
 
 export namespace ReviewStatusFeatured {
+    export enum ValueEnum {
+        Featured = <any> 'featured'
+    }
 }

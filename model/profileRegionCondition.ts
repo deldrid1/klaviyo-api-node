@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ProfileRegionEnum } from './profileRegionEnum';
 export class ProfileRegionCondition {
-    'type': ProfileRegionEnum | 'profile-region';
+    'type': ProfileRegionCondition.TypeEnum | 'profile-region';
     'inRegion': boolean;
     /**
     * Regions for profile region conditions.
@@ -24,7 +23,7 @@ export class ProfileRegionCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileRegionEnum"
+            "type": "ProfileRegionCondition.TypeEnum"
         },
         {
             "name": "inRegion",
@@ -43,6 +42,9 @@ export class ProfileRegionCondition {
 }
 
 export namespace ProfileRegionCondition {
+    export enum TypeEnum {
+        ProfileRegion = <any> 'profile-region'
+    }
     export enum RegionEnum {
         EuropeanUnion = <any> 'european_union',
         UnitedStates = <any> 'united_states'

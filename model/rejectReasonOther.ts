@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
-import { OtherEnum } from './otherEnum';
 export class RejectReasonOther {
-    'reason': OtherEnum | 'other';
+    /**
+    * reject reason is other
+    */
+    'reason': RejectReasonOther.ReasonEnum | 'other';
     /**
     * If review reject reason is other, we can provide further explanation
     */
@@ -23,7 +25,7 @@ export class RejectReasonOther {
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "OtherEnum"
+            "type": "RejectReasonOther.ReasonEnum"
         },
         {
             "name": "statusExplanation",
@@ -37,4 +39,7 @@ export class RejectReasonOther {
 }
 
 export namespace RejectReasonOther {
+    export enum ReasonEnum {
+        Other = <any> 'other'
+    }
 }

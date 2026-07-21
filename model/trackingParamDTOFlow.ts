@@ -12,5 +12,4 @@
 import { RequestFile } from './models';
 import { FlowTrackingSettingDynamicParam } from './flowTrackingSettingDynamicParam';
 import { FlowTrackingSettingStaticParam } from './flowTrackingSettingStaticParam';
-import { StaticEnum } from './staticEnum';
 export type TrackingParamDTOFlow = FlowTrackingSettingDynamicParam | FlowTrackingSettingStaticParam;

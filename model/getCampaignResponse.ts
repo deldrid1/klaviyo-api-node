@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetCampaignResponseData } from './getCampaignResponseData';
+import { CampaignResponseObjectResource } from './campaignResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetCampaignResponse {
-    'data': GetCampaignResponseData;
+    'data': CampaignResponseObjectResource | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCampaignResponseData"
+            "type": "CampaignResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

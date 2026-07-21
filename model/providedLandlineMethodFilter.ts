@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MethodEnum } from './methodEnum';
-import { ProvidedLandlineEnum } from './providedLandlineEnum';
 export class ProvidedLandlineMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': ProvidedLandlineEnum | 'provided_landline';
+    'field': ProvidedLandlineMethodFilter.FieldEnum | 'method';
+    'method': ProvidedLandlineMethodFilter.MethodEnum | 'provided_landline';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "ProvidedLandlineMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "ProvidedLandlineEnum"
+            "type": "ProvidedLandlineMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class ProvidedLandlineMethodFilter {
 }
 
 export namespace ProvidedLandlineMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        ProvidedLandline = <any> 'provided_landline'
+    }
 }

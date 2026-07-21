@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { FlowDefinitionActionsInner } from './flowDefinitionActionsInner';
 import { FlowDefinitionProfileFilter } from './flowDefinitionProfileFilter';
 import { FlowDefinitionTriggersInner } from './flowDefinitionTriggersInner';
+import { ReentryCriteria } from './reentryCriteria';
 export class FlowDefinition {
     /**
     * Corresponds to the object which triggers the flow. Only one trigger is supported.
@@ -27,6 +28,7 @@ export class FlowDefinition {
     * The ID of the action that is the entry point of the flow.
     */
     'entryActionId': string | null;
+    'reentryCriteria'?: ReentryCriteria;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -49,6 +51,11 @@ export class FlowDefinition {
             "name": "entryActionId",
             "baseName": "entry_action_id",
             "type": "string"
+        },
+        {
+            "name": "reentryCriteria",
+            "baseName": "reentry_criteria",
+            "type": "ReentryCriteria"
         }    ];
 
     static getAttributeTypeMap() {

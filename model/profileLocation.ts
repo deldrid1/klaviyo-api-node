@@ -10,6 +10,8 @@
  */
 
 import { RequestFile } from './models';
+import { ProfileLocationLatitude } from './profileLocationLatitude';
+import { ProfileLocationLongitude } from './profileLocationLongitude';
 export class ProfileLocation {
     /**
     * First line of street address
@@ -27,14 +29,8 @@ export class ProfileLocation {
     * Country name
     */
     'country'?: string | null;
-    /**
-    * Latitude coordinate. We recommend providing a precision of four decimal places.
-    */
-    'latitude'?: string | null;
-    /**
-    * Longitude coordinate. We recommend providing a precision of four decimal places.
-    */
-    'longitude'?: string | null;
+    'latitude'?: ProfileLocationLatitude | null;
+    'longitude'?: ProfileLocationLongitude | null;
     /**
     * Region within a country, such as state or province
     */
@@ -77,12 +73,12 @@ export class ProfileLocation {
         {
             "name": "latitude",
             "baseName": "latitude",
-            "type": "string"
+            "type": "ProfileLocationLatitude"
         },
         {
             "name": "longitude",
             "baseName": "longitude",
-            "type": "string"
+            "type": "ProfileLocationLongitude"
         },
         {
             "name": "region",

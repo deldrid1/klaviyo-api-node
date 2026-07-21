@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { BulkRemoveEnum } from './bulkRemoveEnum';
-import { MethodEnum } from './methodEnum';
 export class BulkRemoveMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': BulkRemoveEnum | 'bulk_remove';
+    'field': BulkRemoveMethodFilter.FieldEnum | 'method';
+    'method': BulkRemoveMethodFilter.MethodEnum | 'bulk_remove';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "BulkRemoveMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "BulkRemoveEnum"
+            "type": "BulkRemoveMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class BulkRemoveMethodFilter {
 }
 
 export namespace BulkRemoveMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        BulkRemove = <any> 'bulk_remove'
+    }
 }

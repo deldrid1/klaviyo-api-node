@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { SegmentEnum } from './segmentEnum';
 export class SegmentTrigger {
-    'type': SegmentEnum | 'segment';
+    'type': SegmentTrigger.TypeEnum | 'segment';
     'id'?: string | null;
 
 
@@ -20,7 +19,7 @@ export class SegmentTrigger {
         {
             "name": "type",
             "baseName": "type",
-            "type": "SegmentEnum"
+            "type": "SegmentTrigger.TypeEnum"
         },
         {
             "name": "id",
@@ -34,4 +33,7 @@ export class SegmentTrigger {
 }
 
 export namespace SegmentTrigger {
+    export enum TypeEnum {
+        Segment = <any> 'segment'
+    }
 }

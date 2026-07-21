@@ -10,29 +10,28 @@
  */
 
 import { RequestFile } from './models';
-import { GreaterThanEnum } from './greaterThanEnum';
-import { NumericEnum } from './numericEnum';
+import { NumericOperatorNumericFilterValue } from './numericOperatorNumericFilterValue';
 export class GreaterThanPositiveNumericFilter {
-    'type': NumericEnum | 'numeric';
-    'operator': GreaterThanEnum | 'greater-than';
-    'value': number;
+    'type': GreaterThanPositiveNumericFilter.TypeEnum | 'numeric';
+    'operator': GreaterThanPositiveNumericFilter.OperatorEnum | 'greater-than';
+    'value': NumericOperatorNumericFilterValue;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "NumericEnum"
+            "type": "GreaterThanPositiveNumericFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "GreaterThanEnum"
+            "type": "GreaterThanPositiveNumericFilter.OperatorEnum"
         },
         {
             "name": "value",
             "baseName": "value",
-            "type": "number"
+            "type": "NumericOperatorNumericFilterValue"
         }    ];
 
     static getAttributeTypeMap() {
@@ -41,4 +40,10 @@ export class GreaterThanPositiveNumericFilter {
 }
 
 export namespace GreaterThanPositiveNumericFilter {
+    export enum TypeEnum {
+        Numeric = <any> 'numeric'
+    }
+    export enum OperatorEnum {
+        GreaterThan = <any> 'greater-than'
+    }
 }

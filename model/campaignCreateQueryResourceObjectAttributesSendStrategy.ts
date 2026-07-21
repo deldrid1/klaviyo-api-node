@@ -11,7 +11,6 @@
 
 import { RequestFile } from './models';
 import { ImmediateSendStrategy } from './immediateSendStrategy';
-import { SmartSendTimeEnum } from './smartSendTimeEnum';
 import { SmartSendTimeStrategy } from './smartSendTimeStrategy';
 import { StaticSendStrategy } from './staticSendStrategy';
 import { StaticSendStrategyOptions } from './staticSendStrategyOptions';

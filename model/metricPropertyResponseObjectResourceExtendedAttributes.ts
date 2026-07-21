@@ -11,15 +11,16 @@
 
 import { RequestFile } from './models';
 import { MetricPropertyResponseObjectResourceAttributes } from './metricPropertyResponseObjectResourceAttributes';
+import { MetricPropertyResponseObjectResourceExtendedAttributesAllOfSampleValuesInner } from './metricPropertyResponseObjectResourceExtendedAttributesAllOfSampleValuesInner';
 export class MetricPropertyResponseObjectResourceExtendedAttributes extends MetricPropertyResponseObjectResourceAttributes {
-    'sampleValues'?: Array<string> | null;
+    'sampleValues'?: Array<MetricPropertyResponseObjectResourceExtendedAttributesAllOfSampleValuesInner> | null;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "sampleValues",
             "baseName": "sample_values",
-            "type": "Array<string>"
+            "type": "Array<MetricPropertyResponseObjectResourceExtendedAttributesAllOfSampleValuesInner>"
         }    ];
 
     static getAttributeTypeMap() {

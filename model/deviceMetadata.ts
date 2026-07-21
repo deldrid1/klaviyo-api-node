@@ -18,7 +18,7 @@ export class DeviceMetadata {
     /**
     * The name of the SDK used to create the push token.
     */
-    'klaviyoSdk'?: DeviceMetadata.KlaviyoSdkEnum | 'android' | 'flutter_community' | 'react_native' | 'swift' | null;
+    'klaviyoSdk'?: DeviceMetadata.KlaviyoSdkEnum | 'android' | 'flutter' | 'flutter_community' | 'react_native' | 'swift' | null;
     /**
     * The version of the SDK used to create the push token
     */
@@ -131,6 +131,7 @@ export class DeviceMetadata {
 export namespace DeviceMetadata {
     export enum KlaviyoSdkEnum {
         Android = <any> 'android',
+        Flutter = <any> 'flutter',
         FlutterCommunity = <any> 'flutter_community',
         ReactNative = <any> 'react_native',
         Swift = <any> 'swift'

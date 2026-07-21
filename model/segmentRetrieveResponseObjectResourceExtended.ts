@@ -10,6 +10,7 @@
  */
 
 import { RequestFile } from './models';
+import { ListListResponseObjectResourceRelationships } from './listListResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 import { SegmentEnum } from './segmentEnum';
 import { SegmentRetrieveResponseObjectResourceExtendedAttributes } from './segmentRetrieveResponseObjectResourceExtendedAttributes';
@@ -17,6 +18,7 @@ export class SegmentRetrieveResponseObjectResourceExtended {
     'type': SegmentEnum | 'segment';
     'id': string;
     'attributes': SegmentRetrieveResponseObjectResourceExtendedAttributes;
+    'relationships'?: ListListResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -35,6 +37,11 @@ export class SegmentRetrieveResponseObjectResourceExtended {
             "name": "attributes",
             "baseName": "attributes",
             "type": "SegmentRetrieveResponseObjectResourceExtendedAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "ListListResponseObjectResourceRelationships"
         },
         {
             "name": "links",

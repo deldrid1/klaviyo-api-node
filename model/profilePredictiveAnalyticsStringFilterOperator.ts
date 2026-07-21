@@ -10,6 +10,4 @@
  */
 
 import { RequestFile } from './models';
-import { EqualsEnum } from './equalsEnum';
-import { NotEqualsEnum } from './notEqualsEnum';
-export type ProfilePredictiveAnalyticsStringFilterOperator = EqualsEnum | NotEqualsEnum;
+export type ProfilePredictiveAnalyticsStringFilterOperator = string;

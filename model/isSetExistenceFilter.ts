@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { ExistenceEnum } from './existenceEnum';
-import { IsSetEnum } from './isSetEnum';
 export class IsSetExistenceFilter {
-    'type': ExistenceEnum | 'existence';
-    'operator': IsSetEnum | 'is-set';
+    'type': IsSetExistenceFilter.TypeEnum | 'existence';
+    'operator': IsSetExistenceFilter.OperatorEnum | 'is-set';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "ExistenceEnum"
+            "type": "IsSetExistenceFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "IsSetEnum"
+            "type": "IsSetExistenceFilter.OperatorEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class IsSetExistenceFilter {
 }
 
 export namespace IsSetExistenceFilter {
+    export enum TypeEnum {
+        Existence = <any> 'existence'
+    }
+    export enum OperatorEnum {
+        IsSet = <any> 'is-set'
+    }
 }

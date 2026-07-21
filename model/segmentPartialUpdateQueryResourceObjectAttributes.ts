@@ -15,6 +15,10 @@ export class SegmentPartialUpdateQueryResourceObjectAttributes {
     'definition'?: SegmentDefinition;
     'name'?: string | null;
     'isStarred'?: boolean | null;
+    /**
+    * Set to false to deactivate the segment. When deactivating, this must be the only attribute in the request body. Deactivation cannot be combined with other updates. Marking a segment inactive will impact campaigns, flows, ad syncs, forms, helpdesk routing, and other features that reference this segment. Set to true to reactivate a deactivated segment.
+    */
+    'isActive'?: boolean | null;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -31,6 +35,11 @@ export class SegmentPartialUpdateQueryResourceObjectAttributes {
         {
             "name": "isStarred",
             "baseName": "is_starred",
+            "type": "boolean"
+        },
+        {
+            "name": "isActive",
+            "baseName": "is_active",
             "type": "boolean"
         }    ];
 

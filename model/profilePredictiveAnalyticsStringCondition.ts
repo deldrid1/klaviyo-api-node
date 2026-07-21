@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { ProfilePredictiveAnalyticsEnum } from './profilePredictiveAnalyticsEnum';
 import { ProfilePredictiveAnalyticsStringFilter } from './profilePredictiveAnalyticsStringFilter';
 export class ProfilePredictiveAnalyticsStringCondition {
-    'type': ProfilePredictiveAnalyticsEnum | 'profile-predictive-analytics';
+    'type': ProfilePredictiveAnalyticsStringCondition.TypeEnum | 'profile-predictive-analytics';
     /**
     * Dimension for string profile predictive analytics conditions.
     */
@@ -25,7 +24,7 @@ export class ProfilePredictiveAnalyticsStringCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfilePredictiveAnalyticsEnum"
+            "type": "ProfilePredictiveAnalyticsStringCondition.TypeEnum"
         },
         {
             "name": "dimension",
@@ -44,6 +43,9 @@ export class ProfilePredictiveAnalyticsStringCondition {
 }
 
 export namespace ProfilePredictiveAnalyticsStringCondition {
+    export enum TypeEnum {
+        ProfilePredictiveAnalytics = <any> 'profile-predictive-analytics'
+    }
     export enum DimensionEnum {
         PredictedGender = <any> 'predicted_gender'
     }
