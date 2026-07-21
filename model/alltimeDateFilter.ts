@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class AlltimeDateFilter {
-    'type': DateEnum | 'date';
+    'type': AlltimeDateFilter.TypeEnum | 'date';
     /**
     * Operators for alltime date filters.
     */
@@ -23,7 +22,7 @@ export class AlltimeDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "AlltimeDateFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -37,6 +36,9 @@ export class AlltimeDateFilter {
 }
 
 export namespace AlltimeDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         Alltime = <any> 'alltime'
     }

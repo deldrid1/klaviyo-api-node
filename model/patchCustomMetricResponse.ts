@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostCustomMetricResponseData } from './postCustomMetricResponseData';
 export class PatchCustomMetricResponse {
     'data': PostCustomMetricResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PatchCustomMetricResponse {
             "name": "data",
             "baseName": "data",
             "type": "PostCustomMetricResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

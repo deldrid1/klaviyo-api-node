@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
-import { DynamicEnum } from './dynamicEnum';
 export class FlowTrackingSettingDynamicParam {
-    'type': DynamicEnum | 'dynamic';
+    /**
+    * The type of the tracking parameter
+    */
+    'type': FlowTrackingSettingDynamicParam.TypeEnum | 'dynamic';
     /**
     * The value of the tracking parameter
     */
@@ -23,7 +25,7 @@ export class FlowTrackingSettingDynamicParam {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DynamicEnum"
+            "type": "FlowTrackingSettingDynamicParam.TypeEnum"
         },
         {
             "name": "value",
@@ -37,6 +39,9 @@ export class FlowTrackingSettingDynamicParam {
 }
 
 export namespace FlowTrackingSettingDynamicParam {
+    export enum TypeEnum {
+        Dynamic = <any> 'dynamic'
+    }
     export enum ValueEnum {
         EmailSubject = <any> 'email_subject',
         FlowId = <any> 'flow_id',

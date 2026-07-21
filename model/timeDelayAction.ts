@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { TimeDelayActionData } from './timeDelayActionData';
-import { TimeDelayEnum } from './timeDelayEnum';
 export class TimeDelayAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': TimeDelayEnum | 'time-delay';
+    'type': TimeDelayAction.TypeEnum | 'time-delay';
     'links'?: Link;
     'data': TimeDelayActionData;
 
@@ -41,7 +40,7 @@ export class TimeDelayAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "TimeDelayEnum"
+            "type": "TimeDelayAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class TimeDelayAction {
 }
 
 export namespace TimeDelayAction {
+    export enum TypeEnum {
+        TimeDelay = <any> 'time-delay'
+    }
 }

@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MethodEnum } from './methodEnum';
-import { SftpEnum } from './sftpEnum';
 export class SftpMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': SftpEnum | 'sftp';
+    'field': SftpMethodFilter.FieldEnum | 'method';
+    'method': SftpMethodFilter.MethodEnum | 'sftp';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "SftpMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "SftpEnum"
+            "type": "SftpMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class SftpMethodFilter {
 }
 
 export namespace SftpMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        Sftp = <any> 'sftp'
+    }
 }

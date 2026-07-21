@@ -12,5 +12,4 @@
 import { RequestFile } from './models';
 import { CampaignTrackingSettingDynamicParam } from './campaignTrackingSettingDynamicParam';
 import { CampaignTrackingSettingStaticParam } from './campaignTrackingSettingStaticParam';
-import { StaticEnum } from './staticEnum';
 export type TrackingParamDTOCampaign = CampaignTrackingSettingDynamicParam | CampaignTrackingSettingStaticParam;

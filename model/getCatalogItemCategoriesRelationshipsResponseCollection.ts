@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { CollectionLinks } from './collectionLinks';
 import { GetCatalogItemCategoriesRelationshipsResponseCollectionDataInner } from './getCatalogItemCategoriesRelationshipsResponseCollectionDataInner';
 export class GetCatalogItemCategoriesRelationshipsResponseCollection {
     'data': Array<GetCatalogItemCategoriesRelationshipsResponseCollectionDataInner>;
+    'links'?: CollectionLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetCatalogItemCategoriesRelationshipsResponseCollection {
             "name": "data",
             "baseName": "data",
             "type": "Array<GetCatalogItemCategoriesRelationshipsResponseCollectionDataInner>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "CollectionLinks"
         }    ];
 
     static getAttributeTypeMap() {

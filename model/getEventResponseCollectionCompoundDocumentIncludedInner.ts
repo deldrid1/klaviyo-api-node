@@ -10,11 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { AttributionEnum } from './attributionEnum';
 import { AttributionResponseObjectResource } from './attributionResponseObjectResource';
 import { AttributionResponseObjectResourceRelationships } from './attributionResponseObjectResourceRelationships';
 import { MetricResponseObjectResource } from './metricResponseObjectResource';
 import { ObjectLinks } from './objectLinks';
-import { ProfileEnum } from './profileEnum';
 import { ProfileResponseObjectResource } from './profileResponseObjectResource';
 import { ProfileResponseObjectResourceAttributes } from './profileResponseObjectResourceAttributes';
 

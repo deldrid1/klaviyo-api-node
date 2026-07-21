@@ -12,7 +12,7 @@
 import { RequestFile } from './models';
 import { CustomMetricEnum } from './customMetricEnum';
 import { CustomMetricResponseObjectResourceAttributes } from './customMetricResponseObjectResourceAttributes';
-import { GetCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships } from './getCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships';
+import { CustomMetricResponseObjectResourceRelationships } from './customMetricResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class PostCustomMetricResponseData {
     'type': CustomMetricEnum | 'custom-metric';
@@ -21,7 +21,7 @@ export class PostCustomMetricResponseData {
     */
     'id': string;
     'attributes': CustomMetricResponseObjectResourceAttributes;
-    'relationships'?: GetCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships;
+    'relationships'?: CustomMetricResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCustomMetricResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetCustomMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationships"
+            "type": "CustomMetricResponseObjectResourceRelationships"
         },
         {
             "name": "links",

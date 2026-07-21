@@ -10,19 +10,27 @@
  */
 
 import { RequestFile } from './models';
-import { NumericOperatorFilter } from './numericOperatorFilter';
+import { IntegerFilter } from './integerFilter';
+import { NumericOperatorNumericFilter } from './numericOperatorNumericFilter';
+import { ProfileHasCustomObjectCondition } from './profileHasCustomObjectCondition';
+import { ProfileHasCustomObjectFilter } from './profileHasCustomObjectFilter';
 import { ProfileHasGroupMembershipCondition } from './profileHasGroupMembershipCondition';
 import { ProfileMarketingConsentCondition } from './profileMarketingConsentCondition';
 import { ProfileMarketingConsentConditionConsent } from './profileMarketingConsentConditionConsent';
+import { ProfileMetricFunnelSteps } from './profileMetricFunnelSteps';
 import { ProfileMetricPropertyFilter } from './profileMetricPropertyFilter';
 import { ProfileNoGroupMembershipCondition } from './profileNoGroupMembershipCondition';
+import { ProfilePermissionsCondition } from './profilePermissionsCondition';
+import { ProfilePermissionsConditionPermission } from './profilePermissionsConditionPermission';
 import { ProfilePostalCodeDistanceCondition } from './profilePostalCodeDistanceCondition';
-import { ProfilePredictiveAnalyticsEnum } from './profilePredictiveAnalyticsEnum';
+import { ProfilePredictiveAnalyticsChannelAffinityPriorityCondition } from './profilePredictiveAnalyticsChannelAffinityPriorityCondition';
+import { ProfilePredictiveAnalyticsChannelAffinityRankCondition } from './profilePredictiveAnalyticsChannelAffinityRankCondition';
+import { ProfilePredictiveAnalyticsDateCondition } from './profilePredictiveAnalyticsDateCondition';
 import { ProfilePredictiveAnalyticsNumericCondition } from './profilePredictiveAnalyticsNumericCondition';
 import { ProfilePredictiveAnalyticsStringCondition } from './profilePredictiveAnalyticsStringCondition';
-import { ProfilePredictiveAnalyticsStringFilter } from './profilePredictiveAnalyticsStringFilter';
 import { ProfilePropertyCondition } from './profilePropertyCondition';
 import { ProfileRegionCondition } from './profileRegionCondition';
 import { SegmentsProfileMetricCondition } from './segmentsProfileMetricCondition';
-import { SegmentsProfileMetricConditionTimeframeFilter } from './segmentsProfileMetricConditionTimeframeFilter';
-export type ConditionGroupConditionsInner = ProfileHasGroupMembershipCondition | ProfileNoGroupMembershipCondition | SegmentsProfileMetricCondition | ProfileMarketingConsentCondition | ProfilePostalCodeDistanceCondition | ProfilePropertyCondition | ProfileRegionCondition | ProfilePredictiveAnalyticsNumericCondition | ProfilePredictiveAnalyticsStringCondition;
+import { SegmentsProfileMetricFunnelCondition } from './segmentsProfileMetricFunnelCondition';
+import { SegmentsProfileMetricFunnelConditionTimeframeFilter } from './segmentsProfileMetricFunnelConditionTimeframeFilter';
+export type ConditionGroupConditionsInner = ProfileHasGroupMembershipCondition | ProfileNoGroupMembershipCondition | SegmentsProfileMetricCondition | ProfileMarketingConsentCondition | ProfilePostalCodeDistanceCondition | ProfilePropertyCondition | ProfileRegionCondition | ProfilePredictiveAnalyticsDateCondition | ProfilePredictiveAnalyticsNumericCondition | ProfilePredictiveAnalyticsStringCondition | ProfilePredictiveAnalyticsChannelAffinityPriorityCondition | ProfilePredictiveAnalyticsChannelAffinityRankCondition | ProfileHasCustomObjectCondition | ProfilePermissionsCondition | SegmentsProfileMetricFunnelCondition;

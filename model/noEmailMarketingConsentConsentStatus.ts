@@ -15,5 +15,4 @@ import { NoEmailMarketingFiltersInner } from './noEmailMarketingFiltersInner';
 import { NoEmailMarketingNeverSubscribed } from './noEmailMarketingNeverSubscribed';
 import { NoEmailMarketingSubscribed } from './noEmailMarketingSubscribed';
 import { NoEmailMarketingUnsubscribed } from './noEmailMarketingUnsubscribed';
-import { SubscribedEnum } from './subscribedEnum';
 export type NoEmailMarketingConsentConsentStatus = NoEmailMarketing | NoEmailMarketingUnsubscribed | NoEmailMarketingNeverSubscribed | NoEmailMarketingSubscribed;

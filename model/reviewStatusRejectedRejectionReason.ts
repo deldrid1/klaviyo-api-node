@@ -16,5 +16,4 @@ import { RejectReasonOther } from './rejectReasonOther';
 import { RejectReasonPrivateInformation } from './rejectReasonPrivateInformation';
 import { RejectReasonProfanity } from './rejectReasonProfanity';
 import { RejectReasonUnrelated } from './rejectReasonUnrelated';
-import { UnrelatedEnum } from './unrelatedEnum';
 export type ReviewStatusRejectedRejectionReason = RejectReasonOther | RejectReasonFake | RejectReasonMisleading | RejectReasonPrivateInformation | RejectReasonProfanity | RejectReasonUnrelated;

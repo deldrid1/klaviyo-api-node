@@ -11,12 +11,14 @@
 
 import { RequestFile } from './models';
 import { FlowEnum } from './flowEnum';
+import { FlowResponseObjectResourceRelationships } from './flowResponseObjectResourceRelationships';
 import { FlowV2ResponseObjectResourceExtendedAttributes } from './flowV2ResponseObjectResourceExtendedAttributes';
 import { ObjectLinks } from './objectLinks';
 export class FlowV2ResponseObjectResourceExtended {
     'type': FlowEnum | 'flow';
     'id': string;
     'attributes': FlowV2ResponseObjectResourceExtendedAttributes;
+    'relationships'?: FlowResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -35,6 +37,11 @@ export class FlowV2ResponseObjectResourceExtended {
             "name": "attributes",
             "baseName": "attributes",
             "type": "FlowV2ResponseObjectResourceExtendedAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "FlowResponseObjectResourceRelationships"
         },
         {
             "name": "links",

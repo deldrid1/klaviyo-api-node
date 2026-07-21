@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { BackInStockEnum } from './backInStockEnum';
-import { MethodEnum } from './methodEnum';
 export class BackInStockMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': BackInStockEnum | 'back_in_stock';
+    'field': BackInStockMethodFilter.FieldEnum | 'method';
+    'method': BackInStockMethodFilter.MethodEnum | 'back_in_stock';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "BackInStockMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "BackInStockEnum"
+            "type": "BackInStockMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class BackInStockMethodFilter {
 }
 
 export namespace BackInStockMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        BackInStock = <any> 'back_in_stock'
+    }
 }

@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { ProfileEnum } from './profileEnum';
+import { ProfileResponseObjectResourceRelationships } from './profileResponseObjectResourceRelationships';
 import { SegmentMemberResponseObjectResourceExtendedAttributes } from './segmentMemberResponseObjectResourceExtendedAttributes';
 export class SegmentMemberResponseObjectResourceExtended {
     'type': ProfileEnum | 'profile';
@@ -20,6 +21,7 @@ export class SegmentMemberResponseObjectResourceExtended {
     */
     'id'?: string | null;
     'attributes': SegmentMemberResponseObjectResourceExtendedAttributes;
+    'relationships'?: ProfileResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class SegmentMemberResponseObjectResourceExtended {
             "name": "attributes",
             "baseName": "attributes",
             "type": "SegmentMemberResponseObjectResourceExtendedAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "ProfileResponseObjectResourceRelationships"
         },
         {
             "name": "links",

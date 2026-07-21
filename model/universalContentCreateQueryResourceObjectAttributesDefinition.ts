@@ -10,9 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { BlockEnum } from './blockEnum';
-import { HTMLBlock } from './hTMLBlock';
-import { TextBlock } from './textBlock';
-import { TextBlockData } from './textBlockData';
-import { TextEnum } from './textEnum';
-export type UniversalContentCreateQueryResourceObjectAttributesDefinition = HTMLBlock | TextBlock;
+import { ButtonBlockV0 } from './buttonBlockV0';
+import { DropShadowBlockV0 } from './dropShadowBlockV0';
+import { HTMLBlockV0 } from './hTMLBlockV0';
+import { HorizontalRuleBlockV0 } from './horizontalRuleBlockV0';
+import { ImageBlockV0 } from './imageBlockV0';
+import { SpacerBlockV0 } from './spacerBlockV0';
+import { TextBlockDataV0 } from './textBlockDataV0';
+import { TextBlockV0 } from './textBlockV0';
+export type UniversalContentCreateQueryResourceObjectAttributesDefinition = ButtonBlockV0 | DropShadowBlockV0 | HorizontalRuleBlockV0 | HTMLBlockV0 | ImageBlockV0 | SpacerBlockV0 | TextBlockV0;

@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { AttributionResponseObjectResourceRelationshipsAttributedEventData } from './attributionResponseObjectResourceRelationshipsAttributedEventData';
+import { RelationshipLinks } from './relationshipLinks';
 export class AttributionResponseObjectResourceRelationshipsAttributedEvent {
     'data'?: AttributionResponseObjectResourceRelationshipsAttributedEventData;
+    'links'?: RelationshipLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class AttributionResponseObjectResourceRelationshipsAttributedEvent {
             "name": "data",
             "baseName": "data",
             "type": "AttributionResponseObjectResourceRelationshipsAttributedEventData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "RelationshipLinks"
         }    ];
 
     static getAttributeTypeMap() {

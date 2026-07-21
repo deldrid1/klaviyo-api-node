@@ -10,23 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages } from './getFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages';
-import { GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers } from './getMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers';
+import { FlowActionEncodedResponseObjectResourceRelationshipsFlowMessages } from './flowActionEncodedResponseObjectResourceRelationshipsFlowMessages';
+import { MetricResponseObjectResourceRelationshipsFlowTriggers } from './metricResponseObjectResourceRelationshipsFlowTriggers';
 export class PostFlowValuesResponseDTODataRelationships {
-    'flows'?: GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers;
-    'flowMessages'?: GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages;
+    'flows'?: MetricResponseObjectResourceRelationshipsFlowTriggers;
+    'flowMessages'?: FlowActionEncodedResponseObjectResourceRelationshipsFlowMessages;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "flows",
             "baseName": "flows",
-            "type": "GetMetricResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsFlowTriggers"
+            "type": "MetricResponseObjectResourceRelationshipsFlowTriggers"
         },
         {
             "name": "flowMessages",
             "baseName": "flow-messages",
-            "type": "GetFlowActionResponseCompoundDocumentDataAllOfRelationshipsFlowMessages"
+            "type": "FlowActionEncodedResponseObjectResourceRelationshipsFlowMessages"
         }    ];
 
     static getAttributeTypeMap() {

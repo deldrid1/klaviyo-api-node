@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { SendInternalAlertActionData } from './sendInternalAlertActionData';
-import { SendInternalAlertEnum } from './sendInternalAlertEnum';
 export class SendInternalAlertAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': SendInternalAlertEnum | 'send-internal-alert';
+    'type': SendInternalAlertAction.TypeEnum | 'send-internal-alert';
     'links'?: Link;
     'data'?: SendInternalAlertActionData;
 
@@ -41,7 +40,7 @@ export class SendInternalAlertAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "SendInternalAlertEnum"
+            "type": "SendInternalAlertAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class SendInternalAlertAction {
 }
 
 export namespace SendInternalAlertAction {
+    export enum TypeEnum {
+        SendInternalAlert = <any> 'send-internal-alert'
+    }
 }

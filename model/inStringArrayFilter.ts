@@ -10,11 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { InEnum } from './inEnum';
-import { StringEnum } from './stringEnum';
 export class InStringArrayFilter {
-    'type': StringEnum | 'string';
-    'operator': InEnum | 'in';
+    'type': InStringArrayFilter.TypeEnum | 'string';
+    'operator': InStringArrayFilter.OperatorEnum | 'in';
     'value': Array<string>;
 
 
@@ -22,12 +20,12 @@ export class InStringArrayFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StringEnum"
+            "type": "InStringArrayFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "InEnum"
+            "type": "InStringArrayFilter.OperatorEnum"
         },
         {
             "name": "value",
@@ -41,4 +39,10 @@ export class InStringArrayFilter {
 }
 
 export namespace InStringArrayFilter {
+    export enum TypeEnum {
+        String = <any> 'string'
+    }
+    export enum OperatorEnum {
+        In = <any> 'in'
+    }
 }

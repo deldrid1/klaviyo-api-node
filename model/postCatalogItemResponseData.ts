@@ -12,7 +12,7 @@
 import { RequestFile } from './models';
 import { CatalogItemEnum } from './catalogItemEnum';
 import { CatalogItemResponseObjectResourceAttributes } from './catalogItemResponseObjectResourceAttributes';
-import { GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships } from './getCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships';
+import { CatalogItemResponseObjectResourceRelationships } from './catalogItemResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class PostCatalogItemResponseData {
     'type': CatalogItemEnum | 'catalog-item';
@@ -21,7 +21,7 @@ export class PostCatalogItemResponseData {
     */
     'id': string;
     'attributes': CatalogItemResponseObjectResourceAttributes;
-    'relationships'?: GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships;
+    'relationships'?: CatalogItemResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCatalogItemResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetCatalogItemResponseCollectionCompoundDocumentDataInnerAllOfRelationships"
+            "type": "CatalogItemResponseObjectResourceRelationships"
         },
         {
             "name": "links",

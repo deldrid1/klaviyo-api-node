@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { MetricEnum } from './metricEnum';
 import { MetricResponseObjectResourceAttributes } from './metricResponseObjectResourceAttributes';
+import { MetricResponseObjectResourceRelationships } from './metricResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class MetricResponseObjectResource {
     'type': MetricEnum | 'metric';
@@ -20,6 +21,7 @@ export class MetricResponseObjectResource {
     */
     'id': string;
     'attributes': MetricResponseObjectResourceAttributes;
+    'relationships'?: MetricResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class MetricResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "MetricResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "MetricResponseObjectResourceRelationships"
         },
         {
             "name": "links",

@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class CalendarDateFilter {
-    'type': DateEnum | 'date';
+    'type': CalendarDateFilter.TypeEnum | 'date';
     /**
     * Operators for calendar date filters.
     */
@@ -24,7 +23,7 @@ export class CalendarDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "CalendarDateFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -43,6 +42,9 @@ export class CalendarDateFilter {
 }
 
 export namespace CalendarDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         CalendarMonth = <any> 'calendar-month'
     }

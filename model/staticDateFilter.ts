@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class StaticDateFilter {
-    'type': DateEnum | 'date';
+    'type': StaticDateFilter.TypeEnum | 'date';
     /**
     * Operators for static date filters.  E.g. \"before 2023-01-01\"
     */
@@ -24,7 +23,7 @@ export class StaticDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "StaticDateFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -43,6 +42,9 @@ export class StaticDateFilter {
 }
 
 export namespace StaticDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         After = <any> 'after',
         Before = <any> 'before'

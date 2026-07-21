@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ListEnum } from './listEnum';
 export class ListTrigger {
-    'type': ListEnum | 'list';
+    'type': ListTrigger.TypeEnum | 'list';
     'id'?: string | null;
 
 
@@ -20,7 +19,7 @@ export class ListTrigger {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ListEnum"
+            "type": "ListTrigger.TypeEnum"
         },
         {
             "name": "id",
@@ -34,4 +33,7 @@ export class ListTrigger {
 }
 
 export namespace ListTrigger {
+    export enum TypeEnum {
+        List = <any> 'list'
+    }
 }

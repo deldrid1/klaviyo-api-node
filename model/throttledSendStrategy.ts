@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ThrottledEnum } from './throttledEnum';
 export class ThrottledSendStrategy {
-    'method': ThrottledEnum | 'throttled';
+    'method': ThrottledSendStrategy.MethodEnum | 'throttled';
     /**
     * The time to send at
     */
@@ -27,7 +26,7 @@ export class ThrottledSendStrategy {
         {
             "name": "method",
             "baseName": "method",
-            "type": "ThrottledEnum"
+            "type": "ThrottledSendStrategy.MethodEnum"
         },
         {
             "name": "datetime",
@@ -46,6 +45,9 @@ export class ThrottledSendStrategy {
 }
 
 export namespace ThrottledSendStrategy {
+    export enum MethodEnum {
+        Throttled = <any> 'throttled'
+    }
     export enum ThrottlePercentageEnum {
         NUMBER_10 = <any> 10,
         NUMBER_11 = <any> 11,

@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner } from './getCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner';
+import { CouponCodeCreateJobResponseObjectResource } from './couponCodeCreateJobResponseObjectResource';
 export class GetCouponCodeCreateJobResponseCollectionCompoundDocument {
-    'data': Array<GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<CouponCodeCreateJobResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetCouponCodeCreateJobResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetCouponCodeCreateJobResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<CouponCodeCreateJobResponseObjectResource>"
         },
         {
             "name": "links",

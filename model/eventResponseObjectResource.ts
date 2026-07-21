@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { EventEnum } from './eventEnum';
 import { EventResponseObjectResourceAttributes } from './eventResponseObjectResourceAttributes';
+import { EventResponseObjectResourceRelationships } from './eventResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class EventResponseObjectResource {
     'type': EventEnum | 'event';
@@ -20,6 +21,7 @@ export class EventResponseObjectResource {
     */
     'id': string;
     'attributes': EventResponseObjectResourceAttributes;
+    'relationships'?: EventResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class EventResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "EventResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "EventResponseObjectResourceRelationships"
         },
         {
             "name": "links",

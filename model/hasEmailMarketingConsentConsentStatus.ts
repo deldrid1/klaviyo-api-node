@@ -13,5 +13,4 @@ import { RequestFile } from './models';
 import { HasEmailMarketing } from './hasEmailMarketing';
 import { HasEmailMarketingNeverSubscribed } from './hasEmailMarketingNeverSubscribed';
 import { HasEmailMarketingSubscribed } from './hasEmailMarketingSubscribed';
-import { NeverSubscribedEnum } from './neverSubscribedEnum';
 export type HasEmailMarketingConsentConsentStatus = HasEmailMarketing | HasEmailMarketingSubscribed | HasEmailMarketingNeverSubscribed;

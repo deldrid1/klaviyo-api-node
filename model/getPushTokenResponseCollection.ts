@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetPushTokenResponseCollectionDataInner } from './getPushTokenResponseCollectionDataInner';
+import { PushTokenResponseObjectResource } from './pushTokenResponseObjectResource';
 export class GetPushTokenResponseCollection {
-    'data': Array<GetPushTokenResponseCollectionDataInner>;
+    'data': Array<PushTokenResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetPushTokenResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetPushTokenResponseCollectionDataInner>"
+            "type": "Array<PushTokenResponseObjectResource>"
         },
         {
             "name": "links",

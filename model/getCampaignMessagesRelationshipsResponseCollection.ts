@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { CollectionLinks } from './collectionLinks';
 import { GetCampaignMessagesRelationshipsResponseCollectionDataInner } from './getCampaignMessagesRelationshipsResponseCollectionDataInner';
 export class GetCampaignMessagesRelationshipsResponseCollection {
     'data': Array<GetCampaignMessagesRelationshipsResponseCollectionDataInner>;
+    'links'?: CollectionLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetCampaignMessagesRelationshipsResponseCollection {
             "name": "data",
             "baseName": "data",
             "type": "Array<GetCampaignMessagesRelationshipsResponseCollectionDataInner>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "CollectionLinks"
         }    ];
 
     static getAttributeTypeMap() {

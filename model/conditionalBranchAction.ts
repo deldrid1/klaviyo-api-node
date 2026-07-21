@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { BooleanBranchLinks } from './booleanBranchLinks';
 import { ConditionalBranchActionData } from './conditionalBranchActionData';
-import { ConditionalSplitEnum } from './conditionalSplitEnum';
 export class ConditionalBranchAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': ConditionalSplitEnum | 'conditional-split';
+    'type': ConditionalBranchAction.TypeEnum | 'conditional-split';
     'links'?: BooleanBranchLinks;
     'data'?: ConditionalBranchActionData;
 
@@ -41,7 +40,7 @@ export class ConditionalBranchAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ConditionalSplitEnum"
+            "type": "ConditionalBranchAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class ConditionalBranchAction {
 }
 
 export namespace ConditionalBranchAction {
+    export enum TypeEnum {
+        ConditionalSplit = <any> 'conditional-split'
+    }
 }

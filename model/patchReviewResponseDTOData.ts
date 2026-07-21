@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
-import { PatchReviewResponseDTODataRelationships } from './patchReviewResponseDTODataRelationships';
 import { ReviewEnum } from './reviewEnum';
 import { ReviewResponseDTOObjectResourceAttributes } from './reviewResponseDTOObjectResourceAttributes';
+import { ReviewResponseDTOObjectResourceRelationships } from './reviewResponseDTOObjectResourceRelationships';
 export class PatchReviewResponseDTOData {
     'type': ReviewEnum | 'review';
     /**
@@ -21,7 +21,7 @@ export class PatchReviewResponseDTOData {
     */
     'id': string;
     'attributes': ReviewResponseDTOObjectResourceAttributes;
-    'relationships'?: PatchReviewResponseDTODataRelationships;
+    'relationships'?: ReviewResponseDTOObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PatchReviewResponseDTOData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "PatchReviewResponseDTODataRelationships"
+            "type": "ReviewResponseDTOObjectResourceRelationships"
         },
         {
             "name": "links",

@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
+import { CatalogItemCreateJobResponseObjectResource } from './catalogItemCreateJobResponseObjectResource';
 import { CatalogItemResponseObjectResource } from './catalogItemResponseObjectResource';
-import { GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner } from './getCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner';
+import { ObjectLinks } from './objectLinks';
 export class GetCatalogItemCreateJobResponseCompoundDocument {
-    'data': GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner;
+    'data': CatalogItemCreateJobResponseObjectResource;
     'included'?: Array<CatalogItemResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInner"
+            "type": "CatalogItemCreateJobResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<CatalogItemResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

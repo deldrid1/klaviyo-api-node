@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { PushTokenEnum } from './pushTokenEnum';
 import { PushTokenResponseObjectResourceAttributes } from './pushTokenResponseObjectResourceAttributes';
+import { PushTokenResponseObjectResourceRelationships } from './pushTokenResponseObjectResourceRelationships';
 export class PushTokenResponseObjectResource {
     'type': PushTokenEnum | 'push-token';
     /**
@@ -20,6 +21,7 @@ export class PushTokenResponseObjectResource {
     */
     'id': string;
     'attributes': PushTokenResponseObjectResourceAttributes;
+    'relationships'?: PushTokenResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class PushTokenResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "PushTokenResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "PushTokenResponseObjectResourceRelationships"
         },
         {
             "name": "links",

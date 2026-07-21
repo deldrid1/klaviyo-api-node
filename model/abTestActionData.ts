@@ -18,7 +18,7 @@ export class AbTestActionData {
     */
     'status'?: AbTestActionData.StatusEnum | 'disabled' | 'draft' | 'live' | 'manual' = AbTestActionData.StatusEnum.Draft;
     /**
-    * The status of the A/B test action experiment.
+    * Not allowed on create.
     */
     'experimentStatus'?: AbTestActionData.ExperimentStatusEnum | 'completed' | 'draft' | 'live' = AbTestActionData.ExperimentStatusEnum.Draft;
     'mainAction': AbTestActionDataMainAction;

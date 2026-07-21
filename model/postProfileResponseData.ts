@@ -10,10 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { GetProfileResponseCompoundDocumentDataAllOfRelationships } from './getProfileResponseCompoundDocumentDataAllOfRelationships';
 import { ObjectLinks } from './objectLinks';
 import { PostProfileResponseDataAttributes } from './postProfileResponseDataAttributes';
 import { ProfileEnum } from './profileEnum';
+import { ProfileResponseObjectResourceRelationships } from './profileResponseObjectResourceRelationships';
 export class PostProfileResponseData {
     'type': ProfileEnum | 'profile';
     /**
@@ -21,7 +21,7 @@ export class PostProfileResponseData {
     */
     'id'?: string | null;
     'attributes': PostProfileResponseDataAttributes;
-    'relationships'?: GetProfileResponseCompoundDocumentDataAllOfRelationships;
+    'relationships'?: ProfileResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostProfileResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetProfileResponseCompoundDocumentDataAllOfRelationships"
+            "type": "ProfileResponseObjectResourceRelationships"
         },
         {
             "name": "links",

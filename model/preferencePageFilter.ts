@@ -11,11 +11,9 @@
 
 import { RequestFile } from './models';
 import { EqualsStringFilter } from './equalsStringFilter';
-import { MethodEnum } from './methodEnum';
-import { PreferencePageEnum } from './preferencePageEnum';
 export class PreferencePageFilter {
-    'field': MethodEnum | 'method';
-    'method': PreferencePageEnum | 'preference_page';
+    'field': PreferencePageFilter.FieldEnum | 'method';
+    'method': PreferencePageFilter.MethodEnum | 'preference_page';
     'filter'?: EqualsStringFilter;
 
 
@@ -23,12 +21,12 @@ export class PreferencePageFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "PreferencePageFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "PreferencePageEnum"
+            "type": "PreferencePageFilter.MethodEnum"
         },
         {
             "name": "filter",
@@ -42,4 +40,10 @@ export class PreferencePageFilter {
 }
 
 export namespace PreferencePageFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        PreferencePage = <any> 'preference_page'
+    }
 }

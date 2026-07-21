@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetFlowResponseCollectionDataInner } from './getFlowResponseCollectionDataInner';
+import { FlowResponseObjectResource } from './flowResponseObjectResource';
 export class GetFlowResponseCollection {
-    'data': Array<GetFlowResponseCollectionDataInner>;
+    'data': Array<FlowResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetFlowResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetFlowResponseCollectionDataInner>"
+            "type": "Array<FlowResponseObjectResource>"
         },
         {
             "name": "links",

@@ -12,9 +12,9 @@
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
 import { GetListListResponseCollectionCompoundDocumentIncludedInner } from './getListListResponseCollectionCompoundDocumentIncludedInner';
-import { GetSegmentListResponseCollectionCompoundDocumentDataInner } from './getSegmentListResponseCollectionCompoundDocumentDataInner';
+import { SegmentListResponseObjectResource } from './segmentListResponseObjectResource';
 export class GetSegmentListResponseCollectionCompoundDocument {
-    'data': Array<GetSegmentListResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<SegmentListResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<GetListListResponseCollectionCompoundDocumentIncludedInner>;
 
@@ -23,7 +23,7 @@ export class GetSegmentListResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetSegmentListResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<SegmentListResponseObjectResource>"
         },
         {
             "name": "links",

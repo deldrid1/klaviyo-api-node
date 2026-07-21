@@ -12,11 +12,9 @@
 import { RequestFile } from './models';
 import { EmailMessageDefinition } from './emailMessageDefinition';
 import { MobilePushContent } from './mobilePushContent';
-import { MobilePushEnum } from './mobilePushEnum';
 import { MobilePushMessageSilentDefinition } from './mobilePushMessageSilentDefinition';
 import { MobilePushMessageStandardDefinition } from './mobilePushMessageStandardDefinition';
 import { MobilePushOptions } from './mobilePushOptions';
 import { RenderOptions } from './renderOptions';
 import { SMSMessageDefinition } from './sMSMessageDefinition';
-import { SilentEnum } from './silentEnum';
 export type CampaignMessageResponseObjectResourceAttributesDefinition = EmailMessageDefinition | SMSMessageDefinition | MobilePushMessageStandardDefinition | MobilePushMessageSilentDefinition;

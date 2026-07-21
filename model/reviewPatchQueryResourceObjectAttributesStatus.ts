@@ -10,7 +10,6 @@
  */
 
 import { RequestFile } from './models';
-import { PendingEnum } from './pendingEnum';
 import { ReviewStatusFeatured } from './reviewStatusFeatured';
 import { ReviewStatusPending } from './reviewStatusPending';
 import { ReviewStatusPublished } from './reviewStatusPublished';

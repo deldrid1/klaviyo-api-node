@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class StaticDateRangeFilter {
-    'type': DateEnum | 'date';
+    'type': StaticDateRangeFilter.TypeEnum | 'date';
     /**
     * Operators for static date range filters.  E.g. \"between 2023-01-01 and 2023-02-01\"
     */
@@ -25,7 +24,7 @@ export class StaticDateRangeFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "StaticDateRangeFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -49,6 +48,9 @@ export class StaticDateRangeFilter {
 }
 
 export namespace StaticDateRangeFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         BetweenStatic = <any> 'between-static'
     }

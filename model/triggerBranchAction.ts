@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { BooleanBranchLinks } from './booleanBranchLinks';
 import { TriggerBranchActionData } from './triggerBranchActionData';
-import { TriggerSplitEnum } from './triggerSplitEnum';
 export class TriggerBranchAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': TriggerSplitEnum | 'trigger-split';
+    'type': TriggerBranchAction.TypeEnum | 'trigger-split';
     'links'?: BooleanBranchLinks;
     'data'?: TriggerBranchActionData;
 
@@ -41,7 +40,7 @@ export class TriggerBranchAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "TriggerSplitEnum"
+            "type": "TriggerBranchAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class TriggerBranchAction {
 }
 
 export namespace TriggerBranchAction {
+    export enum TypeEnum {
+        TriggerSplit = <any> 'trigger-split'
+    }
 }

@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { SendEmailActionData } from './sendEmailActionData';
-import { SendEmailEnum } from './sendEmailEnum';
 export class SendEmailAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': SendEmailEnum | 'send-email';
+    'type': SendEmailAction.TypeEnum | 'send-email';
     'links'?: Link;
     'data'?: SendEmailActionData;
 
@@ -41,7 +40,7 @@ export class SendEmailAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "SendEmailEnum"
+            "type": "SendEmailAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class SendEmailAction {
 }
 
 export namespace SendEmailAction {
+    export enum TypeEnum {
+        SendEmail = <any> 'send-email'
+    }
 }

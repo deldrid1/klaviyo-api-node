@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { AttributionResponseObjectResourceRelationshipsFlowData } from './attributionResponseObjectResourceRelationshipsFlowData';
+import { RelationshipLinks } from './relationshipLinks';
 export class AttributionResponseObjectResourceRelationshipsFlow {
     'data'?: AttributionResponseObjectResourceRelationshipsFlowData;
+    'links'?: RelationshipLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class AttributionResponseObjectResourceRelationshipsFlow {
             "name": "data",
             "baseName": "data",
             "type": "AttributionResponseObjectResourceRelationshipsFlowData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "RelationshipLinks"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,22 +10,22 @@
  */
 
 import { RequestFile } from './models';
-import { NumericEnum } from './numericEnum';
+import { NumericOperatorNumericFilterValue } from './numericOperatorNumericFilterValue';
 export class NumericRangeFilter {
-    'type': NumericEnum | 'numeric';
+    'type': NumericRangeFilter.TypeEnum | 'numeric';
     /**
     * Operators for numeric range filters.
     */
     'operator': NumericRangeFilter.OperatorEnum | 'between';
-    'start': number;
-    'end': number;
+    'start': NumericOperatorNumericFilterValue;
+    'end': NumericOperatorNumericFilterValue;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "NumericEnum"
+            "type": "NumericRangeFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -35,12 +35,12 @@ export class NumericRangeFilter {
         {
             "name": "start",
             "baseName": "start",
-            "type": "number"
+            "type": "NumericOperatorNumericFilterValue"
         },
         {
             "name": "end",
             "baseName": "end",
-            "type": "number"
+            "type": "NumericOperatorNumericFilterValue"
         }    ];
 
     static getAttributeTypeMap() {
@@ -49,6 +49,9 @@ export class NumericRangeFilter {
 }
 
 export namespace NumericRangeFilter {
+    export enum TypeEnum {
+        Numeric = <any> 'numeric'
+    }
     export enum OperatorEnum {
         Between = <any> 'between'
     }

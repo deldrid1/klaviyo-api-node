@@ -10,18 +10,17 @@
  */
 
 import { RequestFile } from './models';
-import { NumericOperatorFilter } from './numericOperatorFilter';
-import { ProfileMetricEnum } from './profileMetricEnum';
+import { NumericOperatorNumericFilter } from './numericOperatorNumericFilter';
 import { ProfileMetricPropertyFilter } from './profileMetricPropertyFilter';
 import { SegmentsProfileMetricConditionTimeframeFilter } from './segmentsProfileMetricConditionTimeframeFilter';
 export class SegmentsProfileMetricCondition {
-    'type': ProfileMetricEnum | 'profile-metric';
+    'type': SegmentsProfileMetricCondition.TypeEnum | 'profile-metric';
     'metricId': string;
     /**
     * Measurements for profile metrics.
     */
     'measurement': SegmentsProfileMetricCondition.MeasurementEnum | 'count' | 'sum';
-    'measurementFilter': NumericOperatorFilter;
+    'measurementFilter': NumericOperatorNumericFilter;
     'timeframeFilter': SegmentsProfileMetricConditionTimeframeFilter;
     'metricFilters'?: Array<ProfileMetricPropertyFilter> | null;
 
@@ -30,7 +29,7 @@ export class SegmentsProfileMetricCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileMetricEnum"
+            "type": "SegmentsProfileMetricCondition.TypeEnum"
         },
         {
             "name": "metricId",
@@ -45,7 +44,7 @@ export class SegmentsProfileMetricCondition {
         {
             "name": "measurementFilter",
             "baseName": "measurement_filter",
-            "type": "NumericOperatorFilter"
+            "type": "NumericOperatorNumericFilter"
         },
         {
             "name": "timeframeFilter",
@@ -64,6 +63,9 @@ export class SegmentsProfileMetricCondition {
 }
 
 export namespace SegmentsProfileMetricCondition {
+    export enum TypeEnum {
+        ProfileMetric = <any> 'profile-metric'
+    }
     export enum MeasurementEnum {
         Count = <any> 'count',
         Sum = <any> 'sum'

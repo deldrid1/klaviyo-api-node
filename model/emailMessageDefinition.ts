@@ -11,9 +11,8 @@
 
 import { RequestFile } from './models';
 import { EmailContent } from './emailContent';
-import { EmailEnum } from './emailEnum';
 export class EmailMessageDefinition {
-    'channel': EmailEnum | 'email';
+    'channel': EmailMessageDefinition.ChannelEnum | 'email';
     /**
     * The label or name on the message
     */
@@ -25,7 +24,7 @@ export class EmailMessageDefinition {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "EmailEnum"
+            "type": "EmailMessageDefinition.ChannelEnum"
         },
         {
             "name": "label",
@@ -44,4 +43,7 @@ export class EmailMessageDefinition {
 }
 
 export namespace EmailMessageDefinition {
+    export enum ChannelEnum {
+        Email = <any> 'email'
+    }
 }

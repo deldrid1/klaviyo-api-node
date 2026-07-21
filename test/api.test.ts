@@ -159,3 +159,29 @@ describe("deserialize", () => {
     expect(deserialize.sendOptions).toBeInstanceOf(EmailSendOptions);
   });
 });
+
+describe("serializerValidateType", () => {
+  const mockType = {
+    getAttributeTypeMap: () => [
+      { name: "name", baseName: "name", type: "string" },
+      { name: "status", baseName: "status", type: "string" },
+    ],
+  };
+
+  test("returns true for an object whose properties all match the type map", () => {
+    expect(
+      ObjectSerializer.serializerValidateType({ name: "test", status: "active" }, mockType)
+    ).toBe(true);
+  });
+
+  test("returns false for an object with an unknown property", () => {
+    expect(
+      ObjectSerializer.serializerValidateType({ name: "test", unknownProp: "value" }, mockType)
+    ).toBe(false);
+  });
+
+  test("accepts a plain object without TypeScript error (issue klaviyo/klaviyo-api-node#109)", () => {
+    const data: { [key: string]: any } = { name: "test", status: "active" };
+    expect(ObjectSerializer.serializerValidateType(data, mockType)).toBe(true);
+  });
+});

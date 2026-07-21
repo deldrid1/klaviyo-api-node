@@ -12,7 +12,7 @@
 import { RequestFile } from './models';
 import { CampaignMessageEnum } from './campaignMessageEnum';
 import { CampaignMessageResponseObjectResourceAttributes } from './campaignMessageResponseObjectResourceAttributes';
-import { GetCampaignMessageResponseCompoundDocumentDataAllOfRelationships } from './getCampaignMessageResponseCompoundDocumentDataAllOfRelationships';
+import { CampaignMessageResponseObjectResourceRelationships } from './campaignMessageResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class PatchCampaignMessageResponseData {
     'type': CampaignMessageEnum | 'campaign-message';
@@ -21,7 +21,7 @@ export class PatchCampaignMessageResponseData {
     */
     'id': string;
     'attributes': CampaignMessageResponseObjectResourceAttributes;
-    'relationships'?: GetCampaignMessageResponseCompoundDocumentDataAllOfRelationships;
+    'relationships'?: CampaignMessageResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PatchCampaignMessageResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetCampaignMessageResponseCompoundDocumentDataAllOfRelationships"
+            "type": "CampaignMessageResponseObjectResourceRelationships"
         },
         {
             "name": "links",

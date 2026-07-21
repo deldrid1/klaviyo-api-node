@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { GetTagGroupRelationshipResponseData } from './getTagGroupRelationshipResponseData';
+import { ObjectLinks } from './objectLinks';
 export class GetTagGroupRelationshipResponse {
-    'data': GetTagGroupRelationshipResponseData;
+    'data': GetTagGroupRelationshipResponseData | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetTagGroupRelationshipResponse {
             "name": "data",
             "baseName": "data",
             "type": "GetTagGroupRelationshipResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

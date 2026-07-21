@@ -10,16 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { NeverSubscribedEnum } from './neverSubscribedEnum';
 export class NoSMSMarketingNeverSubscribed {
-    'subscription': NeverSubscribedEnum | 'never_subscribed';
+    'subscription': NoSMSMarketingNeverSubscribed.SubscriptionEnum | 'never_subscribed';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "subscription",
             "baseName": "subscription",
-            "type": "NeverSubscribedEnum"
+            "type": "NoSMSMarketingNeverSubscribed.SubscriptionEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +27,7 @@ export class NoSMSMarketingNeverSubscribed {
 }
 
 export namespace NoSMSMarketingNeverSubscribed {
+    export enum SubscriptionEnum {
+        NeverSubscribed = <any> 'never_subscribed'
+    }
 }

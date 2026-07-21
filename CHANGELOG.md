@@ -1,6 +1,92 @@
 # Changelog
 All notable changes to this project will be documented in this file.
 
+## [23.0.0] - revision 2026-07-15
+### Added
+  - Custom Objects API
+    - Full CRUD support across four groups of endpoints:
+      - Object Types: `createObjectType`, `getObjectType`, `getObjectTypes`, `deleteObjectType`.
+      - Object Schemas: `createObjectSchema`, `getObjectSchema`, `updateObjectSchema`, plus schema versions via `getCurrentSchemaForObjectType`, `getDraftSchemaForObjectType`, and `getSchemaVersionsForObjectType`.
+      - Source Mappings: `getSourceMapping`, `updateSourceMapping`, `getSourceMappingForObjectSchema`, and `getSourceMappingIdForObjectSchema`.
+      - Object Records: `getObjectRecord`, `getRecordsForObjectType`, `getRecordIdsForObjectType`, and `bulkDeleteObjectRecords`.
+  - Conversations API
+    - Added support for creating conversation messages with `createConversationMessage`.
+  - Client API
+    - Added `getClientIpAllowlist` to retrieve your account's client-side IP allowlist.
+  - Flows API
+    - Added `deleteFlowAction` to remove an action from a flow.
+### Changed
+  - **Breaking:** Conversations API
+    - Conversation endpoints are now plural — e.g. `getConversationForProfile` is now `getConversationsForProfile` (and `getConversationIdForProfile` is now `getConversationIdsForProfile`), as well as the relevant relationship methods and
+  parameters.
+    - Response shapes are now lists, instead of single objects.
+  - Events API
+    - Added a new `backfill` flag on `createEvent` & `bulkCreateEvents`, which records historical events without triggering flows.
+    - `getEvents` now returns events with unresolvable metrics by default, matching `getEvent`. Use the new `has(metric)` filter to exclude them.
+
+## [22.0.1] - revision 2026-04-15
+###  Fixed
+- Fixed several issues with the automatic retry behavior
+- Fixed incorrect intersection types on some fields
+- Fixed response types for Templates API
+- Fixed deserialization of fields nested under `relationships` which were previously omitted
+
+## [22.0.0] - revision 2026-04-15
+### Added
+- Conversations API
+  - Send an outbound message to a profile with Create Conversation Message. Supports SMS and WhatsApp — the channel is determined automatically from the conversation. Conversation message endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
+  - Retrieve the conversation thread for a given profile with Get Conversation for Profile, or include it inline on profile retrievals using `?include=conversation`.
+### Changed
+- Drag-and-drop templates
+  - Create drag-and-drop email templates programmaatically by setting `editor_type: SYSTEM_DRAGGABLE` and providing a `definition` body (mutually exclusive with `html`) via Create Template. DnD template endpoints use the SMALL rate limit tier (3 requests/second burst, 60 requests/minute steady).
+  - List and retrieve drag-and-drog templates with Get Templates and Get Template. Use `additional-fields[template]=definition` to include the full template definition in the response.
+  - Update an existing drag-and-drop template’s `definition`, `name`, or `text` independently via Update Template.
+
+## [21.0.1] - revision 2026-01-15
+### Added
+- Events Api
+  - Added `pageSize` parameter to the `get_events` endpoint: `EventsApi.getEvents()`.
+    - Default: 200. Min: 1. Max: 1000.
+### Fixed
+- Fixed TypeScript compile error when indexing serializer data object.
+
+## [21.0.0] - revision 2026-01-15
+### Added
+- Added a new [single data source record create endpoint](https://github.com/klaviyo/klaviyo-api-node?tab=readme-ov-file#customobjectsapi) for one-at-a-time ingestion workloads
+### Changed
+- **Breaking:** removed `anonymousId` from profile payloads
+
+## [20.0.0] - revision 2025-10-15
+### Added
+#### Flow Actions API
+- Get flow actions, flow messages, flow action IDs, and more with the [Flow Actions API](https://developers.klaviyo.com/en/reference/get_flow_action).
+- Update flow actions within a flow, including associated message content, with the [Update Flow Action](https://developers.klaviyo.com/en/reference/update_flow_action) endpoint.
+
+### Updated
+#### Forms API
+- Retrieve a form and its definition with the [Forms API](https://developers.klaviyo.com/en/reference/forms_api_overview).
+- Use the [Create Form](https://developers.klaviyo.com/en/reference/create_form) endpoint to generate a new form by providing the status, A/B test preference, and name of the form.
+
+## [19.0.2] - revision 2025-07-15
+### Fixed
+- Fixed types used in flow creation
+
+## [19.0.1] - revision 2025-07-15
+### Fixed
+- Fixed issue with segments deserialization
+
+## [19.0.0] - revision 2025-07-15
+### Added
+#### Mapped Metrics API
+
+- Use the [Mapped Metrics API](https://developers.klaviyo.com/en/reference/get_mapped_metrics) to retrieve some or all mapped metrics in your Klaviyo account, or [update](https://developers.klaviyo.com/en/reference/update_mapped_metric) a mapped metric.
+- Get the [metric](https://developers.klaviyo.com/en/reference/get_metric_for_mapped_metric), [custom metric](https://developers.klaviyo.com/en/reference/get_custom_metric_for_mapped_metric), or associated metric IDs for a given mapped metric.
+
+#### Custom Objects API
+
+- Use the [Custom Objects API](https://developers.klaviyo.com/en/reference/custom_objects_api_overview) to ingest data records from other third-party sources into Klaviyo and retrieve all available data sources for an account.
+- Use ingested data records to create [custom objects](https://help.klaviyo.com/hc/en-us/articles/35105337172123) in a Klaviyo account.
+
 ## [18.0.0] - revision 2025-04-15
 ### Added
 #### Web Feeds API

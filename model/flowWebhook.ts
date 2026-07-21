@@ -12,9 +12,12 @@
 import { RequestFile } from './models';
 export class FlowWebhook {
     'url': string | null;
-    'headers'?: object;
+    'headers'?: object | null;
     'body'?: string | null;
     'name'?: string | null;
+    /**
+    * Not allowed on create.
+    */
     'id'?: string | null;
 
 

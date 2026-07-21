@@ -10,12 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { FlowPushNotificationAdditionalFilters } from './flowPushNotificationAdditionalFilters';
+import { ConditionalBranchActionDataProfileFilter } from './conditionalBranchActionDataProfileFilter';
+import { FlowPushNotificationBadgeOptions } from './flowPushNotificationBadgeOptions';
+import { PushActionButton } from './pushActionButton';
 export class FlowPushNotification {
     'title'?: string | null;
     'body': string;
     'sound'?: boolean = false;
     'badge'?: boolean = false;
+    'badgeOptions'?: FlowPushNotificationBadgeOptions;
     /**
     * The id of an ImageAsset. If provided, this will take precedence over a dynamic_image.
     */
@@ -25,15 +28,29 @@ export class FlowPushNotification {
     */
     'dynamicImage'?: string | null;
     /**
-    * See PushLinkAction in app.  This is not a flow action, but the literal action that should be taken when the push notification is tapped.
+    * The ULID of a video asset. If provided, videos and images are mutually exclusive.
     */
-    'onOpen'?: FlowPushNotification.OnOpenEnum | 'home' | 'link' = FlowPushNotification.OnOpenEnum.Home;
+    'videoAssetId'?: string | null;
+    /**
+    * See PushLinkAction in app.  This is not a flow action, but the literal action that should be     taken when the push notification is tapped.
+    */
+    'onOpen'?: FlowPushNotification.OnOpenEnum | 'home' | 'link' | 'open_url' = FlowPushNotification.OnOpenEnum.Home;
     'iosLink'?: string | null;
     'androidLink'?: string | null;
+    'webUrl'?: string | null;
+    /**
+    * The type of push notification to send.
+    */
+    'pushType'?: FlowPushNotification.PushTypeEnum | 'silent' | 'standard' | null;
+    'kvPairs'?: object | null;
     'conversionMetricId'?: string | null;
     'smartSendingEnabled'?: boolean = true;
-    'additionalFilters'?: FlowPushNotificationAdditionalFilters | null;
+    'additionalFilters'?: ConditionalBranchActionDataProfileFilter | null;
+    'actionButtons'?: Array<PushActionButton> | null;
     'name'?: string | null;
+    /**
+    * Not allowed on create.
+    */
     'id'?: string | null;
 
 
@@ -59,6 +76,11 @@ export class FlowPushNotification {
             "type": "boolean"
         },
         {
+            "name": "badgeOptions",
+            "baseName": "badge_options",
+            "type": "FlowPushNotificationBadgeOptions"
+        },
+        {
             "name": "imageId",
             "baseName": "image_id",
             "type": "string"
@@ -66,6 +88,11 @@ export class FlowPushNotification {
         {
             "name": "dynamicImage",
             "baseName": "dynamic_image",
+            "type": "string"
+        },
+        {
+            "name": "videoAssetId",
+            "baseName": "video_asset_id",
             "type": "string"
         },
         {
@@ -84,6 +111,21 @@ export class FlowPushNotification {
             "type": "string"
         },
         {
+            "name": "webUrl",
+            "baseName": "web_url",
+            "type": "string"
+        },
+        {
+            "name": "pushType",
+            "baseName": "push_type",
+            "type": "FlowPushNotification.PushTypeEnum"
+        },
+        {
+            "name": "kvPairs",
+            "baseName": "kv_pairs",
+            "type": "object"
+        },
+        {
             "name": "conversionMetricId",
             "baseName": "conversion_metric_id",
             "type": "string"
@@ -96,7 +138,12 @@ export class FlowPushNotification {
         {
             "name": "additionalFilters",
             "baseName": "additional_filters",
-            "type": "FlowPushNotificationAdditionalFilters"
+            "type": "ConditionalBranchActionDataProfileFilter"
+        },
+        {
+            "name": "actionButtons",
+            "baseName": "action_buttons",
+            "type": "Array<PushActionButton>"
         },
         {
             "name": "name",
@@ -117,6 +164,11 @@ export class FlowPushNotification {
 export namespace FlowPushNotification {
     export enum OnOpenEnum {
         Home = <any> 'home',
-        Link = <any> 'link'
+        Link = <any> 'link',
+        OpenUrl = <any> 'open_url'
+    }
+    export enum PushTypeEnum {
+        Silent = <any> 'silent',
+        Standard = <any> 'standard'
     }
 }

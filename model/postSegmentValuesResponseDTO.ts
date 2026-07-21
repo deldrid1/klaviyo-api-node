@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostSegmentValuesResponseDTOData } from './postSegmentValuesResponseDTOData';
 export class PostSegmentValuesResponseDTO {
     'data': PostSegmentValuesResponseDTOData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PostSegmentValuesResponseDTO {
             "name": "data",
             "baseName": "data",
             "type": "PostSegmentValuesResponseDTOData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

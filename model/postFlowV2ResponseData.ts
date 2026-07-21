@@ -11,14 +11,14 @@
 
 import { RequestFile } from './models';
 import { FlowEnum } from './flowEnum';
-import { GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationships } from './getFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationships';
+import { FlowResponseObjectResourceRelationships } from './flowResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 import { PostFlowV2ResponseDataAttributes } from './postFlowV2ResponseDataAttributes';
 export class PostFlowV2ResponseData {
     'type': FlowEnum | 'flow';
     'id': string;
     'attributes': PostFlowV2ResponseDataAttributes;
-    'relationships'?: GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationships;
+    'relationships'?: FlowResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -41,7 +41,7 @@ export class PostFlowV2ResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetFlowResponseCollectionCompoundDocumentDataInnerAllOfRelationships"
+            "type": "FlowResponseObjectResourceRelationships"
         },
         {
             "name": "links",

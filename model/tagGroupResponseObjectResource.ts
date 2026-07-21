@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { TagGroupEnum } from './tagGroupEnum';
 import { TagGroupResponseObjectResourceAttributes } from './tagGroupResponseObjectResourceAttributes';
+import { TagGroupResponseObjectResourceRelationships } from './tagGroupResponseObjectResourceRelationships';
 export class TagGroupResponseObjectResource {
     'type': TagGroupEnum | 'tag-group';
     /**
@@ -20,6 +21,7 @@ export class TagGroupResponseObjectResource {
     */
     'id': string;
     'attributes': TagGroupResponseObjectResourceAttributes;
+    'relationships'?: TagGroupResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class TagGroupResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "TagGroupResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "TagGroupResponseObjectResourceRelationships"
         },
         {
             "name": "links",

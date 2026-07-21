@@ -10,11 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { EmailEnum } from './emailEnum';
 import { HasEmailMarketingConsentConsentStatus } from './hasEmailMarketingConsentConsentStatus';
 export class HasEmailMarketingConsent {
-    'channel': EmailEnum | 'email';
-    'canReceiveMarketing': HasEmailMarketingConsent.CanReceiveMarketingEnum | true;
+    'channel': HasEmailMarketingConsent.ChannelEnum | 'email';
+    'canReceiveMarketing': boolean;
     'consentStatus': HasEmailMarketingConsentConsentStatus;
 
 
@@ -22,12 +21,12 @@ export class HasEmailMarketingConsent {
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "EmailEnum"
+            "type": "HasEmailMarketingConsent.ChannelEnum"
         },
         {
             "name": "canReceiveMarketing",
             "baseName": "can_receive_marketing",
-            "type": "HasEmailMarketingConsent.CanReceiveMarketingEnum"
+            "type": "boolean"
         },
         {
             "name": "consentStatus",
@@ -41,7 +40,7 @@ export class HasEmailMarketingConsent {
 }
 
 export namespace HasEmailMarketingConsent {
-    export enum CanReceiveMarketingEnum {
-        True = <any> true
+    export enum ChannelEnum {
+        Email = <any> 'email'
     }
 }

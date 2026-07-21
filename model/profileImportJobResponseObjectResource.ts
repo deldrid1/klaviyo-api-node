@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { ProfileBulkImportJobEnum } from './profileBulkImportJobEnum';
 import { ProfileImportJobResponseObjectResourceAttributes } from './profileImportJobResponseObjectResourceAttributes';
+import { ProfileImportJobResponseObjectResourceRelationships } from './profileImportJobResponseObjectResourceRelationships';
 export class ProfileImportJobResponseObjectResource {
     'type': ProfileBulkImportJobEnum | 'profile-bulk-import-job';
     /**
@@ -20,6 +21,7 @@ export class ProfileImportJobResponseObjectResource {
     */
     'id': string;
     'attributes': ProfileImportJobResponseObjectResourceAttributes;
+    'relationships'?: ProfileImportJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class ProfileImportJobResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "ProfileImportJobResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "ProfileImportJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

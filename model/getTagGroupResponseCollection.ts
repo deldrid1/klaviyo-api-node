@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetTagGroupResponseCollectionDataInner } from './getTagGroupResponseCollectionDataInner';
+import { TagGroupResponseObjectResource } from './tagGroupResponseObjectResource';
 export class GetTagGroupResponseCollection {
-    'data': Array<GetTagGroupResponseCollectionDataInner>;
+    'data': Array<TagGroupResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetTagGroupResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetTagGroupResponseCollectionDataInner>"
+            "type": "Array<TagGroupResponseObjectResource>"
         },
         {
             "name": "links",

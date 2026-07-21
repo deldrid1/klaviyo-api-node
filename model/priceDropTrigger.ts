@@ -10,12 +10,12 @@
  */
 
 import { RequestFile } from './models';
-import { PriceDropConditionFilter } from './priceDropConditionFilter';
-import { PriceDropEnum } from './priceDropEnum';
+import { NumericOperatorNumericFilterValue } from './numericOperatorNumericFilterValue';
+import { PriceDropTriggerTriggerFilter } from './priceDropTriggerTriggerFilter';
 export class PriceDropTrigger {
-    'type': PriceDropEnum | 'price-drop';
-    'triggerFilter': PriceDropConditionFilter;
-    'priceDropAmountValue': number;
+    'type': PriceDropTrigger.TypeEnum | 'price-drop';
+    'triggerFilter': PriceDropTriggerTriggerFilter | null;
+    'priceDropAmountValue': NumericOperatorNumericFilterValue;
     /**
     * Price Drop amount type.
     */
@@ -32,17 +32,17 @@ export class PriceDropTrigger {
         {
             "name": "type",
             "baseName": "type",
-            "type": "PriceDropEnum"
+            "type": "PriceDropTrigger.TypeEnum"
         },
         {
             "name": "triggerFilter",
             "baseName": "trigger_filter",
-            "type": "PriceDropConditionFilter"
+            "type": "PriceDropTriggerTriggerFilter"
         },
         {
             "name": "priceDropAmountValue",
             "baseName": "price_drop_amount_value",
-            "type": "number"
+            "type": "NumericOperatorNumericFilterValue"
         },
         {
             "name": "priceDropAmountUnit",
@@ -71,6 +71,9 @@ export class PriceDropTrigger {
 }
 
 export namespace PriceDropTrigger {
+    export enum TypeEnum {
+        PriceDrop = <any> 'price-drop'
+    }
     export enum PriceDropAmountUnitEnum {
         Currency = <any> 'currency',
         Percent = <any> 'percent'

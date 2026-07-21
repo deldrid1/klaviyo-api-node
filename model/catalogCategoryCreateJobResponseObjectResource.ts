@@ -11,6 +11,7 @@
 
 import { RequestFile } from './models';
 import { CatalogCategoryBulkCreateJobEnum } from './catalogCategoryBulkCreateJobEnum';
+import { CatalogCategoryCreateJobResponseObjectResourceRelationships } from './catalogCategoryCreateJobResponseObjectResourceRelationships';
 import { CouponCodeCreateJobResponseObjectResourceAttributes } from './couponCodeCreateJobResponseObjectResourceAttributes';
 import { ObjectLinks } from './objectLinks';
 export class CatalogCategoryCreateJobResponseObjectResource {
@@ -20,6 +21,7 @@ export class CatalogCategoryCreateJobResponseObjectResource {
     */
     'id': string;
     'attributes': CouponCodeCreateJobResponseObjectResourceAttributes;
+    'relationships'?: CatalogCategoryCreateJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class CatalogCategoryCreateJobResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "CouponCodeCreateJobResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "CatalogCategoryCreateJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

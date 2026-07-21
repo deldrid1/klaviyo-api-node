@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { ImageResponseObjectResource } from './imageResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetImageResponse {
     'data': ImageResponseObjectResource;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetImageResponse {
             "name": "data",
             "baseName": "data",
             "type": "ImageResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ListEnum } from './listEnum';
 export class ListSubstringFilter {
-    'type': ListEnum | 'list';
+    'type': ListSubstringFilter.TypeEnum | 'list';
     /**
     * Operators for list substring filters.
     */
@@ -24,7 +23,7 @@ export class ListSubstringFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ListEnum"
+            "type": "ListSubstringFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -43,6 +42,9 @@ export class ListSubstringFilter {
 }
 
 export namespace ListSubstringFilter {
+    export enum TypeEnum {
+        List = <any> 'list'
+    }
     export enum OperatorEnum {
         ContainsSubstring = <any> 'contains-substring',
         NotContainsSubstring = <any> 'not-contains-substring'

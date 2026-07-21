@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostWebFeedResponseData } from './postWebFeedResponseData';
 export class PatchWebFeedResponse {
     'data': PostWebFeedResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PatchWebFeedResponse {
             "name": "data",
             "baseName": "data",
             "type": "PostWebFeedResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

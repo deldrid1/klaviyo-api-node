@@ -10,16 +10,16 @@
  */
 
 import { RequestFile } from './models';
-import { GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData } from './getCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData';
+import { CouponCodeResponseObjectResourceRelationshipsCouponData } from './couponCodeResponseObjectResourceRelationshipsCouponData';
 export class CouponCodeCreateQueryResourceObjectRelationshipsCoupon {
-    'data'?: GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData;
+    'data'?: CouponCodeResponseObjectResourceRelationshipsCouponData;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCouponCodeResponseCollectionCompoundDocumentDataInnerAllOfRelationshipsCouponData"
+            "type": "CouponCodeResponseObjectResourceRelationshipsCouponData"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { FakeEnum } from './fakeEnum';
 export class RejectReasonFake {
-    'reason': FakeEnum | 'fake';
+    /**
+    * rejected due to fake content
+    */
+    'reason': RejectReasonFake.ReasonEnum | 'fake';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "FakeEnum"
+            "type": "RejectReasonFake.ReasonEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class RejectReasonFake {
 }
 
 export namespace RejectReasonFake {
+    export enum ReasonEnum {
+        Fake = <any> 'fake'
+    }
 }

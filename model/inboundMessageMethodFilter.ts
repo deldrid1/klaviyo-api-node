@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { InboundMessageEnum } from './inboundMessageEnum';
-import { MethodEnum } from './methodEnum';
 export class InboundMessageMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': InboundMessageEnum | 'inbound_message';
+    'field': InboundMessageMethodFilter.FieldEnum | 'method';
+    'method': InboundMessageMethodFilter.MethodEnum | 'inbound_message';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "InboundMessageMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "InboundMessageEnum"
+            "type": "InboundMessageMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class InboundMessageMethodFilter {
 }
 
 export namespace InboundMessageMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        InboundMessage = <any> 'inbound_message'
+    }
 }

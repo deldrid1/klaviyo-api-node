@@ -10,20 +10,20 @@
  */
 
 import { RequestFile } from './models';
-import { InternalServiceEnum } from './internalServiceEnum';
+import { InternalServiceActionData } from './internalServiceActionData';
 import { Link } from './link';
 export class InternalServiceAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': InternalServiceEnum | 'internal-service';
+    'type': InternalServiceAction.TypeEnum | 'internal-service';
     'links'?: Link;
-    'data'?: any | null;
+    'data'?: InternalServiceActionData;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -40,7 +40,7 @@ export class InternalServiceAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "InternalServiceEnum"
+            "type": "InternalServiceAction.TypeEnum"
         },
         {
             "name": "links",
@@ -50,7 +50,7 @@ export class InternalServiceAction {
         {
             "name": "data",
             "baseName": "data",
-            "type": "any"
+            "type": "InternalServiceActionData"
         }    ];
 
     static getAttributeTypeMap() {
@@ -59,4 +59,7 @@ export class InternalServiceAction {
 }
 
 export namespace InternalServiceAction {
+    export enum TypeEnum {
+        InternalService = <any> 'internal-service'
+    }
 }

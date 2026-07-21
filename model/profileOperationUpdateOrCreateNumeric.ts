@@ -10,15 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { NumericEnum } from './numericEnum';
+import { NumericOperatorNumericFilterValue } from './numericOperatorNumericFilterValue';
 export class ProfileOperationUpdateOrCreateNumeric {
     /**
     * The type of operation to perform on a profile property.
     */
     'operator': ProfileOperationUpdateOrCreateNumeric.OperatorEnum | 'create' | 'update';
-    'propertyType': NumericEnum | 'numeric';
+    'propertyType': ProfileOperationUpdateOrCreateNumeric.PropertyTypeEnum | 'numeric';
     'propertyKey': string;
-    'propertyValue': number;
+    'propertyValue': NumericOperatorNumericFilterValue;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -30,7 +30,7 @@ export class ProfileOperationUpdateOrCreateNumeric {
         {
             "name": "propertyType",
             "baseName": "property_type",
-            "type": "NumericEnum"
+            "type": "ProfileOperationUpdateOrCreateNumeric.PropertyTypeEnum"
         },
         {
             "name": "propertyKey",
@@ -40,7 +40,7 @@ export class ProfileOperationUpdateOrCreateNumeric {
         {
             "name": "propertyValue",
             "baseName": "property_value",
-            "type": "number"
+            "type": "NumericOperatorNumericFilterValue"
         }    ];
 
     static getAttributeTypeMap() {
@@ -52,5 +52,8 @@ export namespace ProfileOperationUpdateOrCreateNumeric {
     export enum OperatorEnum {
         Create = <any> 'create',
         Update = <any> 'update'
+    }
+    export enum PropertyTypeEnum {
+        Numeric = <any> 'numeric'
     }
 }

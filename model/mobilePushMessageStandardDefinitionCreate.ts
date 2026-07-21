@@ -11,25 +11,26 @@
 
 import { RequestFile } from './models';
 import { MobilePushContentCreate } from './mobilePushContentCreate';
-import { MobilePushEnum } from './mobilePushEnum';
 import { MobilePushOptions } from './mobilePushOptions';
-import { StandardEnum } from './standardEnum';
 export class MobilePushMessageStandardDefinitionCreate {
-    'channel': MobilePushEnum | 'mobile_push';
+    'channel': MobilePushMessageStandardDefinitionCreate.ChannelEnum | 'mobile_push';
     'content': MobilePushContentCreate;
     /**
     * The key-value pairs to be sent with the push notification
     */
     'kvPairs'?: object | null;
     'options'?: MobilePushOptions;
-    'notificationType'?: StandardEnum | 'standard';
+    /**
+    * The type of notification to send
+    */
+    'notificationType'?: MobilePushMessageStandardDefinitionCreate.NotificationTypeEnum | 'standard' = MobilePushMessageStandardDefinitionCreate.NotificationTypeEnum.Standard;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "channel",
             "baseName": "channel",
-            "type": "MobilePushEnum"
+            "type": "MobilePushMessageStandardDefinitionCreate.ChannelEnum"
         },
         {
             "name": "content",
@@ -49,7 +50,7 @@ export class MobilePushMessageStandardDefinitionCreate {
         {
             "name": "notificationType",
             "baseName": "notification_type",
-            "type": "StandardEnum"
+            "type": "MobilePushMessageStandardDefinitionCreate.NotificationTypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -58,4 +59,10 @@ export class MobilePushMessageStandardDefinitionCreate {
 }
 
 export namespace MobilePushMessageStandardDefinitionCreate {
+    export enum ChannelEnum {
+        MobilePush = <any> 'mobile_push'
+    }
+    export enum NotificationTypeEnum {
+        Standard = <any> 'standard'
+    }
 }

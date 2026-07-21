@@ -10,12 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { FormEnum } from './formEnum';
 import { InStringArrayFilter } from './inStringArrayFilter';
-import { MethodEnum } from './methodEnum';
 export class FormMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': FormEnum | 'form';
+    'field': FormMethodFilter.FieldEnum | 'method';
+    'method': FormMethodFilter.MethodEnum | 'form';
     'filter'?: InStringArrayFilter;
 
 
@@ -23,12 +21,12 @@ export class FormMethodFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "FormMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "FormEnum"
+            "type": "FormMethodFilter.MethodEnum"
         },
         {
             "name": "filter",
@@ -42,4 +40,10 @@ export class FormMethodFilter {
 }
 
 export namespace FormMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        Form = <any> 'form'
+    }
 }

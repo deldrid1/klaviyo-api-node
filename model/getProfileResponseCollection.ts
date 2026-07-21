@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetProfileResponseData } from './getProfileResponseData';
+import { ProfileResponseObjectResourceExtended } from './profileResponseObjectResourceExtended';
 export class GetProfileResponseCollection {
-    'data': Array<GetProfileResponseData>;
+    'data': Array<ProfileResponseObjectResourceExtended>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetProfileResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetProfileResponseData>"
+            "type": "Array<ProfileResponseObjectResourceExtended>"
         },
         {
             "name": "links",

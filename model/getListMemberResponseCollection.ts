@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetListMemberResponseCollectionDataInner } from './getListMemberResponseCollectionDataInner';
+import { ListMemberResponseObjectResourceExtended } from './listMemberResponseObjectResourceExtended';
 export class GetListMemberResponseCollection {
-    'data': Array<GetListMemberResponseCollectionDataInner>;
+    'data': Array<ListMemberResponseObjectResourceExtended>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetListMemberResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetListMemberResponseCollectionDataInner>"
+            "type": "Array<ListMemberResponseObjectResourceExtended>"
         },
         {
             "name": "links",

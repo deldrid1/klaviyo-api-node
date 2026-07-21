@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetProfileResponseData } from './getProfileResponseData';
+import { ObjectLinks } from './objectLinks';
+import { ProfileResponseObjectResourceExtended } from './profileResponseObjectResourceExtended';
 export class GetProfileResponse {
-    'data': GetProfileResponseData;
+    'data': ProfileResponseObjectResourceExtended;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetProfileResponseData"
+            "type": "ProfileResponseObjectResourceExtended"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

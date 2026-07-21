@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostSegmentCreateResponseData } from './postSegmentCreateResponseData';
 export class PatchSegmentPartialUpdateResponse {
     'data': PostSegmentCreateResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PatchSegmentPartialUpdateResponse {
             "name": "data",
             "baseName": "data",
             "type": "PostSegmentCreateResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

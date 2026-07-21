@@ -10,19 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { MetricEnum } from './metricEnum';
-import { MetricPropertyConditionFilter } from './metricPropertyConditionFilter';
+import { MetricTriggerTriggerFilter } from './metricTriggerTriggerFilter';
 export class MetricTrigger {
-    'type': MetricEnum | 'metric';
+    'type': MetricTrigger.TypeEnum | 'metric';
     'id'?: string | null;
-    'triggerFilter'?: MetricPropertyConditionFilter;
+    'triggerFilter'?: MetricTriggerTriggerFilter | null;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "MetricEnum"
+            "type": "MetricTrigger.TypeEnum"
         },
         {
             "name": "id",
@@ -32,7 +31,7 @@ export class MetricTrigger {
         {
             "name": "triggerFilter",
             "baseName": "trigger_filter",
-            "type": "MetricPropertyConditionFilter"
+            "type": "MetricTriggerTriggerFilter"
         }    ];
 
     static getAttributeTypeMap() {
@@ -41,4 +40,7 @@ export class MetricTrigger {
 }
 
 export namespace MetricTrigger {
+    export enum TypeEnum {
+        Metric = <any> 'metric'
+    }
 }

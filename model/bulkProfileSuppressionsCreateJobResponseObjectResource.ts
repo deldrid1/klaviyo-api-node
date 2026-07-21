@@ -11,6 +11,7 @@
 
 import { RequestFile } from './models';
 import { BulkProfileSuppressionsCreateJobResponseObjectResourceAttributes } from './bulkProfileSuppressionsCreateJobResponseObjectResourceAttributes';
+import { BulkProfileSuppressionsCreateJobResponseObjectResourceRelationships } from './bulkProfileSuppressionsCreateJobResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 import { ProfileSuppressionBulkCreateJobEnum } from './profileSuppressionBulkCreateJobEnum';
 export class BulkProfileSuppressionsCreateJobResponseObjectResource {
@@ -20,6 +21,7 @@ export class BulkProfileSuppressionsCreateJobResponseObjectResource {
     */
     'id': string;
     'attributes': BulkProfileSuppressionsCreateJobResponseObjectResourceAttributes;
+    'relationships'?: BulkProfileSuppressionsCreateJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class BulkProfileSuppressionsCreateJobResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "BulkProfileSuppressionsCreateJobResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "BulkProfileSuppressionsCreateJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

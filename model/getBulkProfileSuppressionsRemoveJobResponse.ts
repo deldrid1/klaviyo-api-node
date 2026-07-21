@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetBulkProfileSuppressionsRemoveJobResponseCollectionDataInner } from './getBulkProfileSuppressionsRemoveJobResponseCollectionDataInner';
+import { BulkProfileSuppressionsRemoveJobResponseObjectResource } from './bulkProfileSuppressionsRemoveJobResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetBulkProfileSuppressionsRemoveJobResponse {
-    'data': GetBulkProfileSuppressionsRemoveJobResponseCollectionDataInner;
+    'data': BulkProfileSuppressionsRemoveJobResponseObjectResource;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetBulkProfileSuppressionsRemoveJobResponseCollectionDataInner"
+            "type": "BulkProfileSuppressionsRemoveJobResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { SmartSendTimeEnum } from './smartSendTimeEnum';
 export class SmartSendTimeStrategy {
-    'method': SmartSendTimeEnum | 'smart_send_time';
+    'method': SmartSendTimeStrategy.MethodEnum | 'smart_send_time';
     /**
     * The day to send on
     */
@@ -23,7 +22,7 @@ export class SmartSendTimeStrategy {
         {
             "name": "method",
             "baseName": "method",
-            "type": "SmartSendTimeEnum"
+            "type": "SmartSendTimeStrategy.MethodEnum"
         },
         {
             "name": "date",
@@ -37,4 +36,7 @@ export class SmartSendTimeStrategy {
 }
 
 export namespace SmartSendTimeStrategy {
+    export enum MethodEnum {
+        SmartSendTime = <any> 'smart_send_time'
+    }
 }

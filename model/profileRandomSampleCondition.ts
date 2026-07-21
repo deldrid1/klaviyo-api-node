@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { ProfileSampleEnum } from './profileSampleEnum';
 export class ProfileRandomSampleCondition {
-    'type': ProfileSampleEnum | 'profile-sample';
+    'type': ProfileRandomSampleCondition.TypeEnum | 'profile-sample';
     'percentage': number;
 
 
@@ -20,7 +19,7 @@ export class ProfileRandomSampleCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "ProfileSampleEnum"
+            "type": "ProfileRandomSampleCondition.TypeEnum"
         },
         {
             "name": "percentage",
@@ -34,4 +33,7 @@ export class ProfileRandomSampleCondition {
 }
 
 export namespace ProfileRandomSampleCondition {
+    export enum TypeEnum {
+        ProfileSample = <any> 'profile-sample'
+    }
 }

@@ -11,10 +11,10 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetPushTokenResponseCollectionCompoundDocumentDataInner } from './getPushTokenResponseCollectionCompoundDocumentDataInner';
 import { ProfileResponseObjectResource } from './profileResponseObjectResource';
+import { PushTokenResponseObjectResource } from './pushTokenResponseObjectResource';
 export class GetPushTokenResponseCollectionCompoundDocument {
-    'data': Array<GetPushTokenResponseCollectionCompoundDocumentDataInner>;
+    'data': Array<PushTokenResponseObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<ProfileResponseObjectResource>;
 
@@ -23,7 +23,7 @@ export class GetPushTokenResponseCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetPushTokenResponseCollectionCompoundDocumentDataInner>"
+            "type": "Array<PushTokenResponseObjectResource>"
         },
         {
             "name": "links",

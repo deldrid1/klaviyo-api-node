@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { GetCouponCodeCouponRelationshipResponseData } from './getCouponCodeCouponRelationshipResponseData';
+import { ObjectLinks } from './objectLinks';
 export class GetCouponCodeCouponRelationshipResponse {
-    'data': GetCouponCodeCouponRelationshipResponseData;
+    'data': GetCouponCodeCouponRelationshipResponseData | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetCouponCodeCouponRelationshipResponse {
             "name": "data",
             "baseName": "data",
             "type": "GetCouponCodeCouponRelationshipResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

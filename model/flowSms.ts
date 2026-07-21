@@ -10,7 +10,7 @@
  */
 
 import { RequestFile } from './models';
-import { FlowSmsAdditionalFilters } from './flowSmsAdditionalFilters';
+import { ConditionalBranchActionDataProfileFilter } from './conditionalBranchActionDataProfileFilter';
 import { UtmParam } from './utmParam';
 export class FlowSms {
     'body': string;
@@ -22,6 +22,10 @@ export class FlowSms {
     * A dynamic image asset to include in the SMS message.
     */
     'dynamicImage'?: string | null;
+    /**
+    * The RCS/SMS message hierarchy (fallback chain). Each item contains a message_format (\'RCS\' or \'SMS\'), message body, and optional rich content.
+    */
+    'messageHierarchy'?: Array<object> | null;
     'shortenLinks'?: boolean = true;
     'includeContactCard'?: boolean = false;
     'addOrgPrefix'?: boolean = true;
@@ -32,8 +36,12 @@ export class FlowSms {
     'transactional'?: boolean = false;
     'addTrackingParams'?: boolean = false;
     'customTrackingParams'?: Array<UtmParam> | null;
-    'additionalFilters'?: FlowSmsAdditionalFilters | null;
+    'templateId'?: string | null;
+    'additionalFilters'?: ConditionalBranchActionDataProfileFilter | null;
     'name'?: string | null;
+    /**
+    * Not allowed on create.
+    */
     'id'?: string | null;
 
 
@@ -52,6 +60,11 @@ export class FlowSms {
             "name": "dynamicImage",
             "baseName": "dynamic_image",
             "type": "string"
+        },
+        {
+            "name": "messageHierarchy",
+            "baseName": "message_hierarchy",
+            "type": "Array<object>"
         },
         {
             "name": "shortenLinks",
@@ -104,9 +117,14 @@ export class FlowSms {
             "type": "Array<UtmParam>"
         },
         {
+            "name": "templateId",
+            "baseName": "template_id",
+            "type": "string"
+        },
+        {
             "name": "additionalFilters",
             "baseName": "additional_filters",
-            "type": "FlowSmsAdditionalFilters"
+            "type": "ConditionalBranchActionDataProfileFilter"
         },
         {
             "name": "name",

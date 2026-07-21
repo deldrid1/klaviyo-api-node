@@ -11,8 +11,8 @@
 
 import { RequestFile } from './models';
 import { CatalogItemBulkCreateJobEnum } from './catalogItemBulkCreateJobEnum';
+import { CatalogItemCreateJobResponseObjectResourceRelationships } from './catalogItemCreateJobResponseObjectResourceRelationships';
 import { CouponCodeCreateJobResponseObjectResourceAttributes } from './couponCodeCreateJobResponseObjectResourceAttributes';
-import { GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships } from './getCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships';
 import { ObjectLinks } from './objectLinks';
 export class PostCatalogItemCreateJobResponseData {
     'type': CatalogItemBulkCreateJobEnum | 'catalog-item-bulk-create-job';
@@ -21,7 +21,7 @@ export class PostCatalogItemCreateJobResponseData {
     */
     'id': string;
     'attributes': CouponCodeCreateJobResponseObjectResourceAttributes;
-    'relationships'?: GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships;
+    'relationships'?: CatalogItemCreateJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCatalogItemCreateJobResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetCatalogItemCreateJobResponseCollectionCompoundDocumentDataInnerAllOfRelationships"
+            "type": "CatalogItemCreateJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

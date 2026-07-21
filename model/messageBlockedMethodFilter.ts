@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MessageBlockedEnum } from './messageBlockedEnum';
-import { MethodEnum } from './methodEnum';
 export class MessageBlockedMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': MessageBlockedEnum | 'message_blocked';
+    'field': MessageBlockedMethodFilter.FieldEnum | 'method';
+    'method': MessageBlockedMethodFilter.MethodEnum | 'message_blocked';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "MessageBlockedMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "MessageBlockedEnum"
+            "type": "MessageBlockedMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class MessageBlockedMethodFilter {
 }
 
 export namespace MessageBlockedMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        MessageBlocked = <any> 'message_blocked'
+    }
 }

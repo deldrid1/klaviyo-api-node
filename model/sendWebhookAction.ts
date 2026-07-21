@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { SendWebhookActionData } from './sendWebhookActionData';
-import { SendWebhookEnum } from './sendWebhookEnum';
 export class SendWebhookAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': SendWebhookEnum | 'send-webhook';
+    'type': SendWebhookAction.TypeEnum | 'send-webhook';
     'links'?: Link;
     'data'?: SendWebhookActionData;
 
@@ -41,7 +40,7 @@ export class SendWebhookAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "SendWebhookEnum"
+            "type": "SendWebhookAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class SendWebhookAction {
 }
 
 export namespace SendWebhookAction {
+    export enum TypeEnum {
+        SendWebhook = <any> 'send-webhook'
+    }
 }

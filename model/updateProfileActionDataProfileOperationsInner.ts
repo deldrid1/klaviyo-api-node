@@ -10,7 +10,6 @@
  */
 
 import { RequestFile } from './models';
-import { ListEnum } from './listEnum';
 import { ProfileOperationDelete } from './profileOperationDelete';
 import { ProfileOperationUpdateOrCreateBoolean } from './profileOperationUpdateOrCreateBoolean';
 import { ProfileOperationUpdateOrCreateDate } from './profileOperationUpdateOrCreateDate';

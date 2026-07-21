@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { GetEventProfileRelationshipResponseData } from './getEventProfileRelationshipResponseData';
+import { ObjectLinks } from './objectLinks';
 export class GetPushTokenProfileRelationshipResponse {
-    'data': GetEventProfileRelationshipResponseData;
+    'data': GetEventProfileRelationshipResponseData | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetPushTokenProfileRelationshipResponse {
             "name": "data",
             "baseName": "data",
             "type": "GetEventProfileRelationshipResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

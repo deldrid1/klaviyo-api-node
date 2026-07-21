@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { GetFormVersionFormRelationshipResponseData } from './getFormVersionFormRelationshipResponseData';
+import { ObjectLinks } from './objectLinks';
 export class GetFormVersionFormRelationshipResponse {
-    'data': GetFormVersionFormRelationshipResponseData;
+    'data': GetFormVersionFormRelationshipResponseData | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetFormVersionFormRelationshipResponse {
             "name": "data",
             "baseName": "data",
             "type": "GetFormVersionFormRelationshipResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

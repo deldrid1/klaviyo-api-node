@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner } from './getProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner';
+import { CollectionLinks } from './collectionLinks';
+import { ProfileResponseObjectResourceRelationshipsSegmentsDataInner } from './profileResponseObjectResourceRelationshipsSegmentsDataInner';
 export class GetProfileSegmentsRelationshipsResponseCollection {
-    'data': Array<GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner>;
+    'data': Array<ProfileResponseObjectResourceRelationshipsSegmentsDataInner>;
+    'links'?: CollectionLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetProfileResponseCompoundDocumentDataAllOfRelationshipsSegmentsDataInner>"
+            "type": "Array<ProfileResponseObjectResourceRelationshipsSegmentsDataInner>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "CollectionLinks"
         }    ];
 
     static getAttributeTypeMap() {

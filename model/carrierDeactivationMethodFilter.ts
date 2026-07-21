@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { CarrierDeactivationEnum } from './carrierDeactivationEnum';
-import { MethodEnum } from './methodEnum';
 export class CarrierDeactivationMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': CarrierDeactivationEnum | 'carrier_deactivation';
+    'field': CarrierDeactivationMethodFilter.FieldEnum | 'method';
+    'method': CarrierDeactivationMethodFilter.MethodEnum | 'carrier_deactivation';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "CarrierDeactivationMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "CarrierDeactivationEnum"
+            "type": "CarrierDeactivationMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class CarrierDeactivationMethodFilter {
 }
 
 export namespace CarrierDeactivationMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        CarrierDeactivation = <any> 'carrier_deactivation'
+    }
 }

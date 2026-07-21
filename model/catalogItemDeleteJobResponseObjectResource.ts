@@ -11,6 +11,7 @@
 
 import { RequestFile } from './models';
 import { CatalogItemBulkDeleteJobEnum } from './catalogItemBulkDeleteJobEnum';
+import { CatalogItemDeleteJobResponseObjectResourceRelationships } from './catalogItemDeleteJobResponseObjectResourceRelationships';
 import { CouponCodeCreateJobResponseObjectResourceAttributes } from './couponCodeCreateJobResponseObjectResourceAttributes';
 import { ObjectLinks } from './objectLinks';
 export class CatalogItemDeleteJobResponseObjectResource {
@@ -20,6 +21,7 @@ export class CatalogItemDeleteJobResponseObjectResource {
     */
     'id': string;
     'attributes': CouponCodeCreateJobResponseObjectResourceAttributes;
+    'relationships'?: CatalogItemDeleteJobResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class CatalogItemDeleteJobResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "CouponCodeCreateJobResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "CatalogItemDeleteJobResponseObjectResourceRelationships"
         },
         {
             "name": "links",

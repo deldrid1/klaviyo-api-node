@@ -10,23 +10,30 @@
  */
 
 import { RequestFile } from './models';
-import { GetCustomMetricResponseCollectionCompoundDocumentDataInner } from './getCustomMetricResponseCollectionCompoundDocumentDataInner';
+import { CustomMetricResponseObjectResource } from './customMetricResponseObjectResource';
 import { MetricResponseObjectResource } from './metricResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetCustomMetricResponseCompoundDocument {
-    'data': GetCustomMetricResponseCollectionCompoundDocumentDataInner;
+    'data': CustomMetricResponseObjectResource;
     'included'?: Array<MetricResponseObjectResource>;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetCustomMetricResponseCollectionCompoundDocumentDataInner"
+            "type": "CustomMetricResponseObjectResource"
         },
         {
             "name": "included",
             "baseName": "included",
             "type": "Array<MetricResponseObjectResource>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

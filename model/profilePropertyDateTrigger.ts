@@ -10,11 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
-import { ProfilePropertyEnum } from './profilePropertyEnum';
 export class ProfilePropertyDateTrigger {
-    'type': DateEnum | 'date';
-    'dateFieldType': ProfilePropertyEnum | 'profile-property';
+    'type': ProfilePropertyDateTrigger.TypeEnum | 'date';
+    'dateFieldType': ProfilePropertyDateTrigger.DateFieldTypeEnum | 'profile-property';
     'dateProfileProperty': string;
     /**
     * See FlowDateTrigger.UNIT_CHOICES in app and CountdownUnit in fender.
@@ -34,12 +32,12 @@ export class ProfilePropertyDateTrigger {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "ProfilePropertyDateTrigger.TypeEnum"
         },
         {
             "name": "dateFieldType",
             "baseName": "date_field_type",
-            "type": "ProfilePropertyEnum"
+            "type": "ProfilePropertyDateTrigger.DateFieldTypeEnum"
         },
         {
             "name": "dateProfileProperty",
@@ -83,6 +81,12 @@ export class ProfilePropertyDateTrigger {
 }
 
 export namespace ProfilePropertyDateTrigger {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
+    export enum DateFieldTypeEnum {
+        ProfileProperty = <any> 'profile-property'
+    }
     export enum TimedeltaUnitBeforeDateEnum {
         Days = <any> 'days',
         Months = <any> 'months',

@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { ProfanityOrInappropriateEnum } from './profanityOrInappropriateEnum';
 export class RejectReasonProfanity {
-    'reason': ProfanityOrInappropriateEnum | 'profanity_or_inappropriate';
+    /**
+    * rejected due to profanity or inappropriate content
+    */
+    'reason': RejectReasonProfanity.ReasonEnum | 'profanity_or_inappropriate';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "ProfanityOrInappropriateEnum"
+            "type": "RejectReasonProfanity.ReasonEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class RejectReasonProfanity {
 }
 
 export namespace RejectReasonProfanity {
+    export enum ReasonEnum {
+        ProfanityOrInappropriate = <any> 'profanity_or_inappropriate'
+    }
 }

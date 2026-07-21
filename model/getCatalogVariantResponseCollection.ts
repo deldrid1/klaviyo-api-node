@@ -10,10 +10,10 @@
  */
 
 import { RequestFile } from './models';
+import { CatalogVariantResponseObjectResource } from './catalogVariantResponseObjectResource';
 import { CollectionLinks } from './collectionLinks';
-import { GetCatalogVariantResponseCollectionDataInner } from './getCatalogVariantResponseCollectionDataInner';
 export class GetCatalogVariantResponseCollection {
-    'data': Array<GetCatalogVariantResponseCollectionDataInner>;
+    'data': Array<CatalogVariantResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetCatalogVariantResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetCatalogVariantResponseCollectionDataInner>"
+            "type": "Array<CatalogVariantResponseObjectResource>"
         },
         {
             "name": "links",

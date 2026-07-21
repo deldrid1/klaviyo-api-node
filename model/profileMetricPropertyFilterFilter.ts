@@ -11,12 +11,12 @@
 
 import { RequestFile } from './models';
 import { BooleanFilter } from './booleanFilter';
-import { ExistenceOperatorFilter } from './existenceOperatorFilter';
+import { ExistenceOperatorExistenceFilter } from './existenceOperatorExistenceFilter';
 import { ListLengthFilter } from './listLengthFilter';
 import { ListSetFilter } from './listSetFilter';
 import { ListSubstringFilter } from './listSubstringFilter';
-import { NumericEnum } from './numericEnum';
-import { NumericOperatorFilter } from './numericOperatorFilter';
-import { StringArrayOperatorFilter } from './stringArrayOperatorFilter';
-import { StringOperatorFilter } from './stringOperatorFilter';
-export type ProfileMetricPropertyFilterFilter = StringOperatorFilter | StringArrayOperatorFilter | ExistenceOperatorFilter | ListSetFilter | ListLengthFilter | ListSubstringFilter | BooleanFilter | NumericOperatorFilter;
+import { NumericOperatorNumericFilter } from './numericOperatorNumericFilter';
+import { NumericOperatorNumericFilterValue } from './numericOperatorNumericFilterValue';
+import { StringArrayOperatorStringArrayFilter } from './stringArrayOperatorStringArrayFilter';
+import { StringOperatorStringFilter } from './stringOperatorStringFilter';
+export type ProfileMetricPropertyFilterFilter = StringOperatorStringFilter | StringArrayOperatorStringArrayFilter | ExistenceOperatorExistenceFilter | ListSetFilter | ListLengthFilter | ListSubstringFilter | BooleanFilter | NumericOperatorNumericFilter;

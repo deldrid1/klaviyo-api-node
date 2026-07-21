@@ -10,10 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { GetWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships } from './getWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships';
 import { ObjectLinks } from './objectLinks';
 import { WebhookEnum } from './webhookEnum';
 import { WebhookResponseObjectResourceAttributes } from './webhookResponseObjectResourceAttributes';
+import { WebhookResponseObjectResourceRelationships } from './webhookResponseObjectResourceRelationships';
 export class PostWebhookResponseData {
     'type': WebhookEnum | 'webhook';
     /**
@@ -21,7 +21,7 @@ export class PostWebhookResponseData {
     */
     'id': string;
     'attributes': WebhookResponseObjectResourceAttributes;
-    'relationships'?: GetWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships;
+    'relationships'?: WebhookResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostWebhookResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "GetWebhookResponseCollectionCompoundDocumentDataInnerAllOfRelationships"
+            "type": "WebhookResponseObjectResourceRelationships"
         },
         {
             "name": "links",

@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { UnrelatedEnum } from './unrelatedEnum';
 export class RejectReasonUnrelated {
-    'reason': UnrelatedEnum | 'unrelated';
+    /**
+    * rejected due to unrelated content
+    */
+    'reason': RejectReasonUnrelated.ReasonEnum | 'unrelated';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "UnrelatedEnum"
+            "type": "RejectReasonUnrelated.ReasonEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class RejectReasonUnrelated {
 }
 
 export namespace RejectReasonUnrelated {
+    export enum ReasonEnum {
+        Unrelated = <any> 'unrelated'
+    }
 }

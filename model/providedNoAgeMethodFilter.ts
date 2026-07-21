@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MethodEnum } from './methodEnum';
-import { ProvidedNoAgeEnum } from './providedNoAgeEnum';
 export class ProvidedNoAgeMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': ProvidedNoAgeEnum | 'provided_no_age';
+    'field': ProvidedNoAgeMethodFilter.FieldEnum | 'method';
+    'method': ProvidedNoAgeMethodFilter.MethodEnum | 'provided_no_age';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "ProvidedNoAgeMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "ProvidedNoAgeEnum"
+            "type": "ProvidedNoAgeMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class ProvidedNoAgeMethodFilter {
 }
 
 export namespace ProvidedNoAgeMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        ProvidedNoAge = <any> 'provided_no_age'
+    }
 }

@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MailboxProviderEnum } from './mailboxProviderEnum';
-import { MethodEnum } from './methodEnum';
 export class MailboxProviderMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': MailboxProviderEnum | 'mailbox_provider';
+    'field': MailboxProviderMethodFilter.FieldEnum | 'method';
+    'method': MailboxProviderMethodFilter.MethodEnum | 'mailbox_provider';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "MailboxProviderMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "MailboxProviderEnum"
+            "type": "MailboxProviderMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class MailboxProviderMethodFilter {
 }
 
 export namespace MailboxProviderMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        MailboxProvider = <any> 'mailbox_provider'
+    }
 }

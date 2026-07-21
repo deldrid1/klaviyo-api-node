@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetMetricResponseData } from './getMetricResponseData';
+import { MetricResponseObjectResource } from './metricResponseObjectResource';
 export class GetMetricResponseCollection {
-    'data': Array<GetMetricResponseData>;
+    'data': Array<MetricResponseObjectResource>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetMetricResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetMetricResponseData>"
+            "type": "Array<MetricResponseObjectResource>"
         },
         {
             "name": "links",

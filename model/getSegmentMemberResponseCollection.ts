@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
-import { GetSegmentMemberResponseCollectionDataInner } from './getSegmentMemberResponseCollectionDataInner';
+import { SegmentMemberResponseObjectResourceExtended } from './segmentMemberResponseObjectResourceExtended';
 export class GetSegmentMemberResponseCollection {
-    'data': Array<GetSegmentMemberResponseCollectionDataInner>;
+    'data': Array<SegmentMemberResponseObjectResourceExtended>;
     'links'?: CollectionLinks;
 
 
@@ -21,7 +21,7 @@ export class GetSegmentMemberResponseCollection {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetSegmentMemberResponseCollectionDataInner>"
+            "type": "Array<SegmentMemberResponseObjectResourceExtended>"
         },
         {
             "name": "links",

@@ -10,11 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { EqualsEnum } from './equalsEnum';
-import { StringEnum } from './stringEnum';
 export class EqualsStringFilter {
-    'type': StringEnum | 'string';
-    'operator': EqualsEnum | 'equals';
+    'type': EqualsStringFilter.TypeEnum | 'string';
+    'operator': EqualsStringFilter.OperatorEnum | 'equals';
     'value': string | null;
 
 
@@ -22,12 +20,12 @@ export class EqualsStringFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StringEnum"
+            "type": "EqualsStringFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "EqualsEnum"
+            "type": "EqualsStringFilter.OperatorEnum"
         },
         {
             "name": "value",
@@ -41,4 +39,10 @@ export class EqualsStringFilter {
 }
 
 export namespace EqualsStringFilter {
+    export enum TypeEnum {
+        String = <any> 'string'
+    }
+    export enum OperatorEnum {
+        Equals = <any> 'equals'
+    }
 }

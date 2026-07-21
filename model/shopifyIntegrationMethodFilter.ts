@@ -10,12 +10,10 @@
  */
 
 import { RequestFile } from './models';
-import { IntegrationEnum } from './integrationEnum';
-import { MethodEnum } from './methodEnum';
 import { ShopifyIntegrationFilter } from './shopifyIntegrationFilter';
 export class ShopifyIntegrationMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': IntegrationEnum | 'integration';
+    'field': ShopifyIntegrationMethodFilter.FieldEnum | 'method';
+    'method': ShopifyIntegrationMethodFilter.MethodEnum | 'integration';
     'filter': ShopifyIntegrationFilter;
 
 
@@ -23,12 +21,12 @@ export class ShopifyIntegrationMethodFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "ShopifyIntegrationMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "IntegrationEnum"
+            "type": "ShopifyIntegrationMethodFilter.MethodEnum"
         },
         {
             "name": "filter",
@@ -42,4 +40,10 @@ export class ShopifyIntegrationMethodFilter {
 }
 
 export namespace ShopifyIntegrationMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        Integration = <any> 'integration'
+    }
 }

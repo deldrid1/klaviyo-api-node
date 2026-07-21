@@ -1,15 +1,20 @@
-import querystring from 'querystring';
 import crypto from 'crypto';
+import querystring from 'querystring';
 
-import {BackoffOptions} from "exponential-backoff";
 export * from './accountsApi';
 import { AccountsApi } from './accountsApi';
 export * from './campaignsApi';
 import { CampaignsApi } from './campaignsApi';
 export * from './catalogsApi';
 import { CatalogsApi } from './catalogsApi';
+export * from './clientApi';
+import { ClientApi } from './clientApi';
+export * from './conversationsApi';
+import { ConversationsApi } from './conversationsApi';
 export * from './couponsApi';
 import { CouponsApi } from './couponsApi';
+export * from './customObjectsApi';
+import { CustomObjectsApi } from './customObjectsApi';
 export * from './dataPrivacyApi';
 import { DataPrivacyApi } from './dataPrivacyApi';
 export * from './eventsApi';
@@ -44,12 +49,12 @@ export * from './webhooksApi';
 import { WebhooksApi } from './webhooksApi';
 
 import axios from 'axios';
-import {AxiosRequestConfig, AxiosResponse, AxiosHeaders, isAxiosError} from "axios";
+import {AxiosRequestConfig, AxiosResponse, AxiosHeaders, AxiosError, isAxiosError} from "axios";
 
 export { RequestFile } from '../model/models';
 
-const revision =  "2025-04-15";
-const userAgent = "klaviyo-api-node/18.0.0";
+const revision =  "2026-07-15";
+const userAgent = "klaviyo-api-node/23.0.0";
 
 export class RetryWithExponentialBackoff {
 
@@ -74,16 +79,16 @@ export class RetryWithExponentialBackoff {
     }
 
     async requestWithRetry(config: AxiosRequestConfig): Promise<AxiosResponse> {
-        let lastRequestRetryAfter
-        let lastRequestTimestamp
+        let lastRequestRetryAfterSec
+        let lastRequestTimestampMs
         let attempt = 0
         let iteration = 0
 
         while (true) {
             try {
-                const currentTime = Date.now()
-                const retryAfterValueLapsed = (!lastRequestRetryAfter ||
-                    currentTime - lastRequestTimestamp > lastRequestRetryAfter)
+                const currentTimeMs = Date.now()
+                const retryAfterValueLapsed = (!lastRequestRetryAfterSec ||
+                    currentTimeMs - lastRequestTimestampMs > lastRequestRetryAfterSec * 1000)
                 if (retryAfterValueLapsed) {
                     attempt += 1
 
@@ -101,11 +106,11 @@ export class RetryWithExponentialBackoff {
                 }
 
                 const responseHeaders = headers || {}
-                lastRequestRetryAfter = responseHeaders['Retry-After']
-                if (lastRequestRetryAfter) {
-                    lastRequestRetryAfter = parseInt(lastRequestRetryAfter, 10)
+                lastRequestRetryAfterSec = responseHeaders['retry-after']
+                if (lastRequestRetryAfterSec) {
+                    lastRequestRetryAfterSec = parseInt(lastRequestRetryAfterSec, 10)
                 }
-                lastRequestTimestamp = Date.now()
+                lastRequestTimestampMs = Date.now()
             }
             const sleepSeconds = this.exponentialBackoff(iteration)
             await this.sleep(sleepSeconds)
@@ -522,7 +527,13 @@ export namespace Pkce {
 
     export const Catalogs = new CatalogsApi(new GlobalApiKeySession())
 
+    export const Client = new ClientApi(new GlobalApiKeySession())
+
+    export const Conversations = new ConversationsApi(new GlobalApiKeySession())
+
     export const Coupons = new CouponsApi(new GlobalApiKeySession())
+
+    export const CustomObjects = new CustomObjectsApi(new GlobalApiKeySession())
 
     export const DataPrivacy = new DataPrivacyApi(new GlobalApiKeySession())
 
@@ -568,4 +579,4 @@ export const Auth = {
     Pkce,
 }
 
-export const Klaviyo = { Auth, AccountsApi, Accounts, CampaignsApi, Campaigns, CatalogsApi, Catalogs, CouponsApi, Coupons, DataPrivacyApi, DataPrivacy, EventsApi, Events, FlowsApi, Flows, FormsApi, Forms, ImagesApi, Images, ListsApi, Lists, MetricsApi, Metrics, ProfilesApi, Profiles, ReportingApi, Reporting, ReviewsApi, Reviews, SegmentsApi, Segments, TagsApi, Tags, TemplatesApi, Templates, TrackingSettingsApi, TrackingSettings, WebFeedsApi, WebFeeds, WebhooksApi, Webhooks };
+export const Klaviyo = { Auth, AccountsApi, Accounts, CampaignsApi, Campaigns, CatalogsApi, Catalogs, ClientApi, Client, ConversationsApi, Conversations, CouponsApi, Coupons, CustomObjectsApi, CustomObjects, DataPrivacyApi, DataPrivacy, EventsApi, Events, FlowsApi, Flows, FormsApi, Forms, ImagesApi, Images, ListsApi, Lists, MetricsApi, Metrics, ProfilesApi, Profiles, ReportingApi, Reporting, ReviewsApi, Reviews, SegmentsApi, Segments, TagsApi, Tags, TemplatesApi, Templates, TrackingSettingsApi, TrackingSettings, WebFeedsApi, WebFeeds, WebhooksApi, Webhooks };

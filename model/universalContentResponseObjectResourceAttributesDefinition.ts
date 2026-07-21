@@ -10,21 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { ButtonBlock } from './buttonBlock';
-import { DropShadowBlock } from './dropShadowBlock';
-import { HTMLBlock } from './hTMLBlock';
-import { HeaderBlock } from './headerBlock';
-import { HorizontalRuleBlock } from './horizontalRuleBlock';
-import { ImageBlock } from './imageBlock';
-import { ProductBlock } from './productBlock';
-import { ReviewBlock } from './reviewBlock';
-import { Section } from './section';
-import { SectionEnum } from './sectionEnum';
-import { SocialBlock } from './socialBlock';
-import { SpacerBlock } from './spacerBlock';
-import { SplitBlock } from './splitBlock';
-import { TableBlock } from './tableBlock';
-import { TextBlock } from './textBlock';
+import { ButtonBlockV0 } from './buttonBlockV0';
+import { CouponBlockV0 } from './couponBlockV0';
+import { DropShadowBlockV0 } from './dropShadowBlockV0';
+import { HTMLBlockV0 } from './hTMLBlockV0';
+import { HeaderBlockV0 } from './headerBlockV0';
+import { HorizontalRuleBlockV0 } from './horizontalRuleBlockV0';
+import { ImageBlockV0 } from './imageBlockV0';
+import { ProductBlockV0 } from './productBlockV0';
+import { ReviewBlockV0 } from './reviewBlockV0';
+import { SectionV0 } from './sectionV0';
+import { SocialBlockV0 } from './socialBlockV0';
+import { SpacerBlockV0 } from './spacerBlockV0';
+import { SplitBlockV0 } from './splitBlockV0';
+import { TableBlockV0 } from './tableBlockV0';
+import { TextBlockV0 } from './textBlockV0';
 import { UnsupportedBlock } from './unsupportedBlock';
-import { VideoBlock } from './videoBlock';
-export type UniversalContentResponseObjectResourceAttributesDefinition = ButtonBlock | DropShadowBlock | HeaderBlock | HorizontalRuleBlock | HTMLBlock | ImageBlock | ProductBlock | ReviewBlock | SocialBlock | SpacerBlock | SplitBlock | TableBlock | TextBlock | UnsupportedBlock | VideoBlock | Section;
+import { VideoBlockV0 } from './videoBlockV0';
+export type UniversalContentResponseObjectResourceAttributesDefinition = ButtonBlockV0 | CouponBlockV0 | DropShadowBlockV0 | HeaderBlockV0 | HorizontalRuleBlockV0 | HTMLBlockV0 | ImageBlockV0 | ProductBlockV0 | ReviewBlockV0 | SocialBlockV0 | SpacerBlockV0 | SplitBlockV0 | TableBlockV0 | TextBlockV0 | UnsupportedBlock | VideoBlockV0 | SectionV0;

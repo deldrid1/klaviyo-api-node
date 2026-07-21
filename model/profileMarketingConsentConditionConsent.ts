@@ -17,5 +17,4 @@ import { NoEmailMarketingConsent } from './noEmailMarketingConsent';
 import { NoPushMarketing } from './noPushMarketing';
 import { NoPushMarketingConsent } from './noPushMarketingConsent';
 import { NoSMSMarketingConsent } from './noSMSMarketingConsent';
-import { PushEnum } from './pushEnum';
 export type ProfileMarketingConsentConditionConsent = HasEmailMarketingConsent | NoEmailMarketingConsent | HasSMSMarketingConsent | NoSMSMarketingConsent | HasPushMarketingConsent | NoPushMarketingConsent;

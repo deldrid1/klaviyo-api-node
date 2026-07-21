@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { AccountResponseObjectResource } from './accountResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetAccountResponse {
     'data': AccountResponseObjectResource;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetAccountResponse {
             "name": "data",
             "baseName": "data",
             "type": "AccountResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

@@ -10,9 +10,11 @@
  */
 
 import { RequestFile } from './models';
+import { ObjectLinks } from './objectLinks';
 import { PostUniversalContentResponseData } from './postUniversalContentResponseData';
 export class PostUniversalContentResponse {
     'data': PostUniversalContentResponseData;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class PostUniversalContentResponse {
             "name": "data",
             "baseName": "data",
             "type": "PostUniversalContentResponseData"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

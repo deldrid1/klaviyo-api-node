@@ -10,23 +10,21 @@
  */
 
 import { RequestFile } from './models';
-import { MethodEnum } from './methodEnum';
-import { PreferencePageEnum } from './preferencePageEnum';
 export class PreferencePageMethodFilter {
-    'field': MethodEnum | 'method';
-    'method': PreferencePageEnum | 'preference_page';
+    'field': PreferencePageMethodFilter.FieldEnum | 'method';
+    'method': PreferencePageMethodFilter.MethodEnum | 'preference_page';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "field",
             "baseName": "field",
-            "type": "MethodEnum"
+            "type": "PreferencePageMethodFilter.FieldEnum"
         },
         {
             "name": "method",
             "baseName": "method",
-            "type": "PreferencePageEnum"
+            "type": "PreferencePageMethodFilter.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -35,4 +33,10 @@ export class PreferencePageMethodFilter {
 }
 
 export namespace PreferencePageMethodFilter {
+    export enum FieldEnum {
+        Method = <any> 'method'
+    }
+    export enum MethodEnum {
+        PreferencePage = <any> 'preference_page'
+    }
 }

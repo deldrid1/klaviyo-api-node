@@ -10,9 +10,8 @@
  */
 
 import { RequestFile } from './models';
-import { DateEnum } from './dateEnum';
 export class SinceFlowStartDateFilter {
-    'type': DateEnum | 'date';
+    'type': SinceFlowStartDateFilter.TypeEnum | 'date';
     /**
     * Possible operators for since flow start date.
     */
@@ -23,7 +22,7 @@ export class SinceFlowStartDateFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "DateEnum"
+            "type": "SinceFlowStartDateFilter.TypeEnum"
         },
         {
             "name": "operator",
@@ -37,6 +36,9 @@ export class SinceFlowStartDateFilter {
 }
 
 export namespace SinceFlowStartDateFilter {
+    export enum TypeEnum {
+        Date = <any> 'date'
+    }
     export enum OperatorEnum {
         FlowStart = <any> 'flow-start'
     }

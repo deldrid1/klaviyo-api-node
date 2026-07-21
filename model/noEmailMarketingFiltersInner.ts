@@ -12,7 +12,6 @@
 import { RequestFile } from './models';
 import { BounceDateFilter } from './bounceDateFilter';
 import { BounceDateFilterFilter } from './bounceDateFilterFilter';
-import { InvalidEmailDateEnum } from './invalidEmailDateEnum';
 import { InvalidEmailDateFilter } from './invalidEmailDateFilter';
 import { ManualSuppressionDateFilter } from './manualSuppressionDateFilter';
 export type NoEmailMarketingFiltersInner = BounceDateFilter | ManualSuppressionDateFilter | InvalidEmailDateFilter;

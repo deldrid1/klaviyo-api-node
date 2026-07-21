@@ -11,8 +11,10 @@
 
 import { RequestFile } from './models';
 import { CouponResponseObjectResource } from './couponResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetCouponResponse {
-    'data': CouponResponseObjectResource;
+    'data': CouponResponseObjectResource | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
@@ -20,6 +22,11 @@ export class GetCouponResponse {
             "name": "data",
             "baseName": "data",
             "type": "CouponResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

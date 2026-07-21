@@ -14,5 +14,4 @@ import { Link } from './link';
 import { SendEmailAction } from './sendEmailAction';
 import { SendSmsAction } from './sendSmsAction';
 import { SendSmsActionData } from './sendSmsActionData';
-import { SendSmsEnum } from './sendSmsEnum';
 export type AbTestActionDataMainAction = SendEmailAction | SendSmsAction;

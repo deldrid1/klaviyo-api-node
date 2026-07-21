@@ -10,16 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { UnsupportedEnum } from './unsupportedEnum';
 export class UnsupportedSendStrategy {
-    'method': UnsupportedEnum | 'unsupported';
+    'method': UnsupportedSendStrategy.MethodEnum | 'unsupported';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "method",
             "baseName": "method",
-            "type": "UnsupportedEnum"
+            "type": "UnsupportedSendStrategy.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +27,7 @@ export class UnsupportedSendStrategy {
 }
 
 export namespace UnsupportedSendStrategy {
+    export enum MethodEnum {
+        Unsupported = <any> 'unsupported'
+    }
 }

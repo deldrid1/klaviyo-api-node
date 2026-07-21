@@ -12,9 +12,9 @@
 import { RequestFile } from './models';
 import { CollectionLinks } from './collectionLinks';
 import { EventResponseObjectResource } from './eventResponseObjectResource';
-import { GetReviewResponseDTOCollectionCompoundDocumentDataInner } from './getReviewResponseDTOCollectionCompoundDocumentDataInner';
+import { ReviewResponseDTOObjectResource } from './reviewResponseDTOObjectResource';
 export class GetReviewResponseDTOCollectionCompoundDocument {
-    'data': Array<GetReviewResponseDTOCollectionCompoundDocumentDataInner>;
+    'data': Array<ReviewResponseDTOObjectResource>;
     'links'?: CollectionLinks;
     'included'?: Array<EventResponseObjectResource>;
 
@@ -23,7 +23,7 @@ export class GetReviewResponseDTOCollectionCompoundDocument {
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetReviewResponseDTOCollectionCompoundDocumentDataInner>"
+            "type": "Array<ReviewResponseDTOObjectResource>"
         },
         {
             "name": "links",

@@ -12,8 +12,8 @@
 import { RequestFile } from './models';
 import { CouponCodeEnum } from './couponCodeEnum';
 import { CouponCodeResponseObjectResourceAttributes } from './couponCodeResponseObjectResourceAttributes';
+import { CouponCodeResponseObjectResourceRelationships } from './couponCodeResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
-import { PostCouponCodeResponseDataRelationships } from './postCouponCodeResponseDataRelationships';
 export class PostCouponCodeResponseData {
     'type': CouponCodeEnum | 'coupon-code';
     /**
@@ -21,7 +21,7 @@ export class PostCouponCodeResponseData {
     */
     'id': string;
     'attributes': CouponCodeResponseObjectResourceAttributes;
-    'relationships'?: PostCouponCodeResponseDataRelationships;
+    'relationships'?: CouponCodeResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCouponCodeResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "PostCouponCodeResponseDataRelationships"
+            "type": "CouponCodeResponseObjectResourceRelationships"
         },
         {
             "name": "links",

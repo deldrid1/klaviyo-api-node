@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { PendingEnum } from './pendingEnum';
 export class ReviewStatusPending {
-    'value': PendingEnum | 'pending';
+    /**
+    * Pending review status
+    */
+    'value': ReviewStatusPending.ValueEnum | 'pending';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "value",
             "baseName": "value",
-            "type": "PendingEnum"
+            "type": "ReviewStatusPending.ValueEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class ReviewStatusPending {
 }
 
 export namespace ReviewStatusPending {
+    export enum ValueEnum {
+        Pending = <any> 'pending'
+    }
 }

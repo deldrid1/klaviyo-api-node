@@ -10,19 +10,17 @@
  */
 
 import { RequestFile } from './models';
-import { InEnum } from './inEnum';
-import { StringEnum } from './stringEnum';
 export class StringInArrayFilter {
-    'operator': InEnum | 'in';
+    'operator': StringInArrayFilter.OperatorEnum | 'in';
     'value': Array<string>;
-    'type': StringEnum | 'string';
+    'type': StringInArrayFilter.TypeEnum | 'string';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "InEnum"
+            "type": "StringInArrayFilter.OperatorEnum"
         },
         {
             "name": "value",
@@ -32,7 +30,7 @@ export class StringInArrayFilter {
         {
             "name": "type",
             "baseName": "type",
-            "type": "StringEnum"
+            "type": "StringInArrayFilter.TypeEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -41,4 +39,10 @@ export class StringInArrayFilter {
 }
 
 export namespace StringInArrayFilter {
+    export enum OperatorEnum {
+        In = <any> 'in'
+    }
+    export enum TypeEnum {
+        String = <any> 'string'
+    }
 }

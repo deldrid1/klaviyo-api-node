@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetFormResponseCollectionCompoundDocumentDataInner } from './getFormResponseCollectionCompoundDocumentDataInner';
+import { FormResponseObjectResource } from './formResponseObjectResource';
+import { ObjectLinks } from './objectLinks';
 export class GetFormResponse {
-    'data': GetFormResponseCollectionCompoundDocumentDataInner;
+    'data': FormResponseObjectResource | null;
+    'links'?: ObjectLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "GetFormResponseCollectionCompoundDocumentDataInner"
+            "type": "FormResponseObjectResource"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "ObjectLinks"
         }    ];
 
     static getAttributeTypeMap() {

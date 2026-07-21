@@ -10,29 +10,28 @@
  */
 
 import { RequestFile } from './models';
-import { LessThanEnum } from './lessThanEnum';
-import { NumericEnum } from './numericEnum';
+import { NumericOperatorNumericFilterValue } from './numericOperatorNumericFilterValue';
 export class LessThanPositiveNumericFilter {
-    'type': NumericEnum | 'numeric';
-    'operator': LessThanEnum | 'less-than';
-    'value': number;
+    'type': LessThanPositiveNumericFilter.TypeEnum | 'numeric';
+    'operator': LessThanPositiveNumericFilter.OperatorEnum | 'less-than';
+    'value': NumericOperatorNumericFilterValue;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "type",
             "baseName": "type",
-            "type": "NumericEnum"
+            "type": "LessThanPositiveNumericFilter.TypeEnum"
         },
         {
             "name": "operator",
             "baseName": "operator",
-            "type": "LessThanEnum"
+            "type": "LessThanPositiveNumericFilter.OperatorEnum"
         },
         {
             "name": "value",
             "baseName": "value",
-            "type": "number"
+            "type": "NumericOperatorNumericFilterValue"
         }    ];
 
     static getAttributeTypeMap() {
@@ -41,4 +40,10 @@ export class LessThanPositiveNumericFilter {
 }
 
 export namespace LessThanPositiveNumericFilter {
+    export enum TypeEnum {
+        Numeric = <any> 'numeric'
+    }
+    export enum OperatorEnum {
+        LessThan = <any> 'less-than'
+    }
 }

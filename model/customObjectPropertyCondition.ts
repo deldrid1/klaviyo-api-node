@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { CustomObjectPropertyEnum } from './customObjectPropertyEnum';
 import { MetricPropertyConditionFilter } from './metricPropertyConditionFilter';
 export class CustomObjectPropertyCondition {
-    'type': CustomObjectPropertyEnum | 'custom-object-property';
+    'type': CustomObjectPropertyCondition.TypeEnum | 'custom-object-property';
     'customObjectLabel': string;
     'field': string;
     'filter': MetricPropertyConditionFilter;
@@ -23,7 +22,7 @@ export class CustomObjectPropertyCondition {
         {
             "name": "type",
             "baseName": "type",
-            "type": "CustomObjectPropertyEnum"
+            "type": "CustomObjectPropertyCondition.TypeEnum"
         },
         {
             "name": "customObjectLabel",
@@ -47,4 +46,7 @@ export class CustomObjectPropertyCondition {
 }
 
 export namespace CustomObjectPropertyCondition {
+    export enum TypeEnum {
+        CustomObjectProperty = <any> 'custom-object-property'
+    }
 }

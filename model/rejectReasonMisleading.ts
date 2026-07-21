@@ -10,16 +10,18 @@
  */
 
 import { RequestFile } from './models';
-import { FalseOrMisleadingEnum } from './falseOrMisleadingEnum';
 export class RejectReasonMisleading {
-    'reason': FalseOrMisleadingEnum | 'false_or_misleading';
+    /**
+    * rejected due to false or misleading content
+    */
+    'reason': RejectReasonMisleading.ReasonEnum | 'false_or_misleading';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "reason",
             "baseName": "reason",
-            "type": "FalseOrMisleadingEnum"
+            "type": "RejectReasonMisleading.ReasonEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +30,7 @@ export class RejectReasonMisleading {
 }
 
 export namespace RejectReasonMisleading {
+    export enum ReasonEnum {
+        FalseOrMisleading = <any> 'false_or_misleading'
+    }
 }

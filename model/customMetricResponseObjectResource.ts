@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { CustomMetricEnum } from './customMetricEnum';
 import { CustomMetricResponseObjectResourceAttributes } from './customMetricResponseObjectResourceAttributes';
+import { CustomMetricResponseObjectResourceRelationships } from './customMetricResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class CustomMetricResponseObjectResource {
     'type': CustomMetricEnum | 'custom-metric';
@@ -20,6 +21,7 @@ export class CustomMetricResponseObjectResource {
     */
     'id': string;
     'attributes': CustomMetricResponseObjectResourceAttributes;
+    'relationships'?: CustomMetricResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class CustomMetricResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "CustomMetricResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "CustomMetricResponseObjectResourceRelationships"
         },
         {
             "name": "links",

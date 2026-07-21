@@ -10,16 +10,23 @@
  */
 
 import { RequestFile } from './models';
-import { GetEventProfileRelationshipResponseData } from './getEventProfileRelationshipResponseData';
+import { CollectionLinks } from './collectionLinks';
+import { GetListProfilesRelationshipsResponseCollectionDataInner } from './getListProfilesRelationshipsResponseCollectionDataInner';
 export class GetProfileBulkImportJobProfilesRelationshipsResponseCollection {
-    'data': Array<GetEventProfileRelationshipResponseData>;
+    'data': Array<GetListProfilesRelationshipsResponseCollectionDataInner>;
+    'links'?: CollectionLinks;
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "data",
             "baseName": "data",
-            "type": "Array<GetEventProfileRelationshipResponseData>"
+            "type": "Array<GetListProfilesRelationshipsResponseCollectionDataInner>"
+        },
+        {
+            "name": "links",
+            "baseName": "links",
+            "type": "CollectionLinks"
         }    ];
 
     static getAttributeTypeMap() {

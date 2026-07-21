@@ -12,17 +12,16 @@
 import { RequestFile } from './models';
 import { Link } from './link';
 import { SendSmsActionData } from './sendSmsActionData';
-import { SendSmsEnum } from './sendSmsEnum';
 export class SendSmsAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': SendSmsEnum | 'send-sms';
+    'type': SendSmsAction.TypeEnum | 'send-sms';
     'links'?: Link;
     'data'?: SendSmsActionData;
 
@@ -41,7 +40,7 @@ export class SendSmsAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "SendSmsEnum"
+            "type": "SendSmsAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class SendSmsAction {
 }
 
 export namespace SendSmsAction {
+    export enum TypeEnum {
+        SendSms = <any> 'send-sms'
+    }
 }

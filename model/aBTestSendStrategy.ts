@@ -10,16 +10,15 @@
  */
 
 import { RequestFile } from './models';
-import { AbTestCampaignEnum } from './abTestCampaignEnum';
 export class ABTestSendStrategy {
-    'method': AbTestCampaignEnum | 'ab_test_campaign';
+    'method': ABTestSendStrategy.MethodEnum | 'ab_test_campaign';
 
 
     static attributeTypeMap: Array<{name: string, baseName: string, type: string}> = [
         {
             "name": "method",
             "baseName": "method",
-            "type": "AbTestCampaignEnum"
+            "type": "ABTestSendStrategy.MethodEnum"
         }    ];
 
     static getAttributeTypeMap() {
@@ -28,4 +27,7 @@ export class ABTestSendStrategy {
 }
 
 export namespace ABTestSendStrategy {
+    export enum MethodEnum {
+        AbTestCampaign = <any> 'ab_test_campaign'
+    }
 }

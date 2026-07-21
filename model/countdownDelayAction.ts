@@ -11,18 +11,17 @@
 
 import { RequestFile } from './models';
 import { CountdownDelayActionData } from './countdownDelayActionData';
-import { CountdownDelayEnum } from './countdownDelayEnum';
 import { Link } from './link';
 export class CountdownDelayAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': CountdownDelayEnum | 'countdown-delay';
+    'type': CountdownDelayAction.TypeEnum | 'countdown-delay';
     'links'?: Link;
     'data': CountdownDelayActionData;
 
@@ -41,7 +40,7 @@ export class CountdownDelayAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "CountdownDelayEnum"
+            "type": "CountdownDelayAction.TypeEnum"
         },
         {
             "name": "links",
@@ -60,4 +59,7 @@ export class CountdownDelayAction {
 }
 
 export namespace CountdownDelayAction {
+    export enum TypeEnum {
+        CountdownDelay = <any> 'countdown-delay'
+    }
 }

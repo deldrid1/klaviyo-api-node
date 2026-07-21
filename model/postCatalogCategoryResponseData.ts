@@ -12,8 +12,8 @@
 import { RequestFile } from './models';
 import { CatalogCategoryEnum } from './catalogCategoryEnum';
 import { CatalogCategoryResponseObjectResourceAttributes } from './catalogCategoryResponseObjectResourceAttributes';
+import { CatalogCategoryResponseObjectResourceRelationships } from './catalogCategoryResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
-import { PostCatalogCategoryResponseDataRelationships } from './postCatalogCategoryResponseDataRelationships';
 export class PostCatalogCategoryResponseData {
     'type': CatalogCategoryEnum | 'catalog-category';
     /**
@@ -21,7 +21,7 @@ export class PostCatalogCategoryResponseData {
     */
     'id': string;
     'attributes': CatalogCategoryResponseObjectResourceAttributes;
-    'relationships'?: PostCatalogCategoryResponseDataRelationships;
+    'relationships'?: CatalogCategoryResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostCatalogCategoryResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "PostCatalogCategoryResponseDataRelationships"
+            "type": "CatalogCategoryResponseObjectResourceRelationships"
         },
         {
             "name": "links",

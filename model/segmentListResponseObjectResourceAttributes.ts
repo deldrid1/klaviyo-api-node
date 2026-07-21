@@ -25,6 +25,9 @@ export class SegmentListResponseObjectResourceAttributes {
     * Date and time when the segment was last updated, in ISO 8601 format (YYYY-MM-DDTHH:MM:SS.mmmmmm)
     */
     'updated'?: Date | null;
+    /**
+    * Whether the segment is active. Inactive segments are not processed and their membership does not update.
+    */
     'isActive': boolean;
     'isProcessing': boolean;
     'isStarred': boolean;

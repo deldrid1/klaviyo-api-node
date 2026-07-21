@@ -13,6 +13,7 @@ import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
 import { ProfileEnum } from './profileEnum';
 import { ProfileResponseObjectResourceAttributes } from './profileResponseObjectResourceAttributes';
+import { ProfileResponseObjectResourceRelationships } from './profileResponseObjectResourceRelationships';
 export class ProfileResponseObjectResource {
     'type': ProfileEnum | 'profile';
     /**
@@ -20,6 +21,7 @@ export class ProfileResponseObjectResource {
     */
     'id'?: string | null;
     'attributes': ProfileResponseObjectResourceAttributes;
+    'relationships'?: ProfileResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class ProfileResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "ProfileResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "ProfileResponseObjectResourceRelationships"
         },
         {
             "name": "links",

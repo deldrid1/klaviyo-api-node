@@ -12,6 +12,7 @@
 import { RequestFile } from './models';
 import { FormEnum } from './formEnum';
 import { FormResponseObjectResourceAttributes } from './formResponseObjectResourceAttributes';
+import { FormResponseObjectResourceRelationships } from './formResponseObjectResourceRelationships';
 import { ObjectLinks } from './objectLinks';
 export class FormResponseObjectResource {
     'type': FormEnum | 'form';
@@ -20,6 +21,7 @@ export class FormResponseObjectResource {
     */
     'id': string;
     'attributes': FormResponseObjectResourceAttributes;
+    'relationships'?: FormResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -38,6 +40,11 @@ export class FormResponseObjectResource {
             "name": "attributes",
             "baseName": "attributes",
             "type": "FormResponseObjectResourceAttributes"
+        },
+        {
+            "name": "relationships",
+            "baseName": "relationships",
+            "type": "FormResponseObjectResourceRelationships"
         },
         {
             "name": "links",

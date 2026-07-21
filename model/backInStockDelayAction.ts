@@ -10,18 +10,17 @@
  */
 
 import { RequestFile } from './models';
-import { BackInStockDelayEnum } from './backInStockDelayEnum';
 import { Link } from './link';
 export class BackInStockDelayAction {
     /**
-    * The real ID of an action.
+    * The real ID of an action. Not allowed on create.
     */
     'id'?: string | null;
     /**
     * A temporary ID to use only during a create operation. Existing actions should use the id field.
     */
     'temporaryId'?: string | null;
-    'type': BackInStockDelayEnum | 'back-in-stock-delay';
+    'type': BackInStockDelayAction.TypeEnum | 'back-in-stock-delay';
     'links'?: Link;
 
 
@@ -39,7 +38,7 @@ export class BackInStockDelayAction {
         {
             "name": "type",
             "baseName": "type",
-            "type": "BackInStockDelayEnum"
+            "type": "BackInStockDelayAction.TypeEnum"
         },
         {
             "name": "links",
@@ -53,4 +52,7 @@ export class BackInStockDelayAction {
 }
 
 export namespace BackInStockDelayAction {
+    export enum TypeEnum {
+        BackInStockDelay = <any> 'back-in-stock-delay'
+    }
 }

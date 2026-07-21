@@ -11,9 +11,9 @@
 
 import { RequestFile } from './models';
 import { ObjectLinks } from './objectLinks';
-import { PostTagGroupResponseDataRelationships } from './postTagGroupResponseDataRelationships';
 import { TagGroupEnum } from './tagGroupEnum';
 import { TagGroupResponseObjectResourceAttributes } from './tagGroupResponseObjectResourceAttributes';
+import { TagGroupResponseObjectResourceRelationships } from './tagGroupResponseObjectResourceRelationships';
 export class PostTagGroupResponseData {
     'type': TagGroupEnum | 'tag-group';
     /**
@@ -21,7 +21,7 @@ export class PostTagGroupResponseData {
     */
     'id': string;
     'attributes': TagGroupResponseObjectResourceAttributes;
-    'relationships'?: PostTagGroupResponseDataRelationships;
+    'relationships'?: TagGroupResponseObjectResourceRelationships;
     'links': ObjectLinks;
 
 
@@ -44,7 +44,7 @@ export class PostTagGroupResponseData {
         {
             "name": "relationships",
             "baseName": "relationships",
-            "type": "PostTagGroupResponseDataRelationships"
+            "type": "TagGroupResponseObjectResourceRelationships"
         },
         {
             "name": "links",

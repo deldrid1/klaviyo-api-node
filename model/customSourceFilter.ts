@@ -10,10 +10,9 @@
  */
 
 import { RequestFile } from './models';
-import { CustomSourceEnum } from './customSourceEnum';
 import { EqualsStringFilter } from './equalsStringFilter';
 export class CustomSourceFilter {
-    'field': CustomSourceEnum | 'custom_source';
+    'field': CustomSourceFilter.FieldEnum | 'custom_source';
     'filter': EqualsStringFilter;
 
 
@@ -21,7 +20,7 @@ export class CustomSourceFilter {
         {
             "name": "field",
             "baseName": "field",
-            "type": "CustomSourceEnum"
+            "type": "CustomSourceFilter.FieldEnum"
         },
         {
             "name": "filter",
@@ -35,4 +34,7 @@ export class CustomSourceFilter {
 }
 
 export namespace CustomSourceFilter {
+    export enum FieldEnum {
+        CustomSource = <any> 'custom_source'
+    }
 }
