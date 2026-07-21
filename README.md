@@ -4,6 +4,8 @@
 
 - Revision: 2026-07-15
 
+- ** This repo exists because Klaviyo has not yet fixed https://github.com/klaviyo/klaviyo-api-node/issues/53 **
+
 ## Helpful Resources
 
 - If you want to suggest code changes check out our [`CONTRIBUTING.md`](CONTRIBUTING.md) document.
